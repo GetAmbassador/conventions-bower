@@ -28,7 +28,6 @@
     "angular-spinner": "~0.5.1",
     "angles": "*"
   },
-  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
