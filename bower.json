@@ -7,9 +7,7 @@
   ],
   "description": "A UX and design pattern library for all Ambassador apps.",
   "main": [
-    "ga-conventions.min.js",
-    "ga-conventions.templates.min.js",
-    "ga-conventions.css"
+    "ga-conventions.js"
   ],
   "dependencies": {
     "angular": "1.2.16",
@@ -34,5 +32,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "scripts": {
+    "postinstall": "bower-requirejs -c bower_components/conventions-bower/ga-require.js"
+  }
 }
