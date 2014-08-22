@@ -1,0 +1,18 @@
+{
+  "name": "ambassador-conventions",
+  "version": "0.1.0",
+  "homepage": "http://conventions.getambassador.com",
+  "authors": [
+    "Ambassador Team"
+  ],
+  "description": "A UX and design pattern library for all Ambassador apps.",
+  "main": "ga-conventions.min.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
