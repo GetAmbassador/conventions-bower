@@ -1,0 +1,38 @@
+{
+  "name": "ambassador-conventions",
+  "version": "0.1.0",
+  "homepage": "http://conventions.getambassador.com",
+  "authors": [
+    "Ambassador Team"
+  ],
+  "description": "A UX and design pattern library for all Ambassador apps.",
+  "main": [
+    "ga-conventions.min.js",
+    "ga-conventions.templates.min.js",
+    "ga-conventions.css"
+  ],
+  "dependencies": {
+    "angular": "1.2.16",
+    "json3": "~3.3.1",
+    "es5-shim": "~3.1.0",
+    "bootstrap-sass-official": "~3.2.0",
+    "angular-resource": "1.2.16",
+    "angular-cookies": "1.2.16",
+    "angular-sanitize": "1.2.16",
+    "angular-touch": "1.2.16",
+    "angular-route": "1.2.16",
+    "fontawesome": "~4.1.0",
+    "angular-bootstrap": "~0.11.0",
+    "restangular": "~1.4.0",
+    "angular-scroll": "~0.6.1",
+    "angular-spinner": "~0.5.1",
+    "angles": "*"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
