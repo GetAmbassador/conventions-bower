@@ -1,0 +1,5 @@
+{
+	"scripts": {
+		"postinstall": "bower-requirejs -c bower_components/conventions-bower/ga-require.js"
+	}
+}
