@@ -9,8 +9,7 @@
   "main": [
     "ga-conventions.min.js",
     "ga-conventions.templates.min.js",
-    "ga-conventions.css",
-    "ga-conventions.js"
+    "ga-conventions.css"
   ],
   "dependencies": {
     "angular": "1.2.16",
