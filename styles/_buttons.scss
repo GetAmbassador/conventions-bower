@@ -1,0 +1,39 @@
+//
+// Buttons
+// --------------------------------------------------
+
+.btn-primary {
+  @include button-variant($white, $blue-light, $blue-light);
+}
+
+.btn-default {
+  @include button-variant($btn-default-color, $btn-default-bg, $gray);
+}
+
+.btn-gray {
+  @include button-variant($white, $bg-secondary, $bg-secondary);
+}
+
+.btn-danger {
+  @include button-variant($white, $orange-dark, $orange-dark);
+}
+
+.btn-lg {
+  height: 60px;
+  @include button-size(6px, 80px, 14px, 20px, 4px);
+}
+
+ga-button {
+  @include user-select(none);
+  .btn {
+    border-radius: 4px;
+    @include inline-block();
+    position: relative;
+    &:focus, &:active:focus {
+      outline: none;
+    }
+    .loading {
+      @include opacity(0);
+    }
+  }
+}

@@ -1,0 +1,278 @@
+$font-folder: '../ambassador/fonts';
+
+@font-face{font-family:'proxima_nova_rgbold';src:url('#{$font-folder}/proxima-nova/proximanova-bold-webfont.eot');src:url('#{$font-folder}/proxima-nova/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),url('#{$font-folder}/proxima-nova/proximanova-bold-webfont.woff') format('woff'),url('#{$font-folder}/proxima-nova/proximanova-bold-webfont.ttf') format('truetype'),url('#{$font-folder}/proxima-nova/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'proxima_novalight';src:url('#{$font-folder}/proxima-nova/proximanova-light-webfont.eot');src:url('#{$font-folder}/proxima-nova/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),url('#{$font-folder}/proxima-nova/proximanova-light-webfont.woff') format('woff'),url('#{$font-folder}/proxima-nova/proximanova-light-webfont.ttf') format('truetype'),url('#{$font-folder}/proxima-nova/proximanova-light-webfont.svg#proxima_novalight') format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'proxima_nova_rgregular';src:url('#{$font-folder}/proxima-nova/proximanova-regular-webfont.eot');src:url('#{$font-folder}/proxima-nova/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),url('#{$font-folder}/proxima-nova/proximanova-regular-webfont.woff') format('woff'),url('#{$font-folder}/proxima-nova/proximanova-regular-webfont.ttf') format('truetype'),url('#{$font-folder}/proxima-nova/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'proxima_novaregular_italic';src:url('#{$font-folder}/proxima-nova/proximanova-regularitalic-webfont.eot');src:url('#{$font-folder}/proxima-nova/proximanova-regularitalic-webfont.eot?#iefix') format('embedded-opentype'),url('#{$font-folder}/proxima-nova/proximanova-regularitalic-webfont.woff') format('woff'),url('#{$font-folder}/proxima-nova/proximanova-regularitalic-webfont.ttf') format('truetype'),url('#{$font-folder}/proxima-nova/proximanova-regularitalic-webfont.svg#proxima_novaregular_italic') format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'proxima_nova_condensedlight';src:url('#{$font-folder}/proxima-nova/proximanovacond-light-webfont.eot');src:url('#{$font-folder}/proxima-nova/proximanovacond-light-webfont.eot?#iefix') format('embedded-opentype'),url('#{$font-folder}/proxima-nova/proximanovacond-light-webfont.woff') format('woff'),url('#{$font-folder}/proxima-nova/proximanovacond-light-webfont.ttf') format('truetype'),url('#{$font-folder}/proxima-nova/proximanovacond-light-webfont.svg#proxima_nova_condensedlight') format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'proxima_nova_cn_rgregular';src:url('#{$font-folder}/proxima-nova/proximanovacond-regular-webfont.eot');src:url('#{$font-folder}/proxima-nova/proximanovacond-regular-webfont.eot?#iefix') format('embedded-opentype'),url('#{$font-folder}/proxima-nova/proximanovacond-regular-webfont.woff') format('woff'),url('#{$font-folder}/proxima-nova/proximanovacond-regular-webfont.ttf') format('truetype'),url('#{$font-folder}/proxima-nova/proximanovacond-regular-webfont.svg#proxima_nova_cn_rgregular') format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'proxima_nova_condensedRgIt';src:url('#{$font-folder}/proxima-nova/proximanovacond-regularit-webfont.eot');src:url('#{$font-folder}/proxima-nova/proximanovacond-regularit-webfont.eot?#iefix') format('embedded-opentype'),url('#{$font-folder}/proxima-nova/proximanovacond-regularit-webfont.woff') format('woff'),url('#{$font-folder}/proxima-nova/proximanovacond-regularit-webfont.ttf') format('truetype'),url('#{$font-folder}/proxima-nova/proximanovacond-regularit-webfont.svg#proxima_nova_condensedRgIt') format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'proxima_nova_condensedSBd';src:url('#{$font-folder}/proxima-nova/proximanovacond-semibold-webfont.eot');src:url('#{$font-folder}/proxima-nova/proximanovacond-semibold-webfont.eot?#iefix') format('embedded-opentype'),url('#{$font-folder}/proxima-nova/proximanovacond-semibold-webfont.woff') format('woff'),url('#{$font-folder}/proxima-nova/proximanovacond-semibold-webfont.ttf') format('truetype'),url('#{$font-folder}/proxima-nova/proximanovacond-semibold-webfont.svg#proxima_nova_condensedSBd') format('svg');font-weight:normal;font-style:normal}
+
+// Proxima Nova
+$proxima-nova: "proxima_nova_rgregular";
+$proxima-nova-bold: "proxima_nova_rgbold";
+$proxima-nova-light: "proxima_novalight";
+$proxima-nova-italic: "proxima_novaregular_italic";
+
+// Proxima Nova Condensed
+$proxima-nova-condensed: "proxima_nova_cn_rgregular";
+$proxima-nova-condensed-bold: "proxima_nova_condensedSBd";
+$proxima-nova-condensed-light: "proxima_nova_condensedlight";
+$proxima-nova-condensed-italic: "proxima_nova_condensedRgIt";
+
+.proxima-nova { font-family: $proxima-nova; }
+.proxima-nova-bold { font-family: $proxima-nova-bold; }
+.proxima-nova-light { font-family: $proxima-nova-light; }
+.proxima-nova-italic { font-family: $proxima-nova-italic; }
+.proxima-nova-condensed { font-family: $proxima-nova-condensed; }
+.proxima-nova-condensed-bold { font-family: $proxima-nova-condensed-bold; }
+.proxima-nova-condensed-light { font-family: $proxima-nova-condensed-light; }
+.proxima-nova-condensed-italic { font-family: $proxima-nova-condensed-italic; }
+
+
+/*
+  Icon Font: ambassador-icons-font
+*/
+
+@font-face {
+  font-family: "ambassador-icons-font";
+  src: url("#{$font-folder}/ambassador-icons/ambassador-icons-font.eot");
+  src: url("#{$font-folder}/ambassador-icons/ambassador-icons-font.eot?#iefix") format("embedded-opentype"),
+       url("#{$font-folder}/ambassador-icons/ambassador-icons-font.woff") format("woff"),
+       url("#{$font-folder}/ambassador-icons/ambassador-icons-font.ttf") format("truetype"),
+       url("#{$font-folder}/ambassador-icons/ambassador-icons-font.svg#ambassador-icons-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "ambassador-icons-font";
+    src: url("#{$font-folder}/ambassador-icons/ambassador-icons-font.svg#ambassador-icons-font") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-action:before,
+.icon-activity:before,
+.icon-ambassador:before,
+.icon-ambassadors:before,
+.icon-ambassadors-alt:before,
+.icon-analyze:before,
+.icon-approved:before,
+.icon-approved-alt:before,
+.icon-auto-message:before,
+.icon-billing:before,
+.icon-bookmark:before,
+.icon-build:before,
+.icon-calendar:before,
+.icon-campaign:before,
+.icon-campaign-advanced:before,
+.icon-cash:before,
+.icon-check-mark:before,
+.icon-check-mark-alt:before,
+.icon-clicks:before,
+.icon-clock:before,
+.icon-close:before,
+.icon-comments:before,
+.icon-comments-alt:before,
+.icon-commissions:before,
+.icon-compose:before,
+.icon-copy:before,
+.icon-credit-card:before,
+.icon-csv:before,
+.icon-customize:before,
+.icon-delete:before,
+.icon-denied:before,
+.icon-denied-alt:before,
+.icon-down-arrow:before,
+.icon-down-arrow-alt:before,
+.icon-dwolla:before,
+.icon-ecommerce:before,
+.icon-edit:before,
+.icon-email:before,
+.icon-email-template:before,
+.icon-embed:before,
+.icon-engage:before,
+.icon-flag:before,
+.icon-flags:before,
+.icon-food:before,
+.icon-gift-card:before,
+.icon-grab:before,
+.icon-growth:before,
+.icon-image:before,
+.icon-inbound:before,
+.icon-integrate:before,
+.icon-iphone:before,
+.icon-klout:before,
+.icon-lock:before,
+.icon-magento:before,
+.icon-mail:before,
+.icon-manage:before,
+.icon-manage-data:before,
+.icon-marketing:before,
+.icon-message:before,
+.icon-monitor:before,
+.icon-new-ambassador:before,
+.icon-new-ambassador-alt:before,
+.icon-note:before,
+.icon-open:before,
+.icon-outbound:before,
+.icon-payments:before,
+.icon-paypal:before,
+.icon-pdf:before,
+.icon-pending:before,
+.icon-pending-alt:before,
+.icon-person:before,
+.icon-phone:before,
+.icon-plus:before,
+.icon-points:before,
+.icon-portal:before,
+.icon-portal-alt:before,
+.icon-preview:before,
+.icon-printer:before,
+.icon-pushpin:before,
+.icon-puzzle:before,
+.icon-question-mark:before,
+.icon-quote:before,
+.icon-resources:before,
+.icon-revenue:before,
+.icon-review:before,
+.icon-ribbon:before,
+.icon-ribbon-alt:before,
+.icon-search:before,
+.icon-settings:before,
+.icon-share:before,
+.icon-share-alt:before,
+.icon-share-circle:before,
+.icon-share-tree:before,
+.icon-speech-bubbles:before,
+.icon-stats:before,
+.icon-survey:before,
+.icon-survey-alt:before,
+.icon-third-party:before,
+.icon-timer:before,
+.icon-upload:before,
+.icon-video:before,
+.icon-walker:before,
+.icon-world:before {
+  display: inline-block;
+  font-family: "ambassador-icons-font";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-action:before { content: "\f228"; }
+.icon-activity:before { content: "\f229"; }
+.icon-ambassador:before { content: "\f22a"; }
+.icon-ambassadors:before { content: "\f22b"; }
+.icon-ambassadors-alt:before { content: "\f22c"; }
+.icon-analyze:before { content: "\f22d"; }
+.icon-approved:before { content: "\f22e"; }
+.icon-approved-alt:before { content: "\f28d"; }
+.icon-auto-message:before { content: "\f22f"; }
+.icon-billing:before { content: "\f230"; }
+.icon-bookmark:before { content: "\f231"; }
+.icon-build:before { content: "\f232"; }
+.icon-calendar:before { content: "\f233"; }
+.icon-campaign:before { content: "\f234"; }
+.icon-campaign-advanced:before { content: "\f235"; }
+.icon-cash:before { content: "\f236"; }
+.icon-check-mark:before { content: "\f237"; }
+.icon-check-mark-alt:before { content: "\f238"; }
+.icon-clicks:before { content: "\f239"; }
+.icon-clock:before { content: "\f23a"; }
+.icon-close:before { content: "\f23b"; }
+.icon-comments:before { content: "\f23c"; }
+.icon-comments-alt:before { content: "\f23d"; }
+.icon-commissions:before { content: "\f23e"; }
+.icon-compose:before { content: "\f23f"; }
+.icon-copy:before { content: "\f240"; }
+.icon-credit-card:before { content: "\f241"; }
+.icon-csv:before { content: "\f242"; }
+.icon-customize:before { content: "\f243"; }
+.icon-delete:before { content: "\f244"; }
+.icon-denied:before { content: "\f245"; }
+.icon-denied-alt:before { content: "\f28e"; }
+.icon-down-arrow:before { content: "\f246"; }
+.icon-down-arrow-alt:before { content: "\f247"; }
+.icon-dwolla:before { content: "\f248"; }
+.icon-ecommerce:before { content: "\f249"; }
+.icon-edit:before { content: "\f24a"; }
+.icon-email:before { content: "\f24b"; }
+.icon-email-template:before { content: "\f24c"; }
+.icon-embed:before { content: "\f24d"; }
+.icon-engage:before { content: "\f24e"; }
+.icon-flag:before { content: "\f24f"; }
+.icon-flags:before { content: "\f250"; }
+.icon-food:before { content: "\f251"; }
+.icon-gift-card:before { content: "\f252"; }
+.icon-grab:before { content: "\f253"; }
+.icon-growth:before { content: "\f254"; }
+.icon-image:before { content: "\f255"; }
+.icon-inbound:before { content: "\f256"; }
+.icon-integrate:before { content: "\f257"; }
+.icon-iphone:before { content: "\f258"; }
+.icon-klout:before { content: "\f259"; }
+.icon-lock:before { content: "\f25a"; }
+.icon-magento:before { content: "\f25b"; }
+.icon-mail:before { content: "\f25c"; }
+.icon-manage:before { content: "\f25d"; }
+.icon-manage-data:before { content: "\f25e"; }
+.icon-marketing:before { content: "\f25f"; }
+.icon-message:before { content: "\f260"; }
+.icon-monitor:before { content: "\f261"; }
+.icon-new-ambassador:before { content: "\f262"; }
+.icon-new-ambassador-alt:before { content: "\f28b"; }
+.icon-note:before { content: "\f263"; }
+.icon-open:before { content: "\f264"; }
+.icon-outbound:before { content: "\f265"; }
+.icon-payments:before { content: "\f266"; }
+.icon-paypal:before { content: "\f267"; }
+.icon-pdf:before { content: "\f268"; }
+.icon-pending:before { content: "\f269"; }
+.icon-pending-alt:before { content: "\f28c"; }
+.icon-person:before { content: "\f26a"; }
+.icon-phone:before { content: "\f26b"; }
+.icon-plus:before { content: "\f26c"; }
+.icon-points:before { content: "\f26d"; }
+.icon-portal:before { content: "\f26e"; }
+.icon-portal-alt:before { content: "\f26f"; }
+.icon-preview:before { content: "\f270"; }
+.icon-printer:before { content: "\f271"; }
+.icon-pushpin:before { content: "\f272"; }
+.icon-puzzle:before { content: "\f273"; }
+.icon-question-mark:before { content: "\f274"; }
+.icon-quote:before { content: "\f275"; }
+.icon-resources:before { content: "\f276"; }
+.icon-revenue:before { content: "\f277"; }
+.icon-review:before { content: "\f278"; }
+.icon-ribbon:before { content: "\f279"; }
+.icon-ribbon-alt:before { content: "\f27a"; }
+.icon-search:before { content: "\f27b"; }
+.icon-settings:before { content: "\f27c"; }
+.icon-share:before { content: "\f27d"; }
+.icon-share-alt:before { content: "\f27e"; }
+.icon-share-circle:before { content: "\f27f"; }
+.icon-share-tree:before { content: "\f280"; }
+.icon-speech-bubbles:before { content: "\f281"; }
+.icon-stats:before { content: "\f282"; }
+.icon-survey:before { content: "\f283"; }
+.icon-survey-alt:before { content: "\f284"; }
+.icon-third-party:before { content: "\f285"; }
+.icon-timer:before { content: "\f286"; }
+.icon-upload:before { content: "\f287"; }
+.icon-video:before { content: "\f288"; }
+.icon-walker:before { content: "\f289"; }
+.icon-world:before { content: "\f28a"; }
