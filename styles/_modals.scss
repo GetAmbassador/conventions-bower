@@ -1,0 +1,33 @@
+//
+// Modals
+// --------------------------------------------------
+
+.modal-header{
+  background-color: $bg-primary;
+  padding: 15px 30px;
+  h3 {
+    margin-top: 15px;
+  }
+  .close {
+    margin-top: 15px;
+  }
+}
+
+.modal-content{
+  border-radius: 0px;
+}
+
+.modal-footer {
+  padding: 15px 30px;
+}
+
+.note-text {
+  background-color: $bg-primary;
+  padding: 20px 10px;
+}
+
+.important-note {
+  background-color: $brand-danger;
+  color: $white;
+  vertical-align: middle;
+}

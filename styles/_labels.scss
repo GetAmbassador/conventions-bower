@@ -1,0 +1,19 @@
+//
+// Labels
+// --------------------------------------------------
+
+.selected {
+  .label {
+    position: relative;
+    padding: .2em 1.8em .3em .6em;
+    margin-right: 3px;
+    @include inline-block();
+    i {
+      display: block;
+      position: absolute;
+      right: 6px;
+      top: 3px;
+      cursor: pointer;
+    }
+  }
+}

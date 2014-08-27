@@ -1,0 +1,60 @@
+.has-error, .has-success.has-error {
+  color: $red !important;
+  border-color: $red !important;
+  .dropdown .dropdown-toggle {
+    color: $red !important;
+    border-color: $red !important;
+  }
+}
+
+.has-success {
+  .dropdown .dropdown-toggle {
+    border-color: #3C763D !important;
+  }
+}
+
+.dropdown.dropdown-form {
+  .dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    background-color: $white;
+    border-color: $gray-light;
+    color: #555555;
+    font-weight: normal;
+    @include vendorize(font-smoothing,auto);
+    @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.075) inset);
+    i {
+      color: #555555;
+      float: right;
+    }
+  }
+  .dropdown-menu {
+    li {
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.form-group .label.label-input {
+  position: absolute;
+  right: 23px;
+  bottom: 8px;
+  padding: 6px 6px 5px;
+}
+
+.form-control[readonly].code-select {
+  background-color: #fff;
+  cursor: text;
+}
+
+
+.async-loader {
+  position: relative;
+  i {
+    position: absolute;
+    right: 12px;
+    top: 9px;
+  }
+}

@@ -1,0 +1,126 @@
+//
+// Mixins
+// --------------------------------------------------
+
+// Vendorize
+$vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
+@mixin vendorize($property, $value, $noplain: false, $vendors: $vendors, $prefix:'') {
+	@each $vendor in $vendors {
+		#{$prefix}-#{$vendor}-#{$property}: $value;
+	}
+	@if $noplain != true {
+		#{$property}: $value;
+	}
+}
+
+// Rounded Corners
+@mixin rounded($radius: 10px) {
+	@include vendorize(border-radius,$radius);
+}
+
+@mixin rounded-top($radius: 10px) {
+	@include vendorize(border-top-left-radius,$radius);
+	@include vendorize(border-top-right-radius,$radius);
+}
+
+@mixin rounded-bottom($radius: 10px) {
+	@include vendorize(border-bottom-left-radius,$radius);
+	@include vendorize(border-bottom-right-radius,$radius);
+}
+
+// Button variants
+@mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 12%);
+    border-color: darken($border, 12%);
+  }
+  &:active,
+  &.active,
+  .open .dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+
+  // Ambassador icon font has a different line-height
+  // than Bootstrap's and FontAwesome's glyphicons
+  i {
+    color: $color;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-right: 5px;
+    @include translate(0, 12%);
+    &.glyphicon {
+      font-size: 15px;
+      line-height: 11px;
+      @include translate(0, 22%);
+    }
+    &.fa {
+      font-size: 18px;
+      line-height: 15px;
+    }
+  }
+
+  i.fa-caret-down {
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
+
+// Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
+
+// Alerts
+@mixin alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+}
+
+// Inline Block
+@mixin inline-block(){
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

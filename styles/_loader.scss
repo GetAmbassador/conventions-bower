@@ -1,0 +1,79 @@
+/* App Loading Screen */
+
+@mixin opaqueBackground() {
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.ga-loader {
+  position: absolute;
+  @include opaqueBackground();
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+/* added to combat bootstrap's settings */
+.ga-loader *, .ga-loader *:before, .ga-loader *:after {
+  @include vendorize(box-sizing, content-box !important);
+}
+
+.loader-text {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 40px;
+  text-transform: uppercase;
+  color: rgb(202, 202, 202);
+  z-index: 10;
+  font-family: $proxima-nova-bold;
+  font-size: 15px;
+}
+
+.ga-spinner{
+  position: absolute;
+  margin: -50px  0 0 -50px;
+  height: 100px;
+  width: 100px;
+  top: 50%;
+  left: 50%;
+}
+
+.spinner {
+  @include vendorize(animation, rotation 1.8s linear infinite);
+}
+
+$offset: 187;
+
+.path {
+  stroke: #3C97D3;
+  border-color: #3C97D3;
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  @include vendorize(animation, dash 4.2s ease infinite);
+}
+
+@include keyframes(rotation) {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@include keyframes(dash) {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  25% {
+    stroke-dashoffset: -$offset;
+  }
+  50% {
+    stroke-dashoffset: -$offset * 2;
+  }
+  75% {
+    stroke-dashoffset: -$offset * 3;
+  }
+  100% {
+    stroke-dashoffset: -$offset * 4;
+  }
+}

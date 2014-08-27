@@ -1,0 +1,91 @@
+//
+// Charts
+// --------------------------------------------------
+
+.ga-chart-container {
+  position: relative;
+  padding-top: 20px;
+  overflow: hidden;
+
+  .ga-chart {
+    padding: 0;
+  }
+
+  // Line Chart
+  .ga-line-legend {
+    position: absolute;
+    top: 0;
+    right: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      font-size: 15px;
+      margin-left: 15px;
+      cursor: pointer;
+      @include inline-block();
+      @include vendorize(user-select, none);
+
+      span {
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+        border: 1px solid #fff;
+        @include inline-block();
+        @include vendorize(border-radius, 5px);
+        @include vendorize(box-sizing, border-box);
+      }
+    }
+  }
+
+  // Doughnut Chart
+  .ga-doughnut-legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: block;
+      cursor: pointer;
+      margin-bottom: 10px;
+      font-size: 18px;
+      @include vendorize(user-select, none);
+
+      i {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #fff;
+        font-size: 15px;
+        color: #fff;
+        line-height: 28px;
+        text-align: center;
+        margin: 0 5px;
+        @include inline-block();
+        @include vendorize(border-radius, 15px);
+        @include vendorize(box-sizing, border-box);
+      }
+
+      .ga-doughnut-value {
+        font-family: $proxima-nova-bold;
+        margin: 0 5px;
+        @include inline-block();
+      }
+    }
+  }
+  .ga-doughnut-legend-left {
+    text-align: right;
+  }
+  .ga-doughnut-legend-right {
+    float: right;
+  }
+}
+
+@media #{$extra-small}, #{$small} {
+  .ga-chart-container {
+    .ga-doughnut-legend {
+      li {
+        font-size: 15px;
+      }
+    }
+  }
+}

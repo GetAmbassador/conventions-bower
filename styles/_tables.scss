@@ -1,0 +1,559 @@
+// Sorting indicators
+.sort-ascent:before {
+  content: "\25b2";
+  position: relative;
+  left: -3px;
+  font-size: 10px;
+}
+
+.sort-descent:before {
+  content: "\25bc";
+  position: relative;
+  left: -3px;
+  font-size: 10px;
+}
+// Out wrapper for to relative position pinned cols.
+.smart-table-outer-wrapper {
+  position:relative;
+}
+
+.smart-table-container {
+  position:relative;
+}
+
+// Wrapper around the table so
+// we can apply border-radius
+.smart-table-wrapper {
+  margin-top: 15px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid $table-border-color;
+  .tooltip-inner {
+    max-width: none !important;
+  }
+}
+
+.smart-table-pinned {
+  overflow-x:auto;
+}
+
+.table-striped > tbody > tr:nth-child(2n), .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+  background-color: $table-bg-accent;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1), .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+  background-color: $white;
+}
+
+.smart-table {
+  background-color: transparent !important;
+  color: $table-font-color;
+  font-size: 14px;
+  font-family: $proxima-nova-light;
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  .table-image {
+    max-width: 100px;
+    width: 100%;
+  }
+  .smart-table-header-row {
+    background-color: $bg-primary;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    .smart-table-header-manage-cell {
+      border-left: none;
+    }
+    th {
+      height: 60px;
+      border-top:none;
+    }
+  }
+  .smart-table-data-row td {
+    border-top: 1px solid $table-border-color;
+  }
+  .smart-table-header-cell:first-child {
+    border-left: medium none;
+  }
+  .smart-table-header-cell {
+    background-color: $bg-primary;
+    border-top: none;
+    border-bottom: none;
+    color: $blue-light;
+    font-size: 14px;
+    padding: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  .smart-table-header-cell.smart-table-disabled-sort {
+    cursor: default;
+  }
+  .smart-table-data-cell {
+    border: none;
+    padding: 10px;
+
+    .dropdown {
+      position: initial;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      right: 10px;
+      top: initial;
+    }
+  }
+  .smart-table-manage-cell {
+    i {
+      color: #fff;
+    }
+  }
+  .smart-table-checkbox-cell {
+    vertical-align: top;
+  }
+  .smart-table-checkbox-cell input, .smart-table-select-all {
+    margin:0;
+  }
+  .smart-table-no-results-cell {
+    height: 30px;
+    line-height: 30px;
+    text-align: center !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+  .smart-table-data-row:last-child td:first-child {
+    border-radius: 0 0 0 6px;
+  }
+  .smart-table-data-row:last-child td:last-child {
+    border-radius: 0 0 6px 0;
+  }
+  .preferred-payment.ga {
+    color: $blue-dark;
+    display: inline-block;
+    font-size: 25px;
+    height: 25px;
+    margin-top: -13px;
+    position: relative;
+    top: 8px;
+  }
+  .smart-table-payout-headers {
+    height: 0;
+    td {
+      border:none;
+      padding: 0 !important;
+      > div {
+        position: relative;
+        z-index:1;
+        top: -60px;
+      }
+    }
+    td:nth-child(2), td:nth-child(3) {
+      width: 245px;
+    }
+    td:nth-child(4) {
+      width: 80px;
+    }
+    td:nth-child(5) {
+      width: 70px;
+    }
+  }
+  .highlight {
+    color: 4white;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 23px;
+    line-height: 23px;
+    border-bottom: 1px solid $table-border-color;
+    font-family: $proxima-nova-bold;
+    &.money {
+      color: $blue-light;
+      background-color: $gray-lighter;
+      border-left: 1px solid $table-border-color;
+    }
+    &.points {
+      color: $blue-light;
+      border-left: 1px solid $table-border-color;
+      background-color: $gray-lighter;
+    }
+  }
+  th:first-child {
+    border-radius: 3px 0 0 0;
+  }
+  th:last-child {
+    border-radius: 0 3px 0 0;
+  }
+}
+
+@media #{$large} {
+  .smart-table .smart-table-payout-headers {
+    td:nth-child(2), td:nth-child(3) {
+      width: 345px;
+    }
+    td:nth-child(4) {
+      width: 150px;
+    }
+  }
+}
+
+// Manage tables
+
+.table-row-saving {
+  background: rgba(97, 97, 97, 0.31);
+  position: absolute;
+}
+
+// Temporary saving indicator
+.table-row-saving .row-saving-inner {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  margin: 38px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px rgb(121, 121, 121);
+}
+
+.table-apply-action-container {
+  float: left;
+}
+.table-apply-action {
+  .btn {
+    padding-top: 7px;
+    padding-bottom: 8px;
+  }
+}
+
+// Top right section of table
+// Has pagination plus page size
+.table-top-paginate {
+  float: right;
+  .pagination-indicator {
+    padding: 9px 0 5px;
+  }
+  .pagination {
+    margin: 0;
+  }
+  div {
+    float: left;
+    margin-left: 5px;
+  }
+  .dropdown {
+    margin-right: 5px;
+    .btn-gray {
+      height: 37px;
+      line-height: 26px;
+      text-indent: -2px;
+      width: 28px;
+      i {
+        margin: 0;
+      }
+    }
+  }
+  .dropdown-menu {
+    right: 0;
+    left: inherit;
+  }
+}
+
+.smart-table-search {
+  .form-control {
+    height: 37px;
+  }
+}
+
+.smart-table-container {
+  .pagination {
+    > li > a {
+      cursor: pointer;
+      height: 37px;
+      line-height: 25px;
+    }
+  }
+}
+
+// Dropdown column
+manage-table-btn {
+  .dropdown {
+    background-color: $gray;
+    border-radius: 2px;
+    color: 4white;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+
+    .dropdown-btn {
+      padding: 0px 5px 0px 5px;
+      color: 4white;
+      display: block;
+      white-space: nowrap;
+      text-decoration: none;
+      > span {
+        margin-right: 3px;
+      }
+    }
+  }
+  .dropdown.open, .dropdown:hover {
+    background-color: $gray-dark;
+  }
+}
+
+// Smart table header
+.smart-table-header {
+  .pagination {
+    margin: 0;
+  }
+}
+
+// Pagination
+.smart-table-footer {
+  .pagination-wrapper {
+    text-align: center;
+  }
+}
+
+tooltip-cell span, .tooltip-active {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+}
+
+/*
+  Filters
+ --------------------------
+*/
+.table-filter-container {
+  float: left;
+}
+.table-filtering {
+  .filtering-buttons {
+    z-index: 10;
+    > .dropdown {
+      float: left;
+      margin-left: 10px;
+      > a.btn {
+        padding-top: 7px;
+        padding-bottom: 8px;
+      }
+    }
+  }
+  .filter-header {
+    margin-bottom: 20px;
+    h2 {
+      display: inline-block;
+      margin: 4px 0;
+    }
+    button {
+      float: right;
+    }
+  }
+  .active-filters {
+    overflow: hidden;
+    ul {
+      overflow: visible !important;
+    }
+  }
+  .filter-input {
+    display: block;
+    margin: 0;
+    float: left;
+    input {
+      height: 37px;
+    }
+    .dropdown {
+      height: 37px;
+    }
+    .dropdown-select {
+      width: 200px;
+      .dropdown-toggle {
+        height: 37px;
+        line-height: 21px;
+        font-weight: normal;
+      }
+      .dropdown-menu > li > a {
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+    > * {
+      max-width: 180px;
+    }
+    .async-loader i.fa-spin {
+      top: 9px;
+    }
+  }
+  .table-filter {
+    position: relative;
+    margin-bottom: 15px;
+    float: left;
+    margin-right: 12px;
+
+    .input-group {
+      width: 100%;
+      height: 35px;
+      max-width: 300px;
+    }
+    .input-group-addon {
+      width: 50%;
+      white-space: normal;
+    }
+    .input-group-addon:first-child {
+      color: 4white;
+      background-color: $blue-light;
+    }
+    .input-group-addon:last-child {
+      color: $btn-default-color;
+      background-color: $btn-default-bg;
+    }
+  }
+  .table-filter button {
+    border: medium none;
+    border-radius: 15px;
+    height: 24px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 24px;
+      i {
+        margin: 0;
+        font-size: 16px;
+        height: 100%;
+        left: 0;
+        line-height: 24px;
+        position: absolute;
+        top: -3px;
+        width: 100%;
+      }
+  }
+  .input-money {
+    input {
+      padding-right: 30px;
+    }
+    .input-cents {
+      position: absolute;
+      top: 7px;
+      right: 50px;
+      z-index: 10;
+      color: $gray;
+    }
+  }
+  .datepicker-input .dropdown-menu {
+    table {
+      margin: 3px 8px;
+    }
+    th,td {
+      padding: 1px;
+    }
+  }
+}
+
+//
+// Media queries
+// --------------------------------------------------
+@media #{$large} {
+  .smart-table {
+    margin-left: 0 !important;
+  }
+}
+
+@media #{$extra-small} {
+  .table-apply-action {
+    margin-bottom: 10px;
+  }
+  .pagination-indicator {
+    display: none;
+  }
+}
+
+@media #{$extra-small}, #{$small}, #{$medium} {
+  .table-top-paginate {
+    margin-top: 20px;
+  }
+
+  .smart-table.pinned-1 {
+    tr td:nth-child(1), tr th:nth-child(1) {
+      position:absolute;
+      z-index: 300;
+      -webkit-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      backface-visibility: hidden;
+      z-index: 5;
+    }
+    tr td:nth-child(1), tr th:nth-child(1) {
+      border-right: 1px solid $table-border-color;
+    }
+    tr td:nth-child(2), tr th:nth-child(2) {
+      border-left: none;
+    }
+    tr th:nth-child(1) {
+      line-height:40px;
+      display:block;
+    }
+  }
+
+  .smart-table.pinned-2 {
+    tr td:nth-child(1), tr th:nth-child(1),
+    tr td:nth-child(2), tr th:nth-child(2) {
+      position:absolute;
+      z-index: 300;
+      -webkit-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    tr td:nth-child(2), tr th:nth-child(2) {
+      border-right: 1px solid $table-border-color;
+    }
+    tr td:nth-child(3), tr th:nth-child(3) {
+      border-left: none;
+    }
+    tr th:nth-child(1),
+    tr th:nth-child(2) {
+      line-height:40px;
+      display:block;
+    }
+  }
+
+  .smart-table.pinned-3 {
+    tr td:nth-child(1), tr th:nth-child(1),
+    tr td:nth-child(2), tr th:nth-child(2),
+    tr td:nth-child(3), tr th:nth-child(3) {
+      position:absolute;
+      z-index: 300;
+      -webkit-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    tr td:nth-child(3), tr th:nth-child(3) {
+      border-right: 1px solid $table-border-color;
+    }
+    tr td:nth-child(4), tr th:nth-child(4) {
+      border-left: none;
+    }
+    tr th:nth-child(1),
+    tr th:nth-child(2),
+    tr th:nth-child(3) {
+      line-height:40px;
+      display:block;
+    }
+  }
+
+  .smart-table-no-results {
+    padding-bottom:50px;
+  }
+
+  .smart-table-no-results-cell {
+    height: 30px !important;
+    line-height: 30px;
+    text-align: center !important;
+    left: 1px;
+    right: 1px;
+    width: initial !important;
+    border-top: 1px solid $table-border-color;
+  }
+}
