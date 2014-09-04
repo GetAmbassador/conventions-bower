@@ -46,9 +46,9 @@
     cursor: pointer;
     &.btn {
       position: relative;
-      i {
+      .caret {
         position: absolute;
-        top: 8px;
+        top: 15px;
         right: 12px;
       }
     }
@@ -188,6 +188,18 @@
     }
   }
 }
+
+//
+// Avatar
+// --------------------------------------------------
+ga-avatar {
+  .ga-avatar {
+    width: 100%;
+    border: 2px solid $gray;
+    @include vendorize(border-radius, 50%);
+  }
+}
+
 
 //
 // Activity Feed

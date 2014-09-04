@@ -17,6 +17,8 @@
   .dropdown-toggle {
     width: 100%;
     text-align: left;
+    line-height: 40px;
+    padding: 0 12px;
     background-color: $white;
     border-color: $gray-light;
     color: #555555;
@@ -26,6 +28,11 @@
     i {
       color: #555555;
       float: right;
+    }
+    &.btn {
+      .caret {
+        top: 17px;
+      }
     }
   }
   .dropdown-menu {
@@ -37,10 +44,32 @@
   }
 }
 
+input[type="text"], input[type="password"], input[type="email"], select {
+  height: 42px;
+}
+
+.checkbox-group {
+  input {
+    height: 39px;
+  }
+  .input-group-addon {
+    padding: 0 12px;
+  }
+  .form-control {
+    height: 42px;
+    line-height: 42px;
+    padding: 0 12px;
+    -webkit-font-smoothing: auto;
+    -moz-font-smoothing: auto;
+    -ms-font-smoothing: auto;
+    @include vendorize(user-select,none);
+  }
+}
+
 .form-group .label.label-input {
   position: absolute;
-  right: 23px;
-  bottom: 8px;
+  right: 9px;
+  bottom: 10px;
   padding: 6px 6px 5px;
 }
 
@@ -55,6 +84,6 @@
   i {
     position: absolute;
     right: 12px;
-    top: 9px;
+    top: 14px;
   }
 }
