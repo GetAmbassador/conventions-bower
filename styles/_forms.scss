@@ -69,8 +69,8 @@ input[type="text"], input[type="password"], input[type="email"], select {
 .form-group .label.label-input {
   position: absolute;
   right: 9px;
-  bottom: 10px;
-  padding: 6px 6px 5px;
+  top: 9px;
+  padding: 6px;
 }
 
 .form-control[readonly].code-select {
