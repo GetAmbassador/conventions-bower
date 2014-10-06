@@ -4,11 +4,26 @@
 
 .ambassador-typeahead {
   position: relative;
+  > input {
+    padding-right: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dropdown .dropdown-toggle {
+    padding-right: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .list-unstyled {
     margin-bottom: 0;
   }
-  .dropdown-menu > li > a {
-    cursor: pointer;
+  .dropdown-menu {
+    max-width: 100%;
+    > li > a {
+      cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
   .fa-refresh {
     position: absolute;
