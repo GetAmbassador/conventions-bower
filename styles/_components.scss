@@ -23,6 +23,15 @@
       cursor: pointer;
       overflow: hidden;
       text-overflow: ellipsis;
+      padding: 3px 12px;
+      color: $gray-1;
+    }
+    > li {
+      &.active {
+        > a {
+          color: #fff;
+        }
+      }
     }
   }
   .fa-refresh {
@@ -237,10 +246,25 @@
 // Avatar
 // --------------------------------------------------
 ga-avatar {
+  display: block;
+  padding: 2px;
   .ga-avatar {
-    width: 100%;
     border: 2px solid $gray;
     @include vendorize(border-radius, 50%);
+    overflow: hidden;
+    padding-bottom: 100%;
+    position: relative;
+    box-sizing: initial;
+    margin: -2px;
+    img {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      &.fade-in {
+        opacity: 1;
+      }
+    }
   }
 }
 

@@ -13,6 +13,26 @@
   }
 }
 
+::-webkit-input-placeholder {
+  color: $gray-1 !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $gray-1 !important;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: $gray-1 !important;
+}
+
+:-ms-input-placeholder {
+  color: $gray-1 !important;
+}
+
+.form-control {
+  color: $gray-1;
+}
+
 .dropdown.dropdown-form {
   .dropdown-toggle {
     width: 100%;
@@ -21,7 +41,7 @@
     padding: 0 12px;
     background-color: $white;
     border-color: $gray-light;
-    color: #555555;
+    color: $gray-1;
     font-weight: normal;
     @include vendorize(font-smoothing,auto);
     @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.075) inset);
@@ -39,6 +59,8 @@
     li {
       a {
         cursor: pointer;
+        padding: 3px 12px;
+        color: $gray-1;
       }
     }
   }
