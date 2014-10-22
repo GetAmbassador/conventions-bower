@@ -32,6 +32,10 @@
           color: #fff;
         }
       }
+      a:hover, a:focus {
+        background-color: $brand-primary;
+        color: $white !important;
+      }
     }
   }
   .fa-refresh {

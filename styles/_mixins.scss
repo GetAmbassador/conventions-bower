@@ -124,3 +124,19 @@ $vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
     @content;
   }
 }
+
+// Ambassador Count Badge
+@mixin ga-badge($color, $background){
+  background-color: $background;
+  color: $color;
+  border-radius: 14px;
+  padding: 6px 14px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 10px;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
