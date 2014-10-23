@@ -1,6 +1,6 @@
 {
   "name": "ambassador-conventions",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "homepage": "http://conventions.getambassador.com",
   "authors": [
     "Ambassador Team"
@@ -26,7 +26,9 @@
     "restangular": "~1.4.0",
     "angular-scroll": "~0.6.1",
     "angular-spinner": "~0.5.1",
-    "angles": "*"
+    "angles": "*",
+    "ng-file-upload": "~1.6.12",
+    "ng-file-upload-shim": "~1.6.12"
   },
   "ignore": [
     "**/.*",
