@@ -28,7 +28,8 @@
     "angular-spinner": "~0.5.1",
     "angles": "*",
     "ng-file-upload": "~1.6.12",
-    "ng-file-upload-shim": "~1.6.12"
+    "ng-file-upload-shim": "~1.6.12",
+    "ngInfiniteScroll": "~1.1.2"
   },
   "ignore": [
     "**/.*",
