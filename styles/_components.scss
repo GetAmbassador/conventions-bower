@@ -129,8 +129,14 @@
   .stat-number {
     float: right;
     font-size: 24px;
-    line-height: 45px;
+    line-height: 25px;
     font-family: $proxima-nova-condensed-light;
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    max-width: 40%;
+    text-align: right;
+    @include translate(0, -50%);
   }
   i {
     float: left;
@@ -160,6 +166,11 @@
       float: none;
       text-align: center;
       margin: 0 auto;
+    }
+    .stat-number {
+      position: static;
+      max-width: none;
+      @include translate(0, 0);
     }
     i {
       margin-bottom: 10px;
@@ -273,6 +284,13 @@ ga-avatar {
   }
 }
 
+//
+// Infinite Scroll/Load
+// --------------------------------------------------
+.infinite-spinner {
+  position: relative;
+  padding-top: 40px;
+}
 
 //
 // Activity Feed
