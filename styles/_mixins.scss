@@ -61,6 +61,21 @@ $vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
     }
   }
 
+  // Disable hover for clipboard buttons
+  &.btn-clipboard {
+    &:hover, &:active, &:focus {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+
+  // Custom classes for clipboard button pseudo actions
+  &.zeroclipboard-is-hover, &.zeroclipboard-is-active, &.zeroclipboard-is-hover:focus, .zeroclipboard-is-active:focus {
+    color: $color;
+    background-color: darken($background, 12%);
+    border-color: darken($border, 12%);
+  }
+
   // Ambassador icon font has a different line-height
   // than Bootstrap's and FontAwesome's glyphicons
   i {
