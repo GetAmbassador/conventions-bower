@@ -8,11 +8,18 @@
     padding-right: 45px;
     overflow: hidden;
     text-overflow: ellipsis;
+    &[disabled] {
+      cursor: default;
+    }
   }
   .dropdown .dropdown-toggle {
     padding-right: 25px;
     overflow: hidden;
     text-overflow: ellipsis;
+    &[disabled] {
+      background-color: #eeeeee;
+      @include opacity(1);
+    }
   }
   .list-unstyled {
     margin-bottom: 0;
@@ -50,6 +57,12 @@
     right: 15px;
     top: 50%;
     @include translate(0px, -50%);
+  }
+  &.ambassador-typeahead-disabled {
+    .reset-field {
+      color: #7f8c8d;
+      cursor: default;
+    }
   }
 }
 
