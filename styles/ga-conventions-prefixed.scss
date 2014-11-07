@@ -1,0 +1,95 @@
+//
+// Import Variables & Mixins
+// --------------------------------------------------
+@import '_fonts';
+@import '_colors';
+@import '_screen';
+@import '_mixins';
+
+//
+// FontAwesome
+// --------------------------------------------------
+$fa-font-path: "../bower_components/fontawesome/fonts";
+@import "fontawesome/scss/font-awesome.scss";
+
+//
+// Bootstrap Un-Prefixed
+// --------------------------------------------------
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/mixins.scss";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables.scss";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/glyphicons.scss";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-utilities.scss";
+
+//
+// Prefixed Imports
+// --------------------------------------------------
+
+$style-prefix: '.ga' !default;
+
+#{$style-prefix} {
+  //
+  // Bootstrap
+  // --------------------------------------------------
+
+  // Reset and dependencies
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/normalize.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/print.scss";
+
+  // Core CSS
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/scaffolding.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/type.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/code.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/grid.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/tables.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/forms.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/buttons.scss";
+
+  // Components
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/component-animations.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/dropdowns.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/button-groups.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/input-groups.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/navs.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/navbar.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/breadcrumbs.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/pagination.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/pager.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/labels.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/badges.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/jumbotron.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/thumbnails.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/alerts.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/progress-bars.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/media.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/list-group.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/panels.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/responsive-embed.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/wells.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/close.scss";
+
+  // Components w/ JavaScript
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/modals.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/tooltip.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/popovers.scss";
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/carousel.scss";
+
+  // Utility classes
+  @import "bootstrap-sass-official/assets/stylesheets/bootstrap/utilities.scss";
+
+  //
+  // Ambassador Styles
+  // --------------------------------------------------
+  @import '_animations';
+  @import '_type';
+  @import '_buttons';
+  @import '_forms';
+  @import '_labels';
+  @import '_components';
+  @import '_tables';
+  @import '_loader';
+  @import '_modals';
+  @import '_charts';
+  @import '_wysiwyg';
+  @import '_colorpicker';
+}
