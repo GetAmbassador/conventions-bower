@@ -509,3 +509,64 @@ ga-activity-feed {
     }
   }
 }
+
+//
+// Toggle Switch (custom)
+// --------------------------------------------------
+.ats-switch{
+  &:hover {
+    border-color: $gray-light;
+    box-shadow: none;
+  }
+  span {
+    padding: 4px 4px 2px;
+    font-size: 14px;
+    -webkit-font-smoothing: initial;
+  }
+  span.switch-left {
+    background: none repeat scroll 0 0 #428bca;
+    box-shadow: 1px 1px 5px darken(#428bca, 20%) inset;
+    color: $white;
+  }
+  .knob {
+    background-color: $white;
+    border-left: 1px solid $gray-light;
+    border-right: 1px solid $gray-light;
+    margin: 0;
+  }
+  span.switch-right {
+    background: none repeat scroll 0 0 #f0f0f0;
+    box-shadow: -1px 1px 5px darken(#f0f0f0, 20%) inset;
+    color: #333;
+  }
+  &.switch-primary span.switch-left {
+    color: $white;
+    background: #428bca;
+    box-shadow: 1px 1px 5px darken(#428bca, 20%) inset;
+  }
+  &.switch-info span.switch-left {
+    color: $white;
+    background: #5bc0de;
+    box-shadow: 1px 1px 5px darken(#5bc0de, 20%) inset;
+  }
+  &.switch-success span.switch-left {
+    color: $white;
+    background: #5cb85c;
+    box-shadow: 1px 1px 5px darken(#5cb85c, 20%) inset;
+  }
+  &.switch-warning span.switch-left {
+    color: $white;
+    background: #f0ad4e;
+    box-shadow: 1px 1px 5px darken(#f0ad4e, 20%) inset;
+  }
+  &.switch-danger span.switch-left {
+    color: $white;
+    background: #d9534f;
+    box-shadow: 1px 1px 5px darken(#d9534f, 20%) inset;
+  }
+  &.switch-default span.switch-left {
+    color: #000;
+    background: #eeeeee;
+    box-shadow: 1px 1px 5px darken(#eeeeee, 25%) inset;
+  }
+}
