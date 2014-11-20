@@ -9,7 +9,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     &[disabled] {
-      cursor: default;
+      background-color: #eeeeee;
+      cursor: not-allowed;
+      border-color: $gray-light;
+      @include opacity(1);
     }
   }
   .dropdown .dropdown-toggle {
@@ -18,6 +21,8 @@
     text-overflow: ellipsis;
     &[disabled] {
       background-color: #eeeeee;
+      cursor: not-allowed;
+      border-color: $gray-light;
       @include opacity(1);
     }
   }
@@ -63,6 +68,27 @@
       color: #7f8c8d;
       cursor: default;
     }
+  }
+}
+
+//
+// Validated form fields
+// --------------------------------------------------
+ga-form-field {
+  .dropdown-select.disabled {
+    cursor: not-allowed;
+  }
+  .dropdown-toggle[disabled] {
+    color: $gray-1 !important;
+    background-color: #eeeeee !important;
+    cursor: not-allowed;
+    @include opacity(1);
+    > span {
+      display: none;
+    }
+  }
+  .checkbox-group .input-group-addon.disabled {
+    cursor: not-allowed;
   }
 }
 
