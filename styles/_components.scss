@@ -90,6 +90,11 @@ ga-form-field {
   .checkbox-group .input-group-addon.disabled {
     cursor: not-allowed;
   }
+  .form-control[readonly] {
+    cursor: text;
+    color: $gray-1;
+    background-color: $white;
+  }
 }
 
 //
