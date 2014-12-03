@@ -19,6 +19,16 @@
 
 .modal-footer {
   padding: 15px 30px;
+  .button-wrapper {
+    display: inline-block;
+    margin-left: 5px;
+    button {
+      width: 100%;
+    }
+  }
+  .row .button-wrapper {
+    margin-left: 0;
+  }
 }
 
 .note-text {
