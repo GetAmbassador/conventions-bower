@@ -262,6 +262,11 @@
   }
 }
 
+.table-external-ordering-container {
+  float: left;
+  margin-right: 5px;
+}
+
 
 // Top right section of table
 // Has pagination plus page size
@@ -374,9 +379,15 @@ tooltip-cell span, .tooltip-active {
 }
 
 .table-filter-container {
-  margin-left: 140px;
+  margin-left: 15px;
   position: absolute;
   left: 0;
+  &.apply-action-visible {
+    margin-left: 140px;
+  }
+  &.external-ordering-visible {
+    margin-left: 136px;
+  }
 }
 .table-filtering {
   .filtering-buttons {
@@ -420,16 +431,28 @@ tooltip-cell span, .tooltip-active {
         line-height: 21px;
         font-weight: normal;
       }
-      .dropdown-menu > li > a {
-        text-overflow: ellipsis;
-        overflow: hidden;
+      .dropdown-menu {
+        max-width: 350px;
+        > li > a {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
       }
     }
     > * {
       max-width: 147px;
     }
-    .async-loader i.fa-spin {
-      top: 9px;
+    .async-loader {
+      i.fa-spin {
+        top: 9px;
+      }
+      .dropdown-menu {
+        max-width: 350px;
+        > li > a {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
     }
     .input-group-btn {
       button {

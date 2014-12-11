@@ -48,6 +48,20 @@
         background-color: $brand-primary;
         color: $white !important;
       }
+      .no-items-to-select {
+        color: $gray-1;
+        cursor: default;
+        padding: 0 12px;
+        a {
+          padding: 0;
+          font-weight: bold;
+          &:hover, &:focus {
+            background: none;
+            color: $gray-1 !important;
+            text-decoration: none;
+          }
+        }
+      }
     }
   }
   .fa-refresh {
