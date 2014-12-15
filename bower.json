@@ -1,6 +1,6 @@
 {
   "name": "ambassador-conventions",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "homepage": "http://conventions.getambassador.com",
   "authors": [
     "Ambassador Team"
@@ -33,7 +33,8 @@
     "angular-bootstrap-colorpicker": "~3.0.8",
     "zeroclipboard": "~2.1.6",
     "ng-clip": "~0.2.4",
-    "angular-bootstrap-toggle-switch": "~0.5.1"
+    "angular-bootstrap-toggle-switch": "~0.5.1",
+    "seiyria-bootstrap-slider": "4.3.0"
   },
   "ignore": [
     "**/.*",
