@@ -1,10 +1,6 @@
 {
   "name": "ambassador-conventions",
-<<<<<<< Updated upstream
-  "version": "0.4.9",
-=======
   "version": "0.4.11",
->>>>>>> Stashed changes
   "homepage": "http://conventions.getambassador.com",
   "authors": [
     "Ambassador Team"
