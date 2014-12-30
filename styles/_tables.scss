@@ -263,8 +263,8 @@
 }
 
 .table-external-ordering-container {
-  float: left;
-  margin-right: 5px;
+  float: right;
+  margin-bottom: 10px;
 }
 
 
@@ -542,7 +542,7 @@ tooltip-cell span, .tooltip-active {
 }
 
 @media #{$extra-small} {
-  .table-apply-action, .table-external-ordering {
+  .table-apply-action {
     margin-bottom: 10px;
   }
   .pagination-indicator {
