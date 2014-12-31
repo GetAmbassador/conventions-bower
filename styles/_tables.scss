@@ -138,6 +138,7 @@
       position: absolute;
       right: 10px;
       top: initial;
+      min-width: initial;
     }
   }
   .smart-table-manage-cell {
@@ -265,6 +266,11 @@
 .table-external-ordering-container {
   float: right;
   margin-bottom: 10px;
+  .dropdown-menu {
+    right: 0;
+    left: initial;
+    min-width: 135px;
+  }
 }
 
 
