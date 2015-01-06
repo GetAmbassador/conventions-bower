@@ -307,11 +307,8 @@
 }
 
 .smart-table-search {
-  overflow: hidden;
   .form-control {
     height: 37px;
-    max-width: 275px;
-    float: right;
   }
 }
 
@@ -563,6 +560,13 @@ tooltip-cell span, .tooltip-active {
   .search-active {
     .table-top-paginate {
       margin-top: 20px;
+    }
+  }
+  .smart-table-search {
+    overflow: hidden;
+    .form-control {
+      max-width: 275px;
+      float: right;
     }
   }
 
