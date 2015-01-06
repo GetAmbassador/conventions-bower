@@ -307,8 +307,11 @@
 }
 
 .smart-table-search {
+  overflow: hidden;
   .form-control {
     height: 37px;
+    max-width: 275px;
+    float: right;
   }
 }
 
