@@ -41,3 +41,28 @@
   color: $white;
   vertical-align: middle;
 }
+
+@media #{$extra-small} {
+  .modal-dialog {
+    max-width: 600px;
+    margin: 30px auto;
+    &.modal-sm {
+      max-width: 300px;
+      margin: 30px auto;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .modal-dialog {
+    margin: 30px 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal-dialog {
+    &.modal-sm {
+      margin: 30px 10px;
+    }
+  }
+}
