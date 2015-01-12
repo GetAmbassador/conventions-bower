@@ -253,7 +253,7 @@
 
 .table-apply-action-container {
   float: left;
-  margin-right: 5px;
+  margin-right: 15px;
 
   .table-apply-action {
     .btn {
@@ -279,14 +279,13 @@
 .table-top-paginate {
   float: right;
   .pagination-indicator {
-    padding: 9px 0 5px;
+    padding: 9px 5px 5px 0;
   }
   .pagination {
     margin: 0;
   }
   div {
     float: left;
-    margin-left: 5px;
   }
   .dropdown {
     margin-right: 5px;
@@ -307,9 +306,14 @@
 }
 
 .smart-table-search {
+  padding-right: 15px;
+  margin-bottom: 5px;
   .form-control {
     height: 37px;
   }
+}
+.smart-table-display-per-page {
+  padding-right: 15px;
 }
 
 .smart-table-container {
@@ -325,7 +329,7 @@
 // Dropdown column
 manage-table-btn {
   display: block;
-  width: 25px;
+  text-align: right;
   .dropdown {
     background-color: $gray;
     border-radius: 2px;
@@ -388,21 +392,45 @@ tooltip-cell span, .tooltip-active {
 */
 .smart-table-actions {
   position: relative;
+  padding: 0 15px;
+  min-width: 180px;
+  display: inline-block;
   .dropdown-menu > li > a {
     cursor: pointer;
   }
 }
 
+.apply-action-visible .smart-table-actions {
+  min-width: 310px;
+}
+
+@media (max-width: 384px) {
+  .external-ordering-visible {
+    .smart-table-search, .smart-table-display-per-page {
+      float: right !important;
+      padding: 0 15px 0 0;
+      clear: none;
+    }
+  }
+  .smart-table-search, .smart-table-display-per-page {
+    float: left !important;
+    padding: 0 15px;
+    clear: left;
+  }
+}
+
+@media (max-width: 433px) {
+  .apply-action-visible {
+    .smart-table-search, .smart-table-display-per-page {
+      float: left !important;
+      padding: 0 15px;
+      clear: left;
+    }
+  }
+}
+
 .table-filter-container {
-  margin-left: 15px;
-  position: absolute;
-  left: 0;
-  &.apply-action-visible {
-    margin-left: 140px;
-  }
-  &.external-ordering-visible {
-    margin-left: 136px;
-  }
+  float: left;
 }
 .table-filtering {
   .filtering-buttons {
@@ -556,21 +584,13 @@ tooltip-cell span, .tooltip-active {
   }
 }
 
-@media #{$extra-small} {
-  .table-apply-action {
-    margin-bottom: 10px;
-  }
+@media (max-width: 800px) {
   .pagination-indicator {
     display: none;
   }
 }
 
 @media #{$extra-small}, #{$small}, #{$medium} {
-  .search-active {
-    .table-top-paginate {
-      margin-top: 20px;
-    }
-  }
   .smart-table-search {
     overflow: hidden;
     .form-control {
