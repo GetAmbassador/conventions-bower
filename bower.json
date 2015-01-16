@@ -1,6 +1,6 @@
 {
   "name": "ambassador-conventions",
-  "version": "0.4.20",
+  "version": "0.4.21",
   "homepage": "http://conventions.getambassador.com",
   "authors": [
     "Ambassador Team"
@@ -29,7 +29,7 @@
     "angles": "*",
     "ng-file-upload": "~1.6.12",
     "ng-file-upload-shim": "~1.6.12",
-    "ngInfiniteScroll": "~1.1.2",
+    "ngInfiniteScroll": "~1.2.0",
     "angular-bootstrap-colorpicker": "~3.0.8",
     "zeroclipboard": "~2.1.6",
     "ng-clip": "~0.2.4",
