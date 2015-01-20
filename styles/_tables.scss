@@ -395,6 +395,8 @@ tooltip-cell span, .tooltip-active {
   padding: 0 15px;
   min-width: 180px;
   display: inline-block;
+  float: left;
+  margin-bottom: 5px;
   .dropdown-menu > li > a {
     cursor: pointer;
   }
@@ -417,6 +419,10 @@ tooltip-cell span, .tooltip-active {
     padding: 0 15px;
     clear: left;
   }
+  .table-top-paginate .dropdown-menu {
+    left: 0;
+    right: inherit;
+  }
 }
 
 @media (max-width: 433px) {
@@ -425,6 +431,14 @@ tooltip-cell span, .tooltip-active {
       float: left !important;
       padding: 0 15px;
       clear: left;
+    }
+  }
+}
+@media (max-width: 514px) {
+  .apply-action-visible {
+    .table-top-paginate .dropdown-menu {
+      left: 0;
+      right: inherit;
     }
   }
 }
