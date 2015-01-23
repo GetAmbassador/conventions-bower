@@ -1,7 +1,41 @@
 //
 // Select (typeahead / dropdown)
 // --------------------------------------------------
+.ambassador-select-list {
+  margin-bottom: 20px;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      line-height: 40px;
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: 14px;
+      overflow: hidden;
+      position: relative;
 
+      .ambassador-group-name {
+        display: block;
+        margin-right: 20px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      a {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 17px;
+        color: #808080;
+        &:hover {
+          color: #626262;
+        }
+      }
+    }
+  }
+}
 .ambassador-typeahead {
   position: relative;
   > input {
