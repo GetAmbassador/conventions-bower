@@ -82,18 +82,12 @@
         background-color: $brand-primary !important;
         color: $white !important;
       }
-      .no-items-to-select {
-        color: $gray-1;
-        cursor: default;
-        padding: 0 12px;
-        a {
-          padding: 0;
-          font-weight: bold;
-          &:hover, &:focus {
-            background: none;
-            color: $gray-1 !important;
-            text-decoration: none;
-          }
+      &.no-items-to-select {
+        span {
+          color: $gray-1;
+          padding: 0 12px;
+          cursor: default;
+          display: block;
         }
       }
     }
