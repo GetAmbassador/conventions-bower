@@ -117,6 +117,11 @@
 // Validated form fields
 // --------------------------------------------------
 ga-form-field {
+  .inner-field-wrapper {
+    padding: 0;
+    margin: 0;
+    float: none;
+  }
   .dropdown-select.disabled {
     cursor: not-allowed;
   }
@@ -129,8 +134,13 @@ ga-form-field {
       display: none;
     }
   }
-  .checkbox-group .input-group-addon.disabled {
-    cursor: not-allowed;
+  .checkbox-group {
+    .input-group-addon, .input-group-addon input, .input-group-addon + label {
+      cursor: pointer;
+    }
+    .input-group-addon.disabled, .input-group-addon.disabled input, .input-group-addon.disabled + label {
+      cursor: not-allowed;
+    }
   }
   .form-control[readonly] {
     cursor: text;
