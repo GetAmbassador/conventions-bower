@@ -147,6 +147,73 @@ ga-form-field {
     color: $gray-1;
     background-color: $white;
   }
+
+  .datepicker-field {
+    .input-group-btn > .btn {
+      height: 42px;
+    }
+    table {
+      outline: 0 !important;
+    }
+    button > i {
+      margin: 0;
+      font-size: 14px !important;
+    }
+    th button {
+      background-color: $bg-primary;
+      border: 1px solid $gray-3;
+    }
+    td button {
+      padding: 0 !important;
+      border: none !important;
+      background: none !important;
+      border-radius: 0 !important;
+      span {
+        display: block !important;
+        padding: 5px 10px !important;
+        background-color: $bg-primary;
+        border: 1px solid $gray-3;
+        border-radius: 3px;
+        &.text-muted {
+          @include opacity(0.65);
+        }
+        &.text-info {
+          color: $blue-light;
+        }
+      }
+      &.active {
+        box-shadow: none;
+        span {
+          color: $white !important;
+          background-color: $blue-light !important;
+          border-color: $blue-light !important;
+        }
+      }
+      &:hover span {
+        color: $white !important;
+        background-color: $blue-light !important;
+        border-color: $blue-light !important;
+      }
+      &:active span {
+        box-shadow: 0 3px 5px darken($blue-light, 10%) inset; 
+      }
+      &[disabled] {
+        background: none !important;
+        border: none !important;
+        span {
+          background: none !important;
+          border: none !important;
+          &.text-muted {
+            @include opacity(1);
+          }
+        }
+      }
+    }
+    .dropdown-menu {
+      padding: 5px;
+      min-width: 260px;
+    }
+  }
 }
 
 //

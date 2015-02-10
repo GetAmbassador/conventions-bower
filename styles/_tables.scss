@@ -308,6 +308,9 @@
 .smart-table-search {
   padding-right: 15px;
   margin-bottom: 5px;
+  max-width: 350px;
+  min-width: 280px;
+  width: 30%;
   .form-control {
     height: 37px;
   }
@@ -406,7 +409,7 @@ tooltip-cell span, .tooltip-active {
   min-width: 310px;
 }
 
-@media (max-width: 384px) {
+@media (max-width: 459px) {
   .external-ordering-visible {
     .smart-table-search, .smart-table-display-per-page {
       float: right !important;
@@ -425,21 +428,26 @@ tooltip-cell span, .tooltip-active {
   }
 }
 
-@media (max-width: 433px) {
+@media (max-width: 508px) {
   .apply-action-visible {
     .smart-table-search, .smart-table-display-per-page {
       float: left !important;
       padding: 0 15px;
       clear: left;
     }
-  }
-}
-@media (max-width: 514px) {
-  .apply-action-visible {
+    .smart-table-search {
+      min-width: 283px;
+    }
     .table-top-paginate .dropdown-menu {
       left: 0;
       right: inherit;
     }
+  }
+}
+
+@media (max-width: 360px) {
+  .smart-table-search {
+    min-width: 100% !important;
   }
 }
 
@@ -608,7 +616,6 @@ tooltip-cell span, .tooltip-active {
   .smart-table-search {
     overflow: hidden;
     .form-control {
-      max-width: 275px;
       float: right;
     }
   }
