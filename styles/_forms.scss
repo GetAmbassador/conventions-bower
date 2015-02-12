@@ -5,11 +5,23 @@
     color: $red !important;
     border-color: $red !important;
   }
+  .input-group-btn .btn {
+    border-color: $red !important;
+    i {
+      color: $red !important;
+    }
+  }
 }
 
 .has-success {
   .dropdown .dropdown-toggle {
     border-color: #3C763D !important;
+  }
+  .input-group-btn .btn {
+    border-color: #3C763D !important;
+    i {
+      color: #3C763D !important;
+    }
   }
 }
 
@@ -103,7 +115,7 @@ input[type="text"], input[type="password"], input[type="email"], select {
 
 .async-loader {
   position: relative;
-  i {
+  i.fa {
     position: absolute;
     right: 12px;
     top: 14px;

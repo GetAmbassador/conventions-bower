@@ -149,6 +149,96 @@ ga-form-field {
   }
 }
 
+.datepicker-field {
+  .input-group-btn > .btn {
+    height: 42px;
+  }
+  table {
+    outline: 0 !important;
+  }
+  button > i {
+    margin: 0;
+    font-size: 14px !important;
+  }
+  th:first-child, th:last-child {
+    button {
+      background-color: $bg-primary;
+      border: 1px solid $gray-3;
+      &:hover {
+        border-color: $blue-light !important;
+        background-color: $blue-light !important;
+        i {
+          color: $white !important;
+        }
+      }
+      &:active {
+        box-shadow: 0 3px 5px darken($blue-light, 10%) inset; 
+        color: $white !important;
+        background-color: $blue-light !important;
+        border-color: $blue-light !important;
+      }
+    }
+  }
+  th:nth-child(2) button, td button {
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    border-radius: 0 !important;
+    span, strong {
+      display: block !important;
+      padding: 5px 10px !important;
+      background-color: $bg-primary;
+      border: 1px solid $gray-3;
+      border-radius: 3px;
+      &.text-muted {
+        @include opacity(0.65);
+      }
+      &.text-info {
+        color: $blue-light;
+      }
+    }
+    &.active {
+      box-shadow: none;
+      span, strong {
+        color: $white !important;
+        background-color: $blue-light !important;
+        border-color: $blue-light !important;
+      }
+    }
+    &:hover {
+      span, strong {
+        color: $white !important;
+        background-color: $blue-light !important;
+        border-color: $blue-light !important;
+      }
+    }
+    &:active {
+      span, strong {
+        box-shadow: 0 3px 5px darken($blue-light, 10%) inset;
+        color: $white !important;
+        background-color: $blue-light !important;
+        border-color: $blue-light !important;
+      }
+    }
+    &[disabled] {
+      background: none !important;
+      border: none !important;
+      span, strong {
+        background: none !important;
+        border: 1px solid transparent !important;
+        color: $btn-default-color !important;
+        &.text-muted {
+          @include opacity(1);
+        }
+      }
+    }
+  }
+  .dropdown-menu {
+    padding: 5px;
+    min-width: 260px;
+  }
+}
+
 //
 // Alert system
 // --------------------------------------------------
