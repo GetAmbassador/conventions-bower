@@ -504,6 +504,18 @@ tooltip-cell span, .tooltip-active {
         }
       }
     }
+    .datepicker-field {
+      position: relative;
+      .dropdown-menu {
+        top: 37px !important;
+      }
+      @media (max-width: 419px) {
+        .dropdown-menu {
+          left: auto !important;
+          right: 0;
+        }
+      }
+    }
     > * {
       max-width: 147px;
     }
@@ -584,15 +596,6 @@ tooltip-cell span, .tooltip-active {
       right: 50px;
       z-index: 10;
       color: $gray;
-    }
-  }
-  .datepicker-input .dropdown-menu {
-    table {
-      margin: 3px 8px;
-      outline: none;
-    }
-    th,td {
-      padding: 1px;
     }
   }
 }
