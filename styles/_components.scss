@@ -243,13 +243,21 @@ ga-form-field {
 // Alert system
 // --------------------------------------------------
 
-.alert-system.page {
-  position: fixed;
-  top: 25px;
-  right: 25px;
-  width: 100%;
-  max-width: 500px;
-  z-index: 50;
+.alert-system {
+  a {
+    color: inherit;
+    cursor: pointer;
+    font-family: $proxima-nova-bold;
+    text-decoration: none;
+  }
+  &.page {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 100%;
+    max-width: 500px;
+    z-index: 50;
+  }
 }
 
 //

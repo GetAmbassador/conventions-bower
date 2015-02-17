@@ -4,7 +4,6 @@
 
 .ga-chart-container {
   position: relative;
-  padding-top: 20px;
   overflow: hidden;
 
   .ga-chart {
@@ -13,12 +12,10 @@
 
   // Line Chart
   .ga-line-legend {
-    position: absolute;
-    top: 0;
-    right: 0;
     list-style: none;
     margin: 0;
     padding: 0;
+    text-align: right;
 
     li {
       font-size: 15px;
