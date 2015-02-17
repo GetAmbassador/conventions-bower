@@ -370,7 +370,8 @@ manage-table-btn {
     margin: 0;
   }
   .dropdown-toggle.btn {
-    padding: 7px 11px 8px;
+    padding: 8px 11px 8px;
+    height: 37px;
   }
 }
 
@@ -405,8 +406,13 @@ tooltip-cell span, .tooltip-active {
   }
 }
 
-.apply-action-visible .smart-table-actions {
-  min-width: 310px;
+.apply-action-visible {
+  .smart-table-actions {
+    min-width: 310px;
+  }
+  &.no-filter-select .smart-table-actions {
+    min-width: 0;
+  }
 }
 
 @media (max-width: 459px) {
@@ -457,12 +463,6 @@ tooltip-cell span, .tooltip-active {
 .table-filtering {
   .filtering-buttons {
     z-index: 10;
-    > .dropdown {
-      > a.btn {
-        padding-top: 7px;
-        padding-bottom: 8px;
-      }
-    }
   }
   .filter-header {
     margin-bottom: 20px;
