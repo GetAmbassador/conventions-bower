@@ -2,7 +2,7 @@
 // Labels
 // --------------------------------------------------
 
-.selected {
+.selected:not(.smart-table-data-row) {
   .label {
     position: relative;
     padding: .2em 1.8em .3em .6em;

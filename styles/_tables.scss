@@ -41,12 +41,20 @@
   overflow-x:auto;
 }
 
-.table-striped > tbody > tr:nth-child(2n), .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+// .table-striped > tbody > tr:nth-child(2n), .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+.table-striped > tbody > tr:nth-child(2n) {
   background-color: $table-bg-accent;
+  th, td {
+    background-color: inherit;
+  }
 }
 
-.table-striped > tbody > tr:nth-child(2n+1), .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+// .table-striped > tbody > tr:nth-child(2n+1), .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+.table-striped > tbody > tr:nth-child(2n+1) {
   background-color: $white;
+  th, td {
+    background-color: inherit;
+  }
 }
 
 .smart-table {
@@ -61,6 +69,10 @@
   .table-image {
     max-width: 100px;
     width: 100%;
+  }
+  .smart-table-header-cell, .smart-table-data-cell {
+    word-wrap: break-word; //Apparently this will be replaced by overflow-wrap
+    overflow-wrap: break-word; //But this is not yet universally recognized
   }
   .smart-table-header-row {
     background-color: $bg-primary;
@@ -300,8 +312,17 @@
     }
   }
   .dropdown-menu {
-    right: 0;
-    left: inherit;
+    @media #{$media-small-plus} {
+      right: 0;
+      left: inherit;
+    }
+    @media #{$media-extra-small} {
+      min-width: 130px;
+      a {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
   }
 }
 
@@ -428,10 +449,6 @@ tooltip-cell span, .tooltip-active {
     padding: 0 15px;
     clear: left;
   }
-  .table-top-paginate .dropdown-menu {
-    left: 0;
-    right: inherit;
-  }
 }
 
 @media (max-width: 508px) {
@@ -443,10 +460,6 @@ tooltip-cell span, .tooltip-active {
     }
     .smart-table-search {
       min-width: 283px;
-    }
-    .table-top-paginate .dropdown-menu {
-      left: 0;
-      right: inherit;
     }
   }
 }
@@ -615,7 +628,7 @@ tooltip-cell span, .tooltip-active {
   }
 }
 
-@media #{$extra-small}, #{$small}, #{$medium} {
+@media #{$media-medium-minus} {
   .smart-table-search {
     overflow: hidden;
     .form-control {
@@ -623,70 +636,69 @@ tooltip-cell span, .tooltip-active {
     }
   }
 
-  .smart-table.pinned-1 {
-    tr td:nth-child(1), tr th:nth-child(1) {
-      position:absolute;
-      z-index: 300;
-      -webkit-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      backface-visibility: hidden;
-      z-index: 5;
+
+  @mixin darken-column($darken-factor, $column:0) {
+    $cell-selector: "";
+    @if $column > 0 {
+      $cell-selector: ":nth-child(#{$column})";
     }
-    tr td:nth-child(1), tr th:nth-child(1) {
-      border-right: 1px solid $table-border-color;
+    > thead > tr > th#{$cell-selector} {
+      $this-cell-color: darken($bg-primary, $darken-factor);
+      background-color: $this-cell-color;
+      .header-group {
+        background-color: $this-cell-color;
+      }
     }
-    tr td:nth-child(2), tr th:nth-child(2) {
-      border-left: none;
-    }
-    tr th:nth-child(1) {
-      line-height:40px;
-      display:block;
+    > tbody > tr {
+      &:nth-child(2n+1) > td#{$cell-selector} {
+        background-color: darken($white, $darken-factor);
+      }
+      &:nth-child(2n) > td#{$cell-selector} {
+        background-color: darken($table-bg-accent, $darken-factor);
+      } 
     }
   }
 
-  .smart-table.pinned-2 {
-    tr td:nth-child(1), tr th:nth-child(1),
-    tr td:nth-child(2), tr th:nth-child(2) {
-      position:absolute;
-      z-index: 300;
-      -webkit-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-    tr td:nth-child(2), tr th:nth-child(2) {
-      border-right: 1px solid $table-border-color;
-    }
-    tr td:nth-child(3), tr th:nth-child(3) {
-      border-left: none;
-    }
-    tr th:nth-child(1),
-    tr th:nth-child(2) {
-      line-height:40px;
-      display:block;
-    }
-  }
+  @for $nPin from 1 through 9 {
+    // Each iteration of this loop create the style for a table with $nPin columns pinned
 
-  .smart-table.pinned-3 {
-    tr td:nth-child(1), tr th:nth-child(1),
-    tr td:nth-child(2), tr th:nth-child(2),
-    tr td:nth-child(3), tr th:nth-child(3) {
-      position:absolute;
-      z-index: 300;
-      -webkit-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-    tr td:nth-child(3), tr th:nth-child(3) {
-      border-right: 1px solid $table-border-color;
-    }
-    tr td:nth-child(4), tr th:nth-child(4) {
-      border-left: none;
-    }
-    tr th:nth-child(1),
-    tr th:nth-child(2),
-    tr th:nth-child(3) {
-      line-height:40px;
-      display:block;
+    .smart-table.pinned-#{$nPin} {
+      @for $column from 1 through $nPin {
+        > thead > tr > th,
+        > tbody > tr > td {
+          &:nth-child(#{$column}) {
+            position:absolute;
+            z-index: 300;
+            -webkit-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+          }
+        }
+
+        > thead > tr > th:nth-child(#{$column}) {
+          line-height: 40px;
+          display:block;
+        }
+      }
+
+      > tbody > tr > td,
+      > thead > tr > th {
+        &:nth-child(#{$nPin}) {
+          // The last (right-most) pinned column
+          border-right: 2px solid darken($table-border-color, 8%);
+        }
+        &:nth-child(#{$nPin + 1}) {
+          // The first (left-most) unpinned column
+          border-left: none;
+        }
+      }
+
+      &.table-striped {
+        @include darken-column(3%);
+        @for $column from 1 through $nPin {
+          @include darken-column(0%, $column);
+        }
+      }
     }
   }
 

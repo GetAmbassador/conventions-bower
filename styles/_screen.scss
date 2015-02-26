@@ -1,4 +1,26 @@
-$extra-small: "(max-width: 767px)";
-$small: "(min-width: 768px) and (max-width: 991px)";
-$medium: "(min-width: 992px) and (max-width: 1199px)";
-$large: "(min-width: 1200px)";
+// Minima of each width category
+$viewport-width-small: 768;
+$viewport-width-medium: 992;
+$viewport-width-large: 1200;
+
+// Maxima of each width category
+$viewport-width-extra-small-max: $viewport-width-small - 1;
+$viewport-width-small-max: $viewport-width-medium - 1;
+$viewport-width-medium-max: $viewport-width-large - 1;
+
+// Strings usable directly after '@media'
+$media-extra-small: "(max-width: #{$viewport-width-extra-small-max}px)";
+$media-small-plus: "(min-width: #{$viewport-width-small}px)";
+$media-small-minus: "(max-width: #{$viewport-width-small-max}px)";
+$media-small: "#{$media-small-plus} and #{$media-small-minus}";
+$media-medium-plus: "(min-width: #{$viewport-width-medium}px)";
+$media-medium-minus: "(max-width: #{$viewport-width-medium-max}px)";
+$media-medium: "#{$media-medium-plus} and #{$media-medium-minus}";
+$media-large: "(min-width: #{$viewport-width-large}px)";
+
+// Legacy media shortcuts.  
+// I think we should eventually phase these out in favor of the above
+$extra-small: $media-extra-small;
+$small: $media-small;
+$medium: $media-medium;
+$large: $media-large;
