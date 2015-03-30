@@ -126,13 +126,14 @@
     border-bottom: none;
     color: $blue-light;
     font-size: 14px;
-    padding: 10px;
+    padding: 0 10px;
     vertical-align: middle;
     cursor: pointer;
     border-left: 1px solid $table-border-color;
+    white-space: nowrap;
     &.in-group {
       vertical-align: top;
-      padding: 32px 0 0!important;
+      padding: 32px 10px 0!important;
     }
   }
   .smart-table-header-cell.smart-table-disabled-sort {
@@ -682,8 +683,18 @@ tooltip-cell span, .tooltip-active {
         }
 
         > thead > tr > th:nth-child(#{$column}) {
-          line-height: 40px;
-          display:block;
+          white-space: normal;
+          line-height: initial;
+          display: -webkit-box;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -moz-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
         }
       }
 
