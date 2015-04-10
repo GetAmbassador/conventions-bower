@@ -115,9 +115,15 @@ input[type="text"], input[type="password"], input[type="email"], select {
 
 .async-loader {
   position: relative;
+  .inner-field-loading {
+    input {
+      padding-right: 35px;
+    }
+  }
   i.fa {
     position: absolute;
     right: 12px;
-    top: 14px;
+    top: 13px;
+    padding-top: 1px; // padding top fixes the async spinner axis
   }
 }
