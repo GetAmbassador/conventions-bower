@@ -1,0 +1,132 @@
+//
+// Alerts
+// --------------------------------------------------
+
+// Base styles
+// -------------------------
+
+.alert {
+  background: $white;
+  border: 1px solid $table-border-color;
+  border-radius: 0;
+  box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.05);
+  color: $black;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  overflow: hidden;
+  i {
+    font-size: 18px;
+    margin: 2px 20px 0 0;
+  }
+  &.alert-success i {
+    color: $alert-success;
+  }
+  &.alert-danger i {
+    color: $alert-danger;
+  }
+  &.alert-info i {
+    color: $alert-info;
+  }
+  &.alert-warning i {
+    color: $alert-warning;
+  }
+  > div {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    align-items: flex-start;
+  }
+  &.alert-dismissable {
+    padding-right: 35px;
+    .close {
+      top: 1px;
+      outline: 0;
+    }
+  }
+}
+
+
+// Alert system
+// --------------------------------------------------
+
+.alert-system {
+  a {
+    color: inherit;
+    cursor: pointer;
+    font-family: $proxima-nova-bold;
+    text-decoration: none;
+  }
+  &.page {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 100%;
+    max-width: 500px;
+    z-index: 99999;
+    .alert {
+      position: relative;
+      box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.05), 0 0 27px 0px rgba(89, 89, 89, 0.13);
+      
+      &.ng-enter,
+      &.ng-leave {
+        @include animation-duration(0.75s);
+        @include animation-fill-mode(both);
+      }
+
+      &.ng-enter,
+      &.ng-leave.ng-leave-active {
+        @include animation-name(slideOutRight);
+      }
+
+      &.ng-leave,
+      &.ng-enter.ng-enter-active {
+        @include animation-name(slideInRight);
+      }
+    }
+  }
+  @media (max-width: 550px) {
+    &.page {
+      top: 15px;
+      right: 0;
+      padding: 0 15px;
+      max-width: 550px;
+    }
+  }
+}
+
+// Alert animations
+// --------------------------------------------------
+
+@keyframes slideInRight {
+  0% {
+    @include opacity(0);
+    @include translate3d(3000px, 0, 0);
+  }
+
+  80% {
+    @include opacity(1);
+    @include translate3d(-25px, 0, 0);
+  }
+
+  100% {
+    @include translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideOutRight {
+  20% {
+    @include opacity(1);
+    @include translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    @include opacity(0);
+    @include translate3d(2000px, 0, 0);
+  }
+}

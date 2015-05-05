@@ -29,19 +29,24 @@ $vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
 }
 
 // Button variants
-@mixin button-variant($color, $background, $border) {
+// (msby prefix because bootstrap comes with a 'button-variant' mixin)
+@mixin mbsy-button-variant($color, $background, $border, $invert: false) {
   color: $color;
   background-color: $background;
   border-color: $border;
+
+  $hover-fg: if($invert, $background, $color);
+  $hover-bg: if($invert, $color, darken($background, 12%));
+  $hover-border: if($invert, $border, darken($border, 12%));
 
   &:hover,
   &:focus,
   &:active,
   &.active,
   .open .dropdown-toggle {
-    color: $color;
-    background-color: darken($background, 12%);
-    border-color: darken($border, 12%);
+    color: $hover-fg;
+    background-color: $hover-bg;
+    border-color: $hover-border;
   }
   &:active,
   &.active,
@@ -71,9 +76,9 @@ $vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
 
   // Custom classes for clipboard button pseudo actions
   &.zeroclipboard-is-hover, &.zeroclipboard-is-active, &.zeroclipboard-is-hover:focus, .zeroclipboard-is-active:focus {
-    color: $color;
-    background-color: darken($background, 12%);
-    border-color: darken($border, 12%);
+    color: $hover-fg;
+    background-color: $hover-bg;
+    border-color: $hover-border;
   }
 
   // Ambassador icon font has a different line-height
@@ -99,6 +104,22 @@ $vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
   i.fa-caret-down {
     margin-right: 0;
     margin-left: 5px;
+  }
+
+  .outset & {
+    box-shadow: 0 3px 0 darken(mix($border, $background, 10%), 20%);
+    &:hover {
+      box-shadow: 0 3px 0 $hover-border;
+    }
+  }
+
+  .uppercase & {
+    text-transform: uppercase;
+  }
+
+  .boldface & {
+    font-family: $proxima-nova-bold;
+    border-width: 2px;
   }
 }
 
@@ -154,4 +175,21 @@ $vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
   text-align: center;
   vertical-align: baseline;
   white-space: nowrap;
+}
+
+
+
+@mixin input-placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
 }

@@ -625,7 +625,7 @@ tooltip-cell span, .tooltip-active {
 // --------------------------------------------------
 @media #{$large} {
   .smart-table {
-    margin-left: 0 !important;
+    margin-left: 0;
   }
 }
 
@@ -635,7 +635,7 @@ tooltip-cell span, .tooltip-active {
   }
 }
 
-@media #{$media-medium-minus} {
+.smart-table-container.table-pinning-active {
   .smart-table-search {
     overflow: hidden;
     .form-control {
@@ -702,7 +702,8 @@ tooltip-cell span, .tooltip-active {
       > thead > tr > th {
         &:nth-child(#{$nPin}) {
           // The last (right-most) pinned column
-          border-right: 2px solid darken($table-border-color, 8%);
+          //border-right: 2px solid darken($table-border-color, 8%);
+          box-shadow: 2px 0 0 darken($table-border-color, 8%);
         }
         &:nth-child(#{$nPin + 1}) {
           // The first (left-most) unpinned column
