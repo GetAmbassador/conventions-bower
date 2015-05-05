@@ -49,6 +49,10 @@
       @include opacity(1);
     }
   }
+  > ul {
+    max-height: 272px;
+    overflow: auto;
+  }
   .dropdown .dropdown-toggle {
     padding-right: 25px;
     overflow: hidden;
@@ -65,6 +69,8 @@
   }
   .dropdown-menu {
     max-width: 100%;
+    max-height: 272px;
+    overflow: auto;
     > li > a {
       cursor: pointer;
       overflow: hidden;
@@ -250,27 +256,6 @@ ga-form-field {
   .dropdown-menu {
     padding: 5px;
     min-width: 260px;
-  }
-}
-
-//
-// Alert system
-// --------------------------------------------------
-
-.alert-system {
-  a {
-    color: inherit;
-    cursor: pointer;
-    font-family: $proxima-nova-bold;
-    text-decoration: none;
-  }
-  &.page {
-    position: fixed;
-    top: 25px;
-    right: 25px;
-    width: 100%;
-    max-width: 500px;
-    z-index: 50;
   }
 }
 
@@ -879,4 +864,19 @@ ga-activity-feed {
 }
 .slider-handle.triangle {
   background: transparent none;
+}
+
+//
+// Dynamic Tooltip
+// --------------------------------------------------
+
+[ga-dynamic-tooltip] {
+  > div[ng-transclude] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  > .tooltip {
+    white-space: normal;
+  }
 }

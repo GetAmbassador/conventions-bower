@@ -3,28 +3,42 @@
 // --------------------------------------------------
 
 .modal-header{
-  background-color: $bg-primary;
-  padding: 15px 30px;
-  h3 {
-    margin-top: 15px;
-  }
-  .close {
-    margin-top: 15px;
+  background-color: $white;
+  padding: 15px 15px 13px;
+  text-align: center;
+  h2, h3 {
+    font-size: 18px;
+    margin: 0;
+    text-transform: none;
+    font-family: $proxima-nova-bold;
   }
 }
 
 .modal-content{
-  border-radius: 0px;
+  overflow: hidden;
+  @include gradient-vertical(#eef5f7, #ffffff, 0%, 100%);
+  .modal-primary-text {
+    color: #2c2b2b;
+    font-family: $proxima-nova-thin;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px auto;
+  }
 }
 
 .modal-footer {
-  padding: 15px 30px;
+  padding: 15px;
+  border-top: none;
+  text-align: center;
   .button-wrapper {
     display: inline-block;
-    margin-left: 5px;
     button {
       width: 100%;
     }
+  }
+  ga-button {
+    display: inline-block;
+    margin: 0 12px 35px;
   }
   .row .button-wrapper {
     margin-left: 0;
@@ -40,6 +54,48 @@
   background-color: $brand-danger;
   color: $white;
   vertical-align: middle;
+}
+
+.modal-info {
+  border-bottom: 1px solid #f0eded;
+  margin: -15px 0 20px -15px;
+  padding: 20px 15px;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  @include vendorize(box-sizing, content-box);
+  > .modal-info-icon {
+    padding-left: 15px;
+    max-width: 45px;
+    text-align: center;
+    width: 100%;
+    i {
+      font-size: 34px;
+    }
+    + div {
+      padding: 0 15px 0 10px;
+    }
+  }
+
+  &.modal-info-danger {
+    background: #ffeaea;
+    color: #684a4a;
+  }
+  &.modal-info-info {
+    background: #d8edf7;
+    color: #2c576b;
+  }
+  &.modal-info-warning {
+    background: #fcf8e3;
+    color: #715427;
+  }
+  &.modal-info-success {
+    background: #dff1d8;
+    color: #355f25;
+  }
 }
 
 @media #{$extra-small} {

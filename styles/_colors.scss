@@ -2,10 +2,43 @@
 // Colors
 // --------------------------------------------------
 
+$white: #fff;
+$black: #000;
+
+
+// New 2015 colors, brought to you by Maciej
+$mbsy-blue: #2f95d8;
+$mbsy-navy: #243141;
+$mbsy-blue2: #2586c7;
+$mbsy-orange: #ff9600;
+$mbsy-darkorange: #d27c00;
+$mbsy-darkred: #9a0907;
+$mbsy-lightgray: #c3c3c3;
+$mbsy-semilightgray: #ababab;
+$mbsy-gray: #9ea0a1;
+$mbsy-darkgray: #717171;
+$mbsy-dark: #243142;
+$mbsy-mist: #e1e1e1;
+$mbsy-fog: #b0b0b0;
+$mbsy-haze: #cfcfcf;
+$mbsy-pastel-red: #e3474d;
+
+// Define where the colors are used
+$clr-required-splat: $mbsy-pastel-red;
+$clr-input-label: $mbsy-dark;
+$clr-input-placeholder: $mbsy-fog;
+$clr-input-text: $mbsy-fog;
+$clr-input-border: $mbsy-mist;
+$clr-dropdown-caret: $mbsy-haze;
+$clr-selected-item: $mbsy-blue2;
+
+//===================================================
+
+
 // Background
 $bg-primary: #ECF0F0;
 $bg-secondary: #959AA7;
-$bg-tertiary: #FFF;
+$bg-tertiary: $white;
 
 // Primary $ secondary colors
 $blue-darker: #1E2935;
@@ -43,8 +76,6 @@ $red-ga-light: #DC1F26;
 $red-google: #E54C3B;
 $red-pinterest: $red;
 
-$white: $bg-tertiary;
-
 $link-color: $blue-light;
 
 $btn-default-color: #666666;
@@ -54,3 +85,9 @@ $btn-default-bg: #EEF2F4;
 // Smart table colors
 $table-font-color: $gray-darker;
 $table-border-color: #dedddd;
+
+// Alert colors
+$alert-success: #3db93a;
+$alert-danger: #c50315;
+$alert-info: #3383b8;
+$alert-warning: #fbb234;

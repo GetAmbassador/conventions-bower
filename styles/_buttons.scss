@@ -3,24 +3,67 @@
 // --------------------------------------------------
 
 .btn-primary {
-  @include button-variant($white, $blue-light, $blue-light);
+  @include mbsy-button-variant($white, $blue-light, $blue-light);
 }
 
 .btn-default {
-  @include button-variant($btn-default-color, $btn-default-bg, $gray);
+  @include mbsy-button-variant($btn-default-color, $btn-default-bg, $gray);
 }
 
 .btn-gray {
-  @include button-variant($white, $bg-secondary, $bg-secondary);
+  @include mbsy-button-variant($white, $bg-secondary, $bg-secondary);
 }
 
 .btn-danger {
-  @include button-variant($white, $orange-dark, $orange-dark);
+  @include mbsy-button-variant($white, $orange-dark, $orange-dark);
+}
+
+.btn-orange {
+  @include mbsy-button-variant($white, $mbsy-orange, $mbsy-orange);
+}
+
+.btn-darkred {
+  @include mbsy-button-variant($white, $mbsy-darkred, $mbsy-darkred);
+}
+
+.btn-darkorange {
+  @include mbsy-button-variant($white, $mbsy-darkorange, $mbsy-darkorange);
+}
+
+.btn-mutegray {
+  @include mbsy-button-variant($mbsy-darkgray, $mbsy-lightgray, $mbsy-lightgray);
+}
+
+.btn--gray {
+  @include mbsy-button-variant($mbsy-semilightgray, $white, $mbsy-semilightgray, true);
+}
+
+.btn--blue {
+  @include mbsy-button-variant($mbsy-blue, $white, $mbsy-blue, true);
+}
+
+.btn-blue {
+  @include mbsy-button-variant($white, $mbsy-blue, $mbsy-blue);
+}
+
+.btn-blue-on-blue {
+  $bg: $mbsy-navy;
+  $fg: $mbsy-blue;
+  @include mbsy-button-variant($fg, $bg, $fg);
+  &:hover, &:focus, &:active, &.active, .open .dropdown-toggle {
+    color: $white;
+    background-color: $bg;
+    border-color: $fg;
+  }
 }
 
 .btn-lg {
   height: 60px;
   @include button-size(6px, 80px, 14px, 20px, 4px);
+}
+
+.btn-ml {
+  @include button-size(10px, 20px, 16px, 1.44, 4px);
 }
 
 ga-button {
