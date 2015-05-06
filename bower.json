@@ -1,6 +1,6 @@
 {
   "name": "ambassador-conventions",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "homepage": "http://conventions.getambassador.com",
   "authors": [
     "Ambassador Team"
@@ -21,7 +21,7 @@
     "angular-sanitize": "1.2.16",
     "angular-touch": "1.2.16",
     "angular-route": "1.2.16",
-    "fontawesome": "~4.1.0",
+    "fontawesome": "~4.3.0",
     "angular-bootstrap": "~0.11.0",
     "restangular": "~1.4.0",
     "angular-scroll": "~0.6.1",
