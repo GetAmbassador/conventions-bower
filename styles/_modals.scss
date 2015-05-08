@@ -6,16 +6,17 @@
   background-color: $white;
   padding: 15px 15px 13px;
   text-align: center;
+  border-radius: 6px 6px 0 0;
   h2, h3 {
     font-size: 18px;
     margin: 0;
     text-transform: none;
     font-family: $proxima-nova-bold;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
 .modal-content{
-  overflow: hidden;
   @include gradient-vertical(#eef5f7, #ffffff, 0%, 100%);
   .modal-primary-text {
     color: #2c2b2b;
