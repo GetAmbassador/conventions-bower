@@ -167,6 +167,9 @@ ga-form-field {
     color: $gray-1;
     background-color: $white;
   }
+  textarea.form-control {
+    max-width: 100%;
+  }
 }
 
 .datepicker-field {
@@ -748,6 +751,185 @@ ga-activity-feed {
     color: #000;
     background: #eeeeee;
     box-shadow: 1px 1px 5px darken(#eeeeee, 25%) inset;
+  }
+
+  &[appearance]:not([appearance="snippet"]) {
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    min-width: 60px;
+    .switch-animate {
+      height: 30px;
+      @include transition(0.5s, ease);
+      &.switch-off {
+        background-color: #efefef;
+        .knob:before {
+          left: 0;
+          background-color: #969696;
+          @include translate(6px, 0);
+        }
+      }
+      &.switch-on {
+        background-color: $blue-light;
+        .knob:before {
+          left: 100%;
+          @include box-shadow(3px 4px 5px 0px rgba(0, 0, 0, 0.15) inset);
+          @include translate(-24px, 0);
+        }
+      }
+    }
+    &.switch-primary .switch-animate.switch-on {
+      background-color: $blue-light;
+    }
+    &.switch-info .switch-animate.switch-on {
+      background-color: #5bc0de;
+    }
+    &.switch-success .switch-animate.switch-on {
+      background-color: #5cb85c;
+    }
+    &.switch-warning .switch-animate.switch-on {
+      background-color: #f0ad4e;
+    }
+    &.switch-danger .switch-animate.switch-on {
+      background-color: #d9534f;
+    }
+    &.switch-default .switch-animate.switch-on {
+      background-color: #eeeeee;
+    }
+    span {
+      height: 30px;
+      &.knob {
+        position: relative;
+        padding: 0;
+        border: none;
+        background: none;
+        text-indent: -9999px;
+        &:before {
+          content: "";
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          background-color: $white;
+          top: 6px;
+          left: 0;
+          border-radius: 50%;
+          @include transition(0.5s, ease);
+        }
+      }
+      &.switch-left, &.switch-right {
+        background: none;
+        line-height: 30px;
+        text-align: center;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        @include box-shadow(none);
+      }
+      &.switch-left {
+        padding-left: 10px;
+        font-size: 9px;
+        font-family: $proxima-nova-bold;
+      }
+      &.switch-right {
+        padding-right: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+  &[appearance="snippet"] {
+    $toggle-bg: #10477b;
+    $knob-bg: #2f70af;
+    height: 13px;
+    border-radius: 7px;
+    border: none;
+    min-width: 30px;
+    overflow: visible;
+    .switch-animate {
+      height: 13px;
+      width: 100%;
+      border-radius: 7px;
+      background-color: $toggle-bg;
+      left: 0;
+      @include transition(0.5s, ease);
+      &.switch-off {
+        .knob {
+          left: 0;
+          &:before {
+            left: -1px;
+            background-color: $knob-bg;
+          }
+        }
+      }
+      &.switch-on {
+        .knob{
+          left: 100%;
+          &:before {
+            left: -14px;
+          }
+        }
+      }
+    }
+    &.switch-primary .switch-animate {
+      background-color: $toggle-bg;
+      &.switch-off .knob:before {
+        background-color: $knob-bg;
+      }
+    }
+    &.switch-info .switch-animate {
+      background-color: #5bc0de;
+      &.switch-off .knob:before {
+        background-color: darken(#5bc0de, 10%);
+      }
+    }
+    &.switch-success .switch-animate {
+      background-color: #5cb85c;
+      &.switch-off .knob:before {
+        background-color: darken(#5cb85c, 10%);
+      }
+    }
+    &.switch-warning .switch-animate {
+      background-color: #f0ad4e;
+      &.switch-off .knob:before {
+        background-color: darken(#f0ad4e, 10%);
+      }
+    }
+    &.switch-danger .switch-animate {
+      background-color: #d9534f;
+      &.switch-off .knob:before {
+        background-color: darken(#d9534f, 10%);
+      }
+    }
+    &.switch-default .switch-animate {
+      background-color: #eeeeee;
+      &.switch-off .knob:before {
+        background-color: darken(#eeeeee, 10%);
+      }
+    }
+    span {
+      height: 13px;
+      &.knob {
+        position: relative;
+        padding: 0;
+        border: none;
+        background: none;
+        width: 15px;
+        text-indent: -9999px;
+        @include transition(0.5s, ease);
+        &:before {
+          content: "";
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          background-color: $white;
+          top: -1px;
+          border-radius: 50%;
+          @include box-shadow(3px 4px 5px 0px rgba(0, 0, 0, 0.15) inset);
+          @include transition(0.5s, ease);
+        }
+      }
+      &.switch-left, &.switch-right {
+        display: none;
+      }
+    }
   }
 }
 
