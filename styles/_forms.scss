@@ -219,6 +219,7 @@ ga-select[new-look] {
         -webkit-font-smoothing: antialiased;
         color: $clr-input-text !important;
         padding: 1px 12px !important;
+        height: 24px;
       }
       &.active {
         a {
@@ -292,6 +293,7 @@ ga-form-field[appearance]:not([appearance="snippet"]) {
           -webkit-font-smoothing: antialiased;
           color: $clr-input-text !important;
           padding: 1px 12px !important;
+          height: 24px;
           &:hover, &:focus {
             background-color: $brand-primary !important;
             color: $white !important;
@@ -538,6 +540,7 @@ ga-form-field[appearance="snippet"] {
           font-family: $proxima-nova;
           color: $dropdown-item-color !important;
           padding: 1px 12px !important;
+          height: 24px;
           &:hover, &:focus {
             background-color: $snippet-blue !important;
             color: $white !important;

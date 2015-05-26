@@ -1,6 +1,7 @@
 $ga-font-folder: '../ambassador/fonts' !default;
 
 @font-face{font-family:'proxima_nova_rgbold';src:url('#{$ga-font-folder}/proxima-nova/proximanova-bold-webfont.eot');src:url('#{$ga-font-folder}/proxima-nova/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),url('#{$ga-font-folder}/proxima-nova/proximanova-bold-webfont.woff') format('woff'),url('#{$ga-font-folder}/proxima-nova/proximanova-bold-webfont.ttf') format('truetype'),url('#{$ga-font-folder}/proxima-nova/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');font-weight:normal;font-style:normal}
+@font-face{font-family:'proxima_novasemibold';src:url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.eot');src:url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.woff2') format('woff2'),url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.woff') format('woff'),url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.ttf') format('truetype'),url('#{$ga-font-folder}/proxima-nova/proximanova-semibold-webfont.svg#proxima_novasemibold') format('svg');font-weight:normal;font-style:normal;}
 @font-face{font-family:'proxima_novalight';src:url('#{$ga-font-folder}/proxima-nova/proximanova-light-webfont.eot');src:url('#{$ga-font-folder}/proxima-nova/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),url('#{$ga-font-folder}/proxima-nova/proximanova-light-webfont.woff') format('woff'),url('#{$ga-font-folder}/proxima-nova/proximanova-light-webfont.ttf') format('truetype'),url('#{$ga-font-folder}/proxima-nova/proximanova-light-webfont.svg#proxima_novalight') format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'proxima_nova_rgregular';src:url('#{$ga-font-folder}/proxima-nova/proximanova-regular-webfont.eot');src:url('#{$ga-font-folder}/proxima-nova/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),url('#{$ga-font-folder}/proxima-nova/proximanova-regular-webfont.woff') format('woff'),url('#{$ga-font-folder}/proxima-nova/proximanova-regular-webfont.ttf') format('truetype'),url('#{$ga-font-folder}/proxima-nova/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'proxima_novaregular_italic';src:url('#{$ga-font-folder}/proxima-nova/proximanova-regularitalic-webfont.eot');src:url('#{$ga-font-folder}/proxima-nova/proximanova-regularitalic-webfont.eot?#iefix') format('embedded-opentype'),url('#{$ga-font-folder}/proxima-nova/proximanova-regularitalic-webfont.woff') format('woff'),url('#{$ga-font-folder}/proxima-nova/proximanova-regularitalic-webfont.ttf') format('truetype'),url('#{$ga-font-folder}/proxima-nova/proximanova-regularitalic-webfont.svg#proxima_novaregular_italic') format('svg');font-weight:normal;font-style:normal}
@@ -14,6 +15,7 @@ $ga-font-folder: '../ambassador/fonts' !default;
 // Proxima Nova
 $proxima-nova: "proxima_nova_rgregular";
 $proxima-nova-bold: "proxima_nova_rgbold";
+$proxima-nova-semibold: "proxima_novasemibold";
 $proxima-nova-light: "proxima_novalight";
 $proxima-nova-italic: "proxima_novaregular_italic";
 $proxima-nova-thin: "proxima_nova_thinthin";
@@ -27,6 +29,7 @@ $proxima-nova-condensed-thin: "proxima_nova_cn_ththin";
 
 .proxima-nova { font-family: $proxima-nova; }
 .proxima-nova-bold { font-family: $proxima-nova-bold; }
+.proxima-nova-semibold { font-family: $proxima-nova-semibold; }
 .proxima-nova-thin { font-family: $proxima-nova-thin; }
 .proxima-nova-light { font-family: $proxima-nova-light; }
 .proxima-nova-italic { font-family: $proxima-nova-italic; }
