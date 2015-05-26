@@ -66,6 +66,10 @@ $vendors: 'webkit', 'moz', 'ms'; // 'webkit', 'moz', 'ms', 'o', 'khtml';
     }
   }
 
+  .btn-spinner .spinner > div > div {
+    background-color: $color !important;
+  }
+
   // Disable hover for clipboard buttons
   &.btn-clipboard {
     &:hover, &:active, &:focus {
