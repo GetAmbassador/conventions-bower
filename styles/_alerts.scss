@@ -69,24 +69,17 @@
     width: 100%;
     max-width: 500px;
     z-index: 99999;
-    .alert {
+    &:not([appearance="snippet"]) .alert {
       position: relative;
       box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.05), 0 0 27px 0px rgba(89, 89, 89, 0.13);
-      
-      &.ng-enter,
-      &.ng-leave {
-        @include animation-duration(0.75s);
-        @include animation-fill-mode(both);
-      }
+      max-height: 500px;
+      overflow: hidden;
+      @include animation-duration(0.75s);
+      @include animation-fill-mode(forwards);
+      @include animation-name(slideInRight);
 
-      &.ng-enter,
       &.ng-leave.ng-leave-active {
         @include animation-name(slideOutRight);
-      }
-
-      &.ng-leave,
-      &.ng-enter.ng-enter-active {
-        @include animation-name(slideInRight);
       }
     }
   }
@@ -125,8 +118,148 @@
     @include translate3d(-20px, 0, 0);
   }
 
+  50% {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto;
+    margin-bottom: 20px;
+    max-height: 500px;
+  }
+
   100% {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+    margin-bottom: 0;
+    max-height: 0;
     @include opacity(0);
     @include translate3d(2000px, 0, 0);
+  }
+}
+
+@keyframes slideInTop {
+  0% {
+    padding-top: 35px;
+    z-index: 0;
+    @include opacity(0);
+    @include translate3d(0, -1000px, 0);
+  }
+
+  80% {
+    padding-top: 35px;
+    z-index: 0;
+    @include opacity(1);
+    @include translate3d(0, 0, 0);
+  }
+
+  100% {
+    padding-top: 10px;
+    z-index: 10;
+    @include translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideOutTop {
+  0% {
+    padding-top: 10px;
+    z-index: 0;
+  }
+  30% {
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
+  100% {
+    z-index: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 0;
+  }
+}
+
+.alert-system.page[appearance="snippet"] {
+  max-width: none;
+  right: 0;
+  top: 0;
+  padding: 0 !important;
+  .alert {
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+    max-height: 500px;
+    overflow: hidden;
+    position: relative;
+    font-family: $proxima-nova-semibold;
+    padding-left: 23px;
+    padding-right: 65px;
+    @include animation-duration(0.75s);
+    @include animation-fill-mode(forwards);
+    @include animation-name(slideInTop);
+
+    &.ng-leave.ng-leave-active {
+      @include animation-duration(0.25s);
+      @include animation-name(slideOutTop);
+    }
+    
+    button.close {
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      border: 2px solid;
+      display: block;
+      line-height: 26px;
+      color: #e8e9ea;
+      position: absolute;
+      top: 20px;
+      right: 23px;
+      -webkit-font-smoothing: initial;
+      @include opacity(1);
+      &:hover {
+        @include opacity(1);
+      }
+    }
+    &.alert-success {
+      color: #6faf76;
+      i, button.close:hover > span {
+        color: #6faf76;
+      }
+    }
+    &.alert-danger {
+      color: #c71c1c;
+      i, button.close:hover > span {
+        color: #c71c1c;
+      }
+    }
+    &.alert-warning {
+      color: #ffa53b;
+      i, button.close:hover > span {
+        color: #ffa53b;
+      }
+    }
+    &.alert-info {
+      color: #3178b7;
+      i, button.close:hover > span {
+        color: #3178b7;
+      }
+    }
+
+    > div {
+      padding: 6px 0;
+      > div {
+        padding: 7px 0;
+      }
+    }
+
+    i {
+      font-size: 26px;
+      width: 26px;
+      min-width: 26px;
+      text-align: center;
+      margin-right: 15px;
+    }
+    @media #{$extra-small} {
+      i {
+        margin-right: 10px;
+      }
+    }
   }
 }
