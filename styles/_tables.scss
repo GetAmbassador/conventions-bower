@@ -1,23 +1,6 @@
-// Sorting indicators
-.sort-ascent:before {
-  content: "\25b2";
-  position: relative;
-  left: -3px;
-  font-size: 10px;
-}
 
-.sort-descent:before {
-  content: "\25bc";
-  position: relative;
-  left: -3px;
-  font-size: 10px;
-}
 // Out wrapper for to relative position pinned cols.
 .smart-table-outer-wrapper {
-  position:relative;
-}
-
-.smart-table-container {
   position:relative;
 }
 
@@ -41,7 +24,6 @@
   overflow-x:auto;
 }
 
-// .table-striped > tbody > tr:nth-child(2n), .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
 .table-striped > tbody > tr:nth-child(2n) {
   background-color: $table-bg-accent;
   th, td {
@@ -49,7 +31,6 @@
   }
 }
 
-// .table-striped > tbody > tr:nth-child(2n+1), .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
 .table-striped > tbody > tr:nth-child(2n+1) {
   background-color: $white;
   th, td {
@@ -265,13 +246,61 @@
 }
 
 .table-apply-action-container {
+  $border-color: #e1e1e1;
+  $color: #1b252f;
+  $hover-bg: #f7f7f7;
   float: left;
   margin-right: 15px;
-
-  .table-apply-action {
-    .btn {
-      padding-top: 7px;
-      padding-bottom: 8px;
+  .dropdown-toggle {
+    border: 2px solid $border-color !important;
+    border-radius: 2px;
+    box-shadow: none;
+    color: $color !important;
+    font-family: $proxima-nova;
+    font-weight: normal;
+    background: $white !important;
+    &.btn .caret {
+      margin-left: 5px;
+      position: relative;
+      right: 0;
+      top: -1px;
+      @include transition(0.25s ease);
+    }
+  }
+  .dropdown.open {
+    .dropdown-toggle.btn .caret {
+      @include rotate(180deg);
+    }
+  }
+  .dropdown-menu {
+    min-width: 100%;
+    @include box-shadow(none);
+    border: 2px solid $border-color;
+    border-radius: 2px;
+    > li {
+      a {
+        font-size: 15px;
+        font-family: $proxima-nova;
+        font-weight: normal;
+        color: $color !important;
+        padding: 1px 12px !important;
+        height: 24px;
+        &:hover {
+          background-color: $hover-bg;
+          color: $color !important;
+        }
+        > i {
+          margin-right: 5px;
+          position: relative;
+          top: -1px;
+        }
+      }
+      &.active {
+        a {
+          background-color: $hover-bg;
+          color: $color !important;
+        }
+      }
     }
   }
 }
@@ -289,10 +318,13 @@
 
 // Top right section of table
 // Has pagination plus page size
-.table-top-paginate {
-  float: right;
+.smart-table-display-per-page {
+  margin: 20px 0;
   .pagination-indicator {
-    padding: 9px 5px 5px 0;
+    padding: 5px 0;
+    font-size: 14px;
+    font-family: $proxima-nova-semibold;
+    color: #1b252f;
   }
   .pagination {
     margin: 0;
@@ -302,28 +334,27 @@
   }
   .dropdown {
     margin-right: 5px;
-    .btn-gray {
-      height: 37px;
-      line-height: 26px;
-      text-indent: -2px;
-      width: 28px;
+    .btn {
+      height: 22px;
+      line-height: 18px;
+      padding: 6px;
+      width: 22px;
+      background: none !important;
+      box-shadow: none !important;
+      vertical-align: baseline;
       i {
-        margin: 0;
+        color: #1b252f;
+        display: block;
       }
     }
   }
   .dropdown-menu {
-    @media #{$media-small-plus} {
-      right: 0;
-      left: inherit;
-    }
-    @media #{$media-extra-small} {
-      min-width: 130px;
-      a {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-    }
+    border: 2px solid #e1e1e1;
+    border-radius: 2px;
+    box-shadow: none;
+    left: 5px;
+    top: 5px;
+    transform: translate(0px, -100%);
   }
 }
 
@@ -333,20 +364,19 @@
   max-width: 350px;
   min-width: 280px;
   width: 30%;
-  .form-control {
+  ga-form-field .form-group .form-control {
     height: 37px;
+    color: #1b252f !important;
+    font-family: $proxima-nova !important;
+    @include input-placeholder {
+      font-family: $proxima-nova !important;
+    }
   }
-}
-.smart-table-display-per-page {
-  padding-right: 15px;
-}
-
-.smart-table-container {
-  .pagination {
-    > li > a {
-      cursor: pointer;
-      height: 37px;
-      line-height: 25px;
+  .form-group {
+    overflow: hidden;
+    margin-bottom: 0;
+    .help-block {
+      display: none;
     }
   }
 }
@@ -447,7 +477,7 @@ tooltip-cell span, .tooltip-active {
   }
   .smart-table-search, .smart-table-display-per-page {
     float: left !important;
-    padding: 0 15px;
+    padding: 0 15px 0 0;
     clear: left;
   }
 }
@@ -460,7 +490,7 @@ tooltip-cell span, .tooltip-active {
       clear: left;
     }
     .smart-table-search {
-      min-width: 283px;
+      min-width: 286px;
     }
   }
 }
@@ -475,8 +505,59 @@ tooltip-cell span, .tooltip-active {
   float: left;
 }
 .table-filtering {
+  $border-color: #e1e1e1;
+  $color: #1b252f;
+  $hover-bg: #f7f7f7;
   .filtering-buttons {
     z-index: 10;
+    .dropdown {
+      .dropdown-toggle {
+        border: 2px solid $border-color !important;
+        border-radius: 2px;
+        box-shadow: none;
+        color: $color !important;
+        font-family: $proxima-nova;
+        font-weight: normal;
+        background: $white !important;
+        &.btn .caret {
+          margin: 0 0 0 5px;
+          position: relative;
+          right: 0;
+          top: -1px;
+          color: $color;
+          @include transition(0.25s ease);
+        }
+      }
+      &.open .dropdown-toggle.btn .caret {
+        @include rotate(180deg);
+      }
+    }
+    .dropdown-menu {
+      min-width: 100%;
+      @include box-shadow(none);
+      border: 2px solid $border-color;
+      border-radius: 2px;
+      > li {
+        a {
+          font-size: 15px;
+          font-family: $proxima-nova;
+          font-weight: normal;
+          color: $color !important;
+          padding: 1px 12px !important;
+          height: 24px;
+          &:hover {
+            background-color: $hover-bg;
+            color: $color !important;
+          }
+        }
+        &.active {
+          a {
+            background-color: $hover-bg;
+            color: $color !important;
+          }
+        }
+      }
+    }
   }
   .filter-header {
     margin-bottom: 20px;
@@ -490,7 +571,8 @@ tooltip-cell span, .tooltip-active {
   }
   .active-filters {
     ul {
-      overflow: visible !important;
+      margin: 5px 0;
+      overflow: hidden;
     }
   }
   .filter-input {
@@ -499,6 +581,14 @@ tooltip-cell span, .tooltip-active {
     float: left;
     input {
       height: 37px;
+      border: 2px solid $border-color;
+      border-radius: 2px;
+      box-shadow: none;
+      color: $color;
+      &:focus {
+        border-color: $border-color;
+        box-shadow: none;
+      }
     }
     .dropdown {
       height: 37px;
@@ -507,7 +597,6 @@ tooltip-cell span, .tooltip-active {
       width: 200px;
       .dropdown-toggle {
         height: 37px;
-        line-height: 21px;
         font-weight: normal;
       }
       .dropdown-menu {
@@ -522,6 +611,97 @@ tooltip-cell span, .tooltip-active {
       position: relative;
       .dropdown-menu {
         top: 37px !important;
+        min-width: 283px;
+        padding: 10px !important;
+
+        table {
+          width: 100%;
+        }
+
+        th:first-child, th:last-child {
+          button {
+            position: relative;
+            background-color: transparent !important;
+            color: #bcbcbc !important;
+            border: medium none;
+            padding: 0;
+            &:after {
+              @extend .fa;
+              font-size: 18px;
+              position: absolute;
+              top: -2px;
+            }
+            i {
+              @include opacity(0);
+            }
+          }
+        }
+        th:first-child button:after {
+          @extend .fa-angle-left:before;
+          left: 3px;
+        }
+        th:last-child button:after {
+          @extend .fa-angle-right:before;
+          right: 3px;
+        }
+        th button strong {
+          font-weight: normal;
+          font-family: $proxima-nova-bold;
+          font-size: 11px;
+          text-transform: uppercase;
+          color: #bcbcbc !important;
+        }
+        th {
+          text-align: center;
+          small {
+            color: #1b252f;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-family: $proxima-nova-semibold;
+            font-weight: normal;
+          }
+          &:nth-child(3), &:nth-child(5) {
+            small {
+              width: 11px;
+            }
+          }
+        }
+        thead tr:last-child th {
+          padding: 5px 0 !important;
+        }
+
+        th button, td button {
+          padding: 0 5px !important;
+          box-shadow: none !important;
+          strong, span {
+            background-color: transparent !important;
+            border: none !important; 
+            padding: 4px 6px !important;
+            box-shadow: none;
+          }
+        }
+
+        td button {
+          &[disabled] {
+            @include opacity(0.4);
+          }
+          span {
+            color: #3995d3 !important;
+            font-family: $proxima-nova-semibold;
+            &.text-muted {
+              color: #bcbcbc !important;
+              @include opacity(1);
+            }
+          }
+          &.active span {
+            border-bottom: 2px solid #3995d3 !important;
+            border-radius: 0;
+          }
+        }
+
+        td[aria-disabled="true"] {
+          cursor: not-allowed;
+        }
       }
       @media (max-width: 419px) {
         .dropdown-menu {
@@ -531,7 +711,7 @@ tooltip-cell span, .tooltip-active {
       }
     }
     > * {
-      max-width: 147px;
+      max-width: 160px;
     }
     .async-loader {
       i.fa-spin {
@@ -545,11 +725,41 @@ tooltip-cell span, .tooltip-active {
         }
       }
     }
-    .input-group-btn {
-      button {
-        padding: 8px 12px 7px;
-        i {
-          margin-right: 2px;
+    .input-group {
+      * {
+        border-color: $border-color;
+      }
+      &.has-error * {
+        border-color: $state-danger-text !important;
+        color: $state-danger-text !important;
+        box-shadow: none;
+      }
+      input:first-child {
+        border-radius: 2px 0 0 2px;
+      }
+      span.input-group-addon {
+        border-width: 2px 0 2px 2px;
+        border-radius: 2px 0 0 2px;
+        border-style: solid none solid solid;
+      }
+      input {
+        border: 2px solid $border-color;
+        border-radius: 0;
+        &:focus {
+          border-color: $border-color;
+          box-shadow: none;
+        }
+      }
+      .input-group-btn {
+        button {
+          padding: 7px 12px 6px;
+          border-width: 2px;
+          border-radius: 0 2px 2px 0;
+          border-left: none;
+          margin-left: 0;
+          i {
+            margin-right: 2px;
+          }
         }
       }
     }
@@ -559,52 +769,48 @@ tooltip-cell span, .tooltip-active {
   }
   .table-filter {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     float: left;
     margin-right: 12px;
+    padding-right: 20px;
+    height: 25px !important;
 
     .input-group {
       width: 100%;
-      height: 35px;
       max-width: 300px;
-      &.has-error .btn {
-        background-color: red;
-      }
     }
     .input-group-addon {
-      width: 50%;
-      white-space: normal;
-    }
-    .input-group-addon:first-child {
-      color: $white;
-      background-color: $blue-light;
-      border-color: $blue-light;
-    }
-    .input-group-addon:last-child {
-      color: $btn-default-color;
-      background-color: $btn-default-bg;
+      color: #1b252f;
+      background: none;
+      border: none;
+      padding: 0 5px 0 0;
+      height: 26px !important;
+      width: auto;
     }
   }
   .table-filter button {
-    border: medium none;
-    border-radius: 15px;
+    background: none;
+    border: none;
     height: 24px;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    right: -10px;
-    top: -10px;
+    right: 0;
+    top: 50%;
     width: 24px;
-      i {
-        margin: 0;
-        font-size: 16px;
-        height: 100%;
-        left: 0;
-        line-height: 24px;
-        position: absolute;
-        top: -3px;
-        width: 100%;
-      }
+    font-size: 14px;
+    @include translate(0, -50%);
+    i {
+      color: #cf0000;
+      margin: 0;
+      font-size: 16px;
+      height: 100%;
+      left: 0;
+      line-height: 23px;
+      position: absolute;
+      top: -3px;
+      width: 100%;
+    }
   }
   .input-money {
     input {
@@ -620,6 +826,16 @@ tooltip-cell span, .tooltip-active {
   }
 }
 
+table-filter-active {
+  border-top: 2px solid #e1e1e1;
+  display: block;
+  padding-top: 10px;
+}
+.smart-table-container-external-ordering table-filter-active {
+  border-top: none;
+  padding-top: 0;
+}
+
 //
 // Media queries
 // --------------------------------------------------
@@ -629,108 +845,316 @@ tooltip-cell span, .tooltip-active {
   }
 }
 
-@media (max-width: 800px) {
-  .pagination-indicator {
-    display: none;
-  }
-}
 
-.smart-table-container.table-pinning-active {
-  .smart-table-search {
-    overflow: hidden;
-    .form-control {
-      float: right;
-    }
-  }
+//
+// Smart tables - the new look
+// -------------------------------------
 
-
-  @mixin darken-column($darken-factor, $column:0) {
-    $cell-selector: "";
-    @if $column > 0 {
-      $cell-selector: ":nth-child(#{$column})";
-    }
-    > thead > tr > th#{$cell-selector} {
-      $this-cell-color: darken($bg-primary, $darken-factor);
-      background-color: $this-cell-color;
-      .header-group {
-        background-color: $this-cell-color;
+.smart-table-container {
+  $table-border-color: #e1e1e1;
+  $table-header-cell-color: #1b252f;
+  position: relative;
+  
+  .smart-table-header.search-results-row {
+    margin-bottom: -9px;
+    .search-results {
+      font-family: $proxima-nova-semibold;
+      color: $table-header-cell-color;
+      font-size: 14px;
+      padding: 9px 15px;
+      > span > span {
+        color: #3995d3;
       }
     }
-    > tbody > tr {
-      &:nth-child(2n+1) > td#{$cell-selector} {
-        background-color: darken($white, $darken-factor);
-      }
-      &:nth-child(2n) > td#{$cell-selector} {
-        background-color: darken($table-bg-accent, $darken-factor);
-      } 
+    .clear-table-search {
+      cursor: pointer;
+      color: #cf0000;
+      font-size: 14px;
+      padding: 9px 15px;
+      font-family: $proxima-nova-semibold;
     }
   }
 
-  @for $nPin from 1 through 9 {
-    // Each iteration of this loop create the style for a table with $nPin columns pinned
+  .smart-table-wrapper {
+    border-radius: 0;
+    border: 2px solid $table-border-color;
+    .smart-table {
+      td, th {
+        border: none;
+        border-radius: 0 !important;
+      }
+      .smart-table-header-groups-row {
+        th {
+          position: relative;
+          z-index: 1;
+          .header-group-container {
+            border-width: 0 2px;
+            border-style: none solid;
+            border-color: transparent $table-border-color;
+            position: relative;
+            padding: 0 12px;
+            position: absolute;
+            width: 100%;
+            height: 25px;
+          }
+          .header-group {
+            background-color: $white;
+            color: $table-header-cell-color;
+            font-weight: normal;
+            font-family: $proxima-nova-semibold;
+            text-align: left;
+            border: none;
+            padding: 4px 6px 0 0;
+            width: auto;
+            z-index: 1;
+            font-size: 12px;
+            text-transform: uppercase;
+          }
+          .header-group-separator {
+            background: $table-border-color;
+            display: block !important;
+            height: 2px;
+            position: relative;
+            top: 14px;
+            visibility: visible !important;
+            width: 100%;
+          }
+        }
+      }
+      .smart-table-header-cell {
+        background-color: $white;
+        border-width: 0 0 2px;
+        border-style: none none solid;
+        border-color: transparent transparent $table-border-color;
+        color: $table-header-cell-color;
+        font-weight: normal;
+        position: relative;
+        padding: 0 28px 0 12px;
+        &.in-group {
+          padding: 32px 28px 0 12px !important;
+          &.col-group-start {
+            border-left: 2px solid $table-border-color;
+          }
+          &.col-group-end {
+            border-right: 2px solid $table-border-color;
+          }
+          > span {
+            &:before, &:after {
+              bottom: 25%;
+            }
+          }
+        }
+        > span {
+          &:before, &:after {
+            @extend .fa;
+            position: absolute;
+            color: #6a6a6a;
+            left: auto;
+            right: 11px;
+            font-size: 12px;
+            height: 8px;
+            bottom: 50%;
+          }
+          &:before {
+            @extend .fa-caret-up:before;
+            transform: translate(0, -30%) !important;
+          }
+          &:after {
+            @extend .fa-caret-down:before;
+            transform: translate(0, 50%) !important;
+          }
+          &.sort-descent {
+            &:before {
+              left: auto;
+            }
+            &:after {
+              color: #3696d5;
+            }
+          }
+          &.sort-descent {
+            &:before {
+              display: none;
+            }
+            &:after {
+              color: #3696d5;
+            }
+          }
+          &.sort-ascent {
+            &:before {
+              color: #3696d5;
+            }
+            &:after {
+              display: none;
+            }
+          }
+        }
+        &.smart-table-disabled-sort > span {
+          display: none;
+        }
+      }
+      .smart-table-data-row:hover td {
+        background-color: #e7f4fd !important;
+      }
+      .smart-table-data-cell, .smart-table-checkbox-header-cell, .smart-table-checkbox-cell {
+        padding: 10px 12px;
+      }
+    }
+  }
 
-    .smart-table.pinned-#{$nPin} {
-      @for $column from 1 through $nPin {
-        > thead > tr > th,
-        > tbody > tr > td {
-          &:nth-child(#{$column}) {
-            position:absolute;
-            z-index: 300;
-            -webkit-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-            backface-visibility: hidden;
+  &.table-pinning-active {
+
+    .smart-table-search {
+      overflow: visible;
+      .form-control {
+        float: right;
+      }
+    }
+
+
+    @mixin darken-column($column:0) {
+      $pinned-bg-color: #f8f8f8;
+      $cell-selector: "";
+      @if $column > 0 {
+        $cell-selector: ":nth-child(#{$column})";
+      }
+      > thead > tr > th#{$cell-selector} {
+        background-color: $white;
+        .header-group {
+          background-color: $white;
+        }
+      }
+      > tbody > tr {
+        td#{$cell-selector} {
+          background-color: $pinned-bg-color;
+        }
+      }
+    }
+
+    @for $nPin from 1 through 9 {
+      // Each iteration of this loop create the style for a table with $nPin columns pinned
+
+      .smart-table.pinned-#{$nPin} {
+        @for $column from 1 through $nPin {
+          > thead > tr > th,
+          > tbody > tr > td {
+            &:nth-child(#{$column}) {
+              position:absolute;
+              z-index: 300;
+              -webkit-backface-visibility: hidden;
+              -ms-backface-visibility: hidden;
+              backface-visibility: hidden;
+            }
+          }
+
+          > thead > tr > th:nth-child(#{$column}) {
+            white-space: normal;
+            line-height: initial;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
           }
         }
 
-        > thead > tr > th:nth-child(#{$column}) {
-          white-space: normal;
-          line-height: initial;
-          display: -webkit-box;
-          display: -moz-box;
-          display: -ms-flexbox;
-          display: -webkit-flex;
-          display: flex;
-          -webkit-box-align: center;
-          -webkit-align-items: center;
-          -moz-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
+        > thead > tr > th {
+          &:nth-child(#{$nPin}) {
+            box-shadow: 2px 0 0 $table-border-color;
+          }
         }
-      }
 
-      > tbody > tr > td,
-      > thead > tr > th {
-        &:nth-child(#{$nPin}) {
-          // The last (right-most) pinned column
-          //border-right: 2px solid darken($table-border-color, 8%);
-          box-shadow: 2px 0 0 darken($table-border-color, 8%);
+        > tbody > tr > td {
+          &:nth-child(#{$nPin}) {
+            // The last (right-most) pinned column
+            //border-right: 2px solid darken($table-border-color, 8%);
+            box-shadow: 2px 0 0 $table-border-color;
+          }
+          &:nth-child(#{$nPin + 1}) {
+            // The first (left-most) unpinned column
+            border-left: none;
+          }
         }
-        &:nth-child(#{$nPin + 1}) {
-          // The first (left-most) unpinned column
-          border-left: none;
-        }
-      }
 
-      &.table-striped {
-        @include darken-column(3%);
         @for $column from 1 through $nPin {
-          @include darken-column(0%, $column);
+          @include darken-column($column);
         }
       }
     }
+
+    .smart-table-no-results {
+      padding-bottom:50px;
+    }
+
+    .smart-table-no-results-cell {
+      background: $white !important;
+      height: 50px !important;
+      line-height: 35px;
+      text-align: center !important;
+      left: 2px;
+      right: 2px;
+      width: initial !important;
+      border-top: 1px solid $table-border-color;
+    }
   }
 
-  .smart-table-no-results {
-    padding-bottom:50px;
+  .pagination {
+    $active-color: #3995d3;
+    > li {
+      > a {
+        cursor: pointer;
+        height: 30px;
+        padding: 0 15px;
+        line-height: 25px;
+        border-width: 2px;
+        border-radius: 15px;
+        border-style: solid;
+        border-color: transparent;
+        background: $white;
+        margin: 0 4px;
+        color: #959fa9;
+        font-size: 14px;
+        &:hover {
+          background: $white;
+          color: $active-color;
+          border-color: transparent;
+        }
+        .page-text {
+          display: block;
+        }
+        .page-alt-text {
+          display: none;
+        }
+      }
+      &.active > a {
+        background: $white;
+        border-color: $active-color;
+        color: $active-color;
+      }
+      &.disabled {
+        display: none;
+      }
+    }
   }
-
-  .smart-table-no-results-cell {
-    height: 30px !important;
-    line-height: 30px;
-    text-align: center !important;
-    left: 1px;
-    right: 1px;
-    width: initial !important;
-    border-top: 1px solid $table-border-color;
+  @media #{$extra-small} {
+    .smart-table-display-per-page {
+      width: 100%;
+    }
+    .pagination {
+      float: none !important;
+      margin: 0 auto;
+      > li > a {
+        .page-text {
+          display: none;
+        }
+        .page-alt-text {
+          display: block;
+        }
+      }
+    }
   }
 }
