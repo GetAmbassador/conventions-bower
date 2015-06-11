@@ -90,7 +90,8 @@
       }
       &.no-items-to-select {
         span {
-          color: $gray-1;
+          font-family: $proxima-nova-semibold;
+          color: $mbsy-fog;
           padding: 0 12px;
           cursor: default;
           display: block;
@@ -100,8 +101,8 @@
   }
   .fa-refresh {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 12px;
+    top: 12px;
   }
   .reset-field {
     font-size: 11px;
@@ -753,14 +754,14 @@ ga-activity-feed {
     box-shadow: 1px 1px 5px darken(#eeeeee, 25%) inset;
   }
 
-  &[appearance]:not([appearance="snippet"]) {
+  &:not([appearance="snippet"]) {
     height: 30px;
     border-radius: 15px;
     border: none;
     min-width: 60px;
     .switch-animate {
       height: 30px;
-      @include transition(0.5s, ease);
+      @include transition(0.5s ease);
       &.switch-off {
         background-color: #efefef;
         .knob:before {
@@ -813,12 +814,15 @@ ga-activity-feed {
           top: 6px;
           left: 0;
           border-radius: 50%;
-          @include transition(0.5s, ease);
+          @include transition(0.5s ease);
         }
       }
       &.switch-left, &.switch-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 31px;
         background: none;
-        line-height: 30px;
         text-align: center;
         padding: 0;
         -webkit-font-smoothing: antialiased;
@@ -849,7 +853,7 @@ ga-activity-feed {
       border-radius: 7px;
       background-color: $toggle-bg;
       left: 0;
-      @include transition(0.5s, ease);
+      @include transition(0.5s ease);
       &.switch-off {
         .knob {
           left: 0;
@@ -913,7 +917,7 @@ ga-activity-feed {
         background: none;
         width: 15px;
         text-indent: -9999px;
-        @include transition(0.5s, ease);
+        @include transition(0.5s ease);
         &:before {
           content: "";
           position: absolute;
@@ -923,7 +927,7 @@ ga-activity-feed {
           top: -1px;
           border-radius: 50%;
           @include box-shadow(3px 4px 5px 0px rgba(0, 0, 0, 0.15) inset);
-          @include transition(0.5s, ease);
+          @include transition(0.5s ease);
         }
       }
       &.switch-left, &.switch-right {
@@ -936,6 +940,7 @@ ga-activity-feed {
 //
 // Slider
 // --------------------------------------------------
+
 .slider {
   display: inline-block;
   vertical-align: middle;
@@ -997,16 +1002,16 @@ ga-activity-feed {
   margin-left: 0;
 }
 .slider.slider-disabled .slider-handle {
-  background: $gray-dark;
+  background: $gray-dark !important;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdfdfdf', endColorstr='#ffbebebe', GradientType=0);
 }
 .slider.slider-disabled .slider-track {
-  background: $gray-4;
+  background: $gray-4 !important;
   cursor: not-allowed;
 }
 
 .slider.slider-disabled .slider-selection {
-  background: $gray;
+  background: $gray !important;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
@@ -1046,6 +1051,56 @@ ga-activity-feed {
 }
 .slider-handle.triangle {
   background: transparent none;
+}
+ga-slider {
+  &:not([appearance="snippet"]) {
+    $track-bg: $mbsy-mist;
+    $border-radius: 2px;
+    .slider-track {
+      background: $track-bg;
+      border: none;
+      border-radius: $border-radius;
+    }
+    .slider.slider-horizontal {
+      width: 100%;
+      .slider-handle {
+        margin-top: -2px;
+      }
+    }
+  }
+  &[appearance="snippet"] {
+    $selection-bg: #0f487c;
+    $handle-bg: #86bef0;
+    $border-radius: 4px;
+    .slider-track {
+      border: none;
+      height: 13px !important;
+      border-radius: $border-radius;
+      .slider-selection {
+        background-color: $selection-bg;
+        border-radius: $border-radius;
+      }
+      .slider-handle {
+        background-color: $handle-bg;
+        height: 21px;
+        width: 21px;
+      }
+    }
+    .slider.slider-horizontal {
+      width: 100%;
+      .slider-handle {
+        margin-top: -4px;
+      }
+    }
+    .tooltip {
+      &.top {
+        margin-top: -6px;
+      }
+      &.bottom {
+        margin-top: 8px;
+      }
+    }
+  }
 }
 
 //

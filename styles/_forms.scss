@@ -52,27 +52,9 @@
     line-height: 40px;
     padding: 0 12px;
     background-color: $white;
-    border-color: $gray-light;
-    color: $gray-1;
-    font-weight: normal;
-    @include vendorize(font-smoothing,auto);
-    @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.075) inset);
-    i {
-      color: #555555;
-      float: right;
-    }
     &.btn {
       .caret {
-        top: 17px;
-      }
-    }
-  }
-  .dropdown-menu {
-    li {
-      a {
-        cursor: pointer;
-        padding: 3px 12px;
-        color: $gray-1;
+        top: 18px;
       }
     }
   }
@@ -129,25 +111,19 @@ input[type="text"], input[type="password"], input[type="email"], select {
 }
 
 ga-select {
-  .ambassador-select-list {
-    color: $gray-darker;
-  }
-}
-
-//==============================================
-//  IT'S DA NEW LOOK!
-
-ga-select[new-look] {
   $border-radius: 2px;
-  input, .dropdown-toggle {
+  input.form-control, .dropdown-toggle {
     @include box-shadow(none);
     border: 2px solid;
     border-color: $clr-input-border;
     border-radius: $border-radius;
     color: $clr-input-text !important;
-    font-family: $proxima-nova-bold;
+    font-family: $proxima-nova-semibold;
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
+    width: 100%;
+    text-align: left;
+    background-color: $white !important;
     @include input-placeholder {
       font-family: inherit;
       font-size: inherit;
@@ -155,6 +131,12 @@ ga-select[new-look] {
     }
     .caret, .fa-chevron-down {
       color: $clr-dropdown-caret;
+      @include transition(0.25s ease);
+    }
+  }
+  .dropdown.open {
+    .caret, .fa-chevron-down {
+      @include rotate(180deg);
     }
   }
   .reset-button-visible input.form-control {
@@ -179,7 +161,7 @@ ga-select[new-look] {
         .item-label {
           flex: 1 0;
           font-size: 15px;
-          font-family: $proxima-nova-bold;
+          font-family: $proxima-nova-semibold;
           font-weight: normal;
           -webkit-font-smoothing: antialiased;
           white-space: nowrap;
@@ -214,7 +196,7 @@ ga-select[new-look] {
     > li {
       a {
         font-size: 15px;
-        font-family: $proxima-nova-bold;
+        font-family: $proxima-nova-semibold;
         font-weight: normal;
         -webkit-font-smoothing: antialiased;
         color: $clr-input-text !important;
@@ -243,17 +225,21 @@ ga-select[new-look] {
   }
 }
 
-ga-form-field[appearance]:not([appearance="snippet"]) {
+ga-form-field:not([appearance="snippet"]) {
   $border-radius: 2px;
+  $disabled-bg: #eeeeee;
   .form-control, .dropdown-toggle {
     @include box-shadow(none);
     border: 2px solid;
     border-color: $clr-input-border;
     border-radius: $border-radius;
     color: $clr-input-text !important;
-    font-family: $proxima-nova-bold;
+    font-family: $proxima-nova-semibold;
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
+    width: 100%;
+    text-align: left;
+    background-color: $white;
     @include input-placeholder {
       font-family: inherit;
       font-size: inherit;
@@ -261,13 +247,17 @@ ga-form-field[appearance]:not([appearance="snippet"]) {
     }
     .caret {
       color: $clr-dropdown-caret;
-      @include transition(0.25s, ease);
+      @include transition(0.25s ease);
     }
     &:focus {
       border-color: $input-border-focus;
       $shadow: 0 0 4px lighten($input-border-focus, 20%);
       @include box-shadow($shadow);
     }
+  }
+  label:not(.form-control) {
+    font-weight: normal;
+    font-family: $proxima-nova-semibold;
   }
   .dropdown-toggle {
     @include box-shadow(none !important);
@@ -288,7 +278,7 @@ ga-form-field[appearance]:not([appearance="snippet"]) {
       > li {
         a {
           font-size: 15px;
-          font-family: $proxima-nova-bold;
+          font-family: $proxima-nova-semibold;
           font-weight: normal;
           -webkit-font-smoothing: antialiased;
           color: $clr-input-text !important;
@@ -365,21 +355,7 @@ ga-form-field[appearance]:not([appearance="snippet"]) {
     }
   }
   .datepicker-field {
-    .dropdown-menu {
-      @include box-shadow(none);
-      border: 2px solid $clr-input-border;
-      border-radius: $border-radius;
-    }
-    th:first-child, th:last-child {
-      button {
-        border-radius: $border-radius;
-      }
-    }
-    th:nth-child(2) button, td button {
-      span, strong {
-        border-radius: $border-radius;
-      }
-    }
+    position: relative;
     .input-group-btn > .btn {
       border-color: $clr-input-border;
       border-width: 2px 2px 2px 0;
@@ -389,6 +365,102 @@ ga-form-field[appearance]:not([appearance="snippet"]) {
       }
       > i {
         line-height: 10px;
+      }
+    }
+    .dropdown-menu {
+      min-width: 283px;
+      padding: 10px !important;
+      border: 2px solid $clr-input-border;
+      border-radius: $border-radius;
+      @include box-shadow(none);
+
+      table {
+        width: 100%;
+      }
+
+      th:first-child, th:last-child {
+        button {
+          position: relative;
+          background-color: transparent !important;
+          color: #bcbcbc !important;
+          border: medium none;
+          padding: 0;
+          &:after {
+            @extend .fa;
+            font-size: 18px;
+            position: absolute;
+            top: -2px;
+          }
+          i {
+            @include opacity(0);
+          }
+        }
+      }
+      th:first-child button:after {
+        @extend .fa-angle-left:before;
+        left: 3px;
+      }
+      th:last-child button:after {
+        @extend .fa-angle-right:before;
+        right: 3px;
+      }
+      th button strong {
+        font-weight: normal;
+        font-family: $proxima-nova-bold;
+        font-size: 11px;
+        text-transform: uppercase;
+        color: #bcbcbc !important;
+      }
+      th {
+        text-align: center;
+        small {
+          color: #1b252f;
+          text-transform: uppercase;
+          font-size: 13px;
+          font-family: $proxima-nova-semibold;
+          font-weight: normal;
+        }
+        &:nth-child(3), &:nth-child(5) {
+          small {
+            width: 11px;
+          }
+        }
+      }
+      thead tr:last-child th {
+        padding: 5px 0 !important;
+      }
+
+      th button, td button {
+        padding: 0 5px !important;
+        box-shadow: none !important;
+        strong, span {
+          background-color: transparent !important;
+          border: none !important; 
+          padding: 4px 6px !important;
+          box-shadow: none;
+        }
+      }
+
+      td button {
+        &[disabled] {
+          @include opacity(0.4);
+        }
+        span {
+          color: #3995d3 !important;
+          font-family: $proxima-nova-semibold;
+          &.text-muted {
+            color: #bcbcbc !important;
+            @include opacity(1);
+          }
+        }
+        &.active span {
+          border-bottom: 2px solid #3995d3 !important;
+          border-radius: 0;
+        }
+      }
+
+      td[aria-disabled="true"] {
+        cursor: not-allowed;
       }
     }
   }
@@ -401,7 +473,7 @@ ga-form-field[appearance]:not([appearance="snippet"]) {
     i.fa-check {
       color: $state-success-text;
     }
-    .form-control, .dropdown-toggle {
+    .form-control, .dropdown-toggle, .input-group-addon {
       border-color: $state-success-text !important;
       &:focus {
         $shadow: 0 0 4px lighten($state-success-text, 20%);
@@ -417,7 +489,7 @@ ga-form-field[appearance]:not([appearance="snippet"]) {
     label, .help-block {
       color: $state-danger-text;
     }
-    .form-control, .dropdown-toggle {
+    .form-control, .dropdown-toggle, .input-group-addon {
       border-color: $state-danger-text !important;
     }
     .form-control {
@@ -436,6 +508,16 @@ ga-form-field[appearance]:not([appearance="snippet"]) {
   // Disabled fields
   .input-group-addon.disabled label {
     cursor: not-allowed;
+  }
+  .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control, .input-group-addon.disabled, .disabled .dropdown-toggle[disabled], .ambassador-typeahead-disabled .dropdown-toggle[disabled], .input-group-btn button[disabled] {
+    background-color: $disabled-bg !important;
+    color: $gray-1 !important;
+    label {
+      cursor: not-allowed;
+    }
+    .fa-chevron-down {
+      display: none;
+    }
   }
   .ambassador-typeahead-disabled .dropdown, .form-control[disabled] ~ .input-group-btn {
     cursor: not-allowed; 
@@ -482,12 +564,12 @@ ga-form-field[appearance="snippet"] {
     font-size: 12px;
     margin-top: 9px;
   }
-  .form-control, ga-select[new-look] .form-control:focus {
+  .form-control, ga-select .form-control:focus {
     @include box-shadow($shadow);
     border: none;
     border-radius: $border-radius;
   }
-  ga-select[new-look] {
+  ga-select {
     input.form-control {
       font-family: $proxima-nova;
       color: $color !important;
@@ -515,12 +597,15 @@ ga-form-field[appearance="snippet"] {
       border-radius: $border-radius;
       color: $white !important;
       font-family: $proxima-nova;
+      text-align: left;
+      width: 100%;
+      padding: 0 12px;
       .fa-chevron-down {
         position: absolute;
         right: 12px;
         top: 11px;
         color: $white;
-        @include transition(0.25s, ease);
+        @include transition(0.25s ease);
       }
     }
     &.open .fa-chevron-down {
@@ -579,6 +664,7 @@ ga-form-field[appearance="snippet"] {
     }
   }
   .datepicker-field {
+    position: relative;
     .input-group-btn > .btn {
       background: $input-addon-bg;
       border: none;
@@ -594,6 +680,102 @@ ga-form-field[appearance="snippet"] {
     }
     .input-group input {
       border-right: none;
+    }
+    .dropdown-menu {
+      min-width: 283px;
+      padding: 10px !important;
+      border: none;
+      border-radius: $border-radius;
+      @include box-shadow($shadow);
+
+      table {
+        width: 100%;
+      }
+
+      th:first-child, th:last-child {
+        button {
+          position: relative;
+          background-color: transparent !important;
+          color: #bcbcbc !important;
+          border: medium none;
+          padding: 0;
+          &:after {
+            @extend .fa;
+            font-size: 18px;
+            position: absolute;
+            top: -2px;
+          }
+          i {
+            @include opacity(0);
+          }
+        }
+      }
+      th:first-child button:after {
+        @extend .fa-angle-left:before;
+        left: 3px;
+      }
+      th:last-child button:after {
+        @extend .fa-angle-right:before;
+        right: 3px;
+      }
+      th button strong {
+        font-weight: normal;
+        font-family: $proxima-nova-bold;
+        font-size: 11px;
+        text-transform: uppercase;
+        color: #bcbcbc !important;
+      }
+      th {
+        text-align: center;
+        small {
+          color: #1b252f;
+          text-transform: uppercase;
+          font-size: 13px;
+          font-family: $proxima-nova-semibold;
+          font-weight: normal;
+        }
+        &:nth-child(3), &:nth-child(5) {
+          small {
+            width: 11px;
+          }
+        }
+      }
+      thead tr:last-child th {
+        padding: 5px 0 !important;
+      }
+
+      th button, td button {
+        padding: 0 5px !important;
+        box-shadow: none !important;
+        strong, span {
+          background-color: transparent !important;
+          border: none !important; 
+          padding: 4px 6px !important;
+          box-shadow: none;
+        }
+      }
+
+      td button {
+        &[disabled] {
+          @include opacity(0.4);
+        }
+        span {
+          color: #3995d3 !important;
+          font-family: $proxima-nova-semibold;
+          &.text-muted {
+            color: #bcbcbc !important;
+            @include opacity(1);
+          }
+        }
+        &.active span {
+          border-bottom: 2px solid #3995d3 !important;
+          border-radius: 0;
+        }
+      }
+
+      td[aria-disabled="true"] {
+        cursor: not-allowed;
+      }
     }
   }
   #password-strength {
@@ -628,6 +810,9 @@ ga-form-field[appearance="snippet"] {
   }
   .dropdown.dropdown-form .dropdown-toggle {
     line-height: 38px;
+    padding-right: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   // Field validation
@@ -694,55 +879,5 @@ ga-form-field[appearance="snippet"] {
   .form-control[disabled] + .color-preview {
     cursor: not-allowed;
     @include opacity(0.5);
-  }
-}
-ga-slider[appearance] {
-  &:not([appearance="snippet"]) {
-    $track-bg: $mbsy-mist;
-    $border-radius: 2px;
-    .slider-track {
-      background: $track-bg;
-      border: none;
-      border-radius: $border-radius;
-    }
-    .slider.slider-horizontal {
-      width: 100%;
-      .slider-handle {
-        margin-top: -2px;
-      }
-    }
-  }
-  &[appearance="snippet"] {
-    $selection-bg: #0f487c;
-    $handle-bg: #86bef0;
-    $border-radius: 4px;
-    .slider-track {
-      border: none;
-      height: 13px;
-      border-radius: $border-radius;
-      .slider-selection {
-        background-color: $selection-bg;
-        border-radius: $border-radius;
-      }
-      .slider-handle {
-        background-color: $handle-bg;
-        height: 21px;
-        width: 21px;
-      }
-    }
-    .slider.slider-horizontal {
-      width: 100%;
-      .slider-handle {
-        margin-top: -4px;
-      }
-    }
-    .tooltip {
-      &.top {
-        margin-top: -6px;
-      }
-      &.bottom {
-        margin-top: 8px;
-      }
-    }
   }
 }
