@@ -1,8 +1,12 @@
 //
 // Custom Styles
 // --------------------------------------------------
+
+$border: 2px solid $mbsy-mist;
+
 .redactor_box {
-  border: 1px solid #D1D1D1;
+  border: $border;
+  border-radius: 2px;
 }
 
 .redactor_editor {
@@ -48,7 +52,7 @@
   display: block;
   margin: 0;
   padding: 0;
-  border: 1px solid #eee;
+  border: $border;
 }
 .redactor_box textarea {
   position: relative;
@@ -140,7 +144,7 @@ body .redactor_box_fullscreen {
   background: #fff;
   box-shadow: none !important;
   white-space: normal;
-  border: 1px solid #eee;
+  border-top: $border;
 }
 .redactor_editor:focus {
   outline: none;
@@ -334,7 +338,7 @@ body .redactor_box_fullscreen {
   line-height: 1 !important;
   background: #fff;
   border: none;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   z-index: 3;
 }
 .redactor_toolbar:after {
@@ -657,7 +661,7 @@ body .redactor_air .redactor_toolbar {
   margin-top: 0;
   margin-bottom: 5px !important;
   padding: 10px !important;
-  border: 1px solid #e4e4e4 !important;
+  border: 1px solid $mbsy-mist !important;
   background-color: #fff !important;
   z-index: 0;
 }
@@ -672,7 +676,7 @@ body .redactor_air .redactor_toolbar {
   border: 1px dotted #aaa !important;
 }
 .redactor_editor.redactor_editor_wym pre {
-  border: 2px dashed #e4e4e4 !important;
+  border: 2px dashed $mbsy-mist !important;
   background-color: #f8f8f8 !important;
 }
 .redactor_editor.redactor_editor_wym ul,
@@ -692,10 +696,10 @@ body .redactor_air .redactor_toolbar {
   position: absolute;
   top: 28px;
   left: 0;
-  padding: 10px;
+  padding: 5px 0;
   width: 200px;
   background-color: #fff;
-  box-shadow: 0 1px 5px #bbb;
+  border: $border;
   font-size: 13px;
   font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   line-height: 21px;
@@ -706,13 +710,13 @@ body .redactor_air .redactor_toolbar {
 }
 .redactor_separator_drop {
   padding: 0 !important;
-  border-top: 1px solid #ddd;
+  border-top: 2px solid $mbsy-mist;
   font-size: 0;
   line-height: 0;
 }
 .redactor_dropdown a {
   display: block;
-  padding: 3px 5px;
+  padding: 3px 15px;
   color: #000;
   text-decoration: none;
 }
@@ -859,7 +863,7 @@ body .redactor_air .redactor_toolbar {
 }
 #redactor_tabs a:hover,
 #redactor_tabs a.redactor_tabs_act {
-  border-color: #eee;
+  border-color: $mbsy-mist;
   color: #999 !important;
   text-decoration: none !important;
 }
