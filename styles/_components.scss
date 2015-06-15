@@ -9,7 +9,7 @@
     list-style: none;
     li {
       line-height: 40px;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid $mbsy-mist;
       display: block;
       font-size: 14px;
       overflow: hidden;
@@ -312,7 +312,7 @@ ga-form-field {
 .ga-stat-box-one {
   background-color: $white;
   color: $table-font-color;
-  border: 1px solid #d1d1d1;
+  border: 1px solid $mbsy-mist;
   padding: 15px 20px;
   overflow: hidden;
   margin: 10px 0;
@@ -382,9 +382,9 @@ ga-form-field {
 // Stat Box Two
 // --------------------------------------------------
 .ga-stat-box-two {
-  border-right: 1px solid $gray-light;
-  border-left: 1px solid $gray-light;
-  border-bottom: 1px solid $gray-light;
+  border-right: 1px solid $mbsy-mist;
+  border-left: 1px solid $mbsy-mist;
+  border-bottom: 1px solid $mbsy-mist;
   text-align: center;
   padding: 20px 0;
   color: $table-font-color;
@@ -426,13 +426,13 @@ ga-form-field {
     line-height: 70px;
   }
   ul {
-    border-top: 1px solid $gray-4;
+    border-top: 1px solid $mbsy-mist;
     margin: 15px auto 0;
     padding: 0;
     list-style: none;
 
     li {
-      border-bottom: 1px solid $gray-4;
+      border-bottom: 1px solid $mbsy-mist;
       padding: 4px 0;
       text-align: left;
       font-size: 14px;
@@ -461,7 +461,7 @@ ga-avatar {
   display: block;
   padding: 2px;
   .ga-avatar {
-    border: 2px solid $gray;
+    border: 2px solid $mbsy-mist;
     @include vendorize(border-radius, 50%);
     overflow: hidden;
     padding-bottom: 100%;
@@ -510,7 +510,7 @@ ga-activity-feed {
         position: relative;
       }
       .spot {
-        background-color: #d1d1d1;
+        background-color: $mbsy-mist;
         height: 10px;
         width: 10px;
         border-radius: 50%;
@@ -525,7 +525,7 @@ ga-activity-feed {
         }
       }
       .feed-line {
-        background: #d1d1d1;
+        background: $mbsy-mist;
         height: 100%;
         left: 50%;
         position: absolute;
@@ -553,7 +553,7 @@ ga-activity-feed {
     .activity {
       text-align: right;
       padding: 15px 0;
-      border-right: 2px solid #d1d1d1;
+      border-right: 2px solid $mbsy-mist;
       word-wrap: break-word;
       font-size: 14px;
       color: $table-font-color;
@@ -582,7 +582,7 @@ ga-activity-feed {
     .activity-right {
       float: right;
       text-align: left;
-      border-left: 2px solid #d1d1d1;
+      border-left: 2px solid $mbsy-mist;
       border-right: none;
       left: -2px;
     }
@@ -637,7 +637,7 @@ ga-activity-feed {
         padding-bottom: 20px;
       }
       .activity {
-        border-left: 2px solid #d1d1d1 !important;
+        border-left: 2px solid $mbsy-mist !important;
         border-right: medium none !important;
         left: 2px !important;
         text-align: left;
@@ -681,7 +681,7 @@ ga-activity-feed {
       padding-bottom: 20px;
     }
     .activity {
-      border-left: 2px solid #d1d1d1 !important;
+      border-left: 2px solid $mbsy-mist !important;
       border-right: medium none !important;
       left: 2px;
       text-align: left;

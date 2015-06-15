@@ -42,7 +42,22 @@
 }
 
 .form-control {
-  color: $gray-1;
+  @include box-shadow(none);
+  border: 2px solid;
+  border-color: $clr-input-border;
+  border-radius: 2px;
+  color: $clr-input-text !important;
+  font-family: $proxima-nova-semibold;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  text-align: left;
+  background-color: $white;
+  @include input-placeholder {
+    font-family: inherit;
+    font-size: inherit;
+    color: $clr-input-placeholder !important;
+  }
 }
 
 .dropdown.dropdown-form {
@@ -345,7 +360,7 @@ ga-form-field:not([appearance="snippet"]) {
     }
     .colorpicker-position-bottom {
       .dropdown-menu::before {
-        border-bottom: 11px solid #e1e1e1;
+        border-bottom: 11px solid $mbsy-mist;
         border-top: 0 none;
       }
       .dropdown-menu::after {

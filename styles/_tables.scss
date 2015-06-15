@@ -14,7 +14,6 @@
   margin-top: 15px;
   background: #fff;
   border-radius: 6px;
-  border: 1px solid $table-border-color;
   .tooltip-inner {
     max-width: none !important;
   }
@@ -78,6 +77,9 @@
       padding: 0!important;
       .header-group-container {
         position: relative;
+        &.header-group-container-no-border {
+          border-left: none !important;
+        }
       }
       .header-group {
         position: absolute;
@@ -85,8 +87,6 @@
         background-color: #ecf0f0;
         height: 23px;
         line-height: 22px;
-        border-bottom: 1px solid $table-border-color;
-        border-left: 1px solid $table-border-color;
         width: 100%;
         text-align: center;
         font-family: $proxima-nova-bold;
@@ -94,9 +94,6 @@
         font-weight: normal;
       }
     }
-  }
-  .smart-table-data-row td {
-    border-top: 1px solid $table-border-color;
   }
   .smart-table-header-cell:first-child {
     border-left: none;
@@ -110,7 +107,6 @@
     padding: 0 10px;
     vertical-align: middle;
     cursor: pointer;
-    border-left: 1px solid $table-border-color;
     white-space: nowrap;
     &.in-group {
       vertical-align: top;
@@ -189,26 +185,6 @@
       width: 70px;
     }
   }
-  .highlight {
-    color: $white;
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    height: 23px;
-    line-height: 23px;
-    border-bottom: 1px solid $table-border-color;
-    font-family: $proxima-nova-bold;
-    &.money {
-      color: $blue-light;
-      background-color: $gray-lighter;
-      border-left: 1px solid $table-border-color;
-    }
-    &.points {
-      color: $blue-light;
-      border-left: 1px solid $table-border-color;
-      background-color: $gray-lighter;
-    }
-  }
   th:first-child {
     border-radius: 3px 0 0 0;
   }
@@ -246,13 +222,12 @@
 }
 
 .table-apply-action-container {
-  $border-color: #e1e1e1;
   $color: #1b252f;
   $hover-bg: #f7f7f7;
   float: left;
   margin-right: 15px;
   .dropdown-toggle {
-    border: 2px solid $border-color !important;
+    border: 2px solid $table-border-color !important;
     border-radius: 2px;
     box-shadow: none;
     color: $color !important;
@@ -275,7 +250,7 @@
   .dropdown-menu {
     min-width: 100%;
     @include box-shadow(none);
-    border: 2px solid $border-color;
+    border: 2px solid $table-border-color;
     border-radius: 2px;
     > li {
       a {
@@ -306,12 +281,61 @@
 }
 
 .table-external-ordering-container {
+  $color: #1b252f;
+  $hover-bg: #f7f7f7;
   float: right;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  .dropdown-toggle {
+    border: 2px solid $table-border-color !important;
+    border-radius: 2px;
+    box-shadow: none;
+    color: $color !important;
+    font-family: $proxima-nova;
+    font-weight: normal;
+    background: $white !important;
+    &.btn .caret {
+      margin-left: 5px;
+      position: relative;
+      right: 0;
+      top: -1px;
+      @include transition(0.25s ease);
+    }
+  }
+  .dropdown.open {
+    .dropdown-toggle.btn .caret {
+      @include rotate(180deg);
+    }
+  }
   .dropdown-menu {
-    right: 0;
-    left: initial;
-    min-width: 135px;
+    min-width: 100%;
+    @include box-shadow(none);
+    border: 2px solid $table-border-color;
+    border-radius: 2px;
+    > li {
+      a {
+        font-size: 15px;
+        font-family: $proxima-nova;
+        font-weight: normal;
+        color: $color !important;
+        padding: 1px 12px !important;
+        height: 24px;
+        &:hover {
+          background-color: $hover-bg;
+          color: $color !important;
+        }
+        > i {
+          margin-right: 5px;
+          position: relative;
+          top: -1px;
+        }
+      }
+      &.active {
+        a {
+          background-color: $hover-bg;
+          color: $color !important;
+        }
+      }
+    }
   }
 }
 
@@ -349,7 +373,7 @@
     }
   }
   .dropdown-menu {
-    border: 2px solid #e1e1e1;
+    border: 2px solid $table-border-color;
     border-radius: 2px;
     box-shadow: none;
     left: 5px;
@@ -386,6 +410,8 @@ manage-table-btn {
   display: block;
   text-align: right;
   .dropdown {
+    $color: #1b252f;
+    $hover-bg: #f7f7f7;
     background-color: $gray;
     border-radius: 2px;
     color: $white;
@@ -406,6 +432,45 @@ manage-table-btn {
       > span {
         margin-right: 3px;
       }
+      .fa-caret-down {
+        line-height: 24px;
+        @include transition(0.25s ease);
+      }
+    }
+    .dropdown-menu {
+      min-width: 100%;
+      @include box-shadow(none);
+      border: 2px solid $table-border-color;
+      border-radius: 2px;
+      right: 14px !important;
+      > li {
+        a {
+          font-size: 15px;
+          font-family: $proxima-nova;
+          font-weight: normal;
+          color: $color !important;
+          padding: 1px 12px !important;
+          height: 24px;
+          &:hover {
+            background-color: $hover-bg;
+            color: $color !important;
+          }
+          > i {
+            margin-right: 5px;
+            position: relative;
+            top: -1px;
+          }
+        }
+        &.active {
+          a {
+            background-color: $hover-bg;
+            color: $color !important;
+          }
+        }
+      }
+    }
+    &.open .dropdown-btn .fa-caret-down {
+      @include rotate(180deg);
     }
   }
   .dropdown.open, .dropdown:hover {
@@ -505,14 +570,13 @@ tooltip-cell span, .tooltip-active {
   float: left;
 }
 .table-filtering {
-  $border-color: #e1e1e1;
   $color: #1b252f;
   $hover-bg: #f7f7f7;
   .filtering-buttons {
     z-index: 10;
     .dropdown {
       .dropdown-toggle {
-        border: 2px solid $border-color !important;
+        border: 2px solid $table-border-color !important;
         border-radius: 2px;
         box-shadow: none;
         color: $color !important;
@@ -535,7 +599,7 @@ tooltip-cell span, .tooltip-active {
     .dropdown-menu {
       min-width: 100%;
       @include box-shadow(none);
-      border: 2px solid $border-color;
+      border: 2px solid $table-border-color;
       border-radius: 2px;
       > li {
         a {
@@ -581,12 +645,12 @@ tooltip-cell span, .tooltip-active {
     float: left;
     input {
       height: 37px;
-      border: 2px solid $border-color;
+      border: 2px solid $table-border-color;
       border-radius: 2px;
       box-shadow: none;
       color: $color;
       &:focus {
-        border-color: $border-color;
+        border-color: $table-border-color;
         box-shadow: none;
       }
     }
@@ -727,7 +791,7 @@ tooltip-cell span, .tooltip-active {
     }
     .input-group {
       * {
-        border-color: $border-color;
+        border-color: $table-border-color;
       }
       &.has-error * {
         border-color: $state-danger-text !important;
@@ -743,10 +807,10 @@ tooltip-cell span, .tooltip-active {
         border-style: solid none solid solid;
       }
       input {
-        border: 2px solid $border-color;
+        border: 2px solid $table-border-color;
         border-radius: 0;
         &:focus {
-          border-color: $border-color;
+          border-color: $table-border-color;
           box-shadow: none;
         }
       }
@@ -827,7 +891,6 @@ tooltip-cell span, .tooltip-active {
 }
 
 table-filter-active {
-  border-top: 2px solid #e1e1e1;
   display: block;
   padding-top: 10px;
 }
@@ -851,7 +914,6 @@ table-filter-active {
 // -------------------------------------
 
 .smart-table-container {
-  $table-border-color: #e1e1e1;
   $table-header-cell-color: #1b252f;
   position: relative;
   
@@ -890,7 +952,7 @@ table-filter-active {
           .header-group-container {
             border-width: 0 2px;
             border-style: none solid;
-            border-color: transparent $table-border-color;
+            border-color: transparent;
             position: relative;
             padding: 0 12px;
             position: absolute;
@@ -935,12 +997,15 @@ table-filter-active {
           &.col-group-start {
             border-left: 2px solid $table-border-color;
           }
+          &.col-group-start-no-border {
+            border-left: none;
+          }
           &.col-group-end {
             border-right: 2px solid $table-border-color;
           }
           > span {
             &:before, &:after {
-              bottom: 25%;
+              bottom: 26%;
             }
           }
         }
