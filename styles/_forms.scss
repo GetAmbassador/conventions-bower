@@ -243,6 +243,28 @@ ga-select {
 ga-form-field:not([appearance="snippet"]) {
   $border-radius: 2px;
   $disabled-bg: #eeeeee;
+  .redactor-disabled-overlay {
+    background: #dddddd;
+    bottom: 2px;
+    display: block;
+    left: 2px;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    z-index: 4;
+    cursor: not-allowed;
+    @include opacity(0.5);
+  }
+  .redactor_editor {
+    color: $clr-input-text;
+    font-family: $proxima-nova-semibold;
+    font-weight: normal;
+    padding: 6px 12px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .redactor_placeholder {
+    color: lighten($clr-input-text, 15%) !important;
+  }
   .form-control, .dropdown-toggle {
     @include box-shadow(none);
     border: 2px solid;
@@ -325,6 +347,78 @@ ga-form-field:not([appearance="snippet"]) {
     .form-control {
       line-height: 40px;
       border-radius: 0 $border-radius $border-radius 0;
+    }
+  }
+  .mbsy-radio-group {
+    overflow: hidden;
+  }
+  .mbsy-radio {
+    display: inline-block;
+    position: relative;
+    float: left;
+    clear: both;
+    &:hover, &.disabled {
+      input[type="radio"] + span:before {
+        background: $clr-input-border;
+      }
+    }
+
+    input[type="radio"] {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    input[type="radio"] + span {
+      font-weight: normal;
+      color: #b0b0b0;
+      cursor: pointer;
+      text-transform: none;
+      padding-left: 28px;
+    }
+    &.disabled input[type="radio"] + span {
+      cursor: not-allowed;
+    }
+
+    [type="radio"] + span:before {
+      content: '';
+      display: inline-block;
+      margin-top: -1px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: $white;
+      border: 2px solid $clr-input-border;
+      @include box-shadow(0 1px 2px $clr-input-border inset);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      @include translate(0, -50%);
+    }
+
+    [type="radio"]:checked {
+      + span:after {
+        content: '';
+        background: #3178b7;
+        display: block;
+        margin-top: -1px;
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        border-radius: 50%;
+        @include translate(0, -50%);
+      }
+      + span:before {
+        background: $white !important;
+        @include box-shadow(none);
+      }
     }
   }
   &[field-type="colorpicker"] {
@@ -450,7 +544,7 @@ ga-form-field:not([appearance="snippet"]) {
         box-shadow: none !important;
         strong, span {
           background-color: transparent !important;
-          border: none !important; 
+          border: none !important;
           padding: 4px 6px !important;
           box-shadow: none;
         }
@@ -488,7 +582,7 @@ ga-form-field:not([appearance="snippet"]) {
     i.fa-check {
       color: $state-success-text;
     }
-    .form-control, .dropdown-toggle, .input-group-addon {
+    .form-control, .dropdown-toggle, .input-group-addon, .redactor_box {
       border-color: $state-success-text !important;
       &:focus {
         $shadow: 0 0 4px lighten($state-success-text, 20%);
@@ -504,7 +598,7 @@ ga-form-field:not([appearance="snippet"]) {
     label, .help-block {
       color: $state-danger-text;
     }
-    .form-control, .dropdown-toggle, .input-group-addon {
+    .form-control, .dropdown-toggle, .input-group-addon, .redactor_box {
       border-color: $state-danger-text !important;
     }
     .form-control {
@@ -535,7 +629,7 @@ ga-form-field:not([appearance="snippet"]) {
     }
   }
   .ambassador-typeahead-disabled .dropdown, .form-control[disabled] ~ .input-group-btn {
-    cursor: not-allowed; 
+    cursor: not-allowed;
   }
   .form-control[disabled] + .color-preview {
     cursor: not-allowed;
@@ -559,9 +653,56 @@ ga-form-field[appearance="snippet"] {
   $input-addon-bg: #e7e7e7;
   $calendar-icon-color: #8f8e8e;
   $placeholder-color: #bebebe;
+  $snippet-help-text-color: #98bcdb;
+  $snippet-help-text-size: 16px;
+  $snippet-input-text-size: 16px;
+  .redactor-disabled-overlay {
+    background: #cccccc;
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 4;
+    cursor: not-allowed;
+    @include opacity(0.5);
+  }
+  .redactor_editor {
+    color: $color;
+    font-family: $proxima-nova-semibold;
+    font-weight: normal;
+    padding: 6px 12px;
+    border-top: 1px solid #e1e1e1;
+    -webkit-font-smoothing: antialiased;
+  }
+  .redactor_placeholder {
+    color: lighten($placeholder-color, 15%) !important;
+  }
+  .redactor_box {
+    overflow: hidden;
+  }
   .form-control {
+    font-family: $proxima-nova;
+    font-size: $snippet-input-text-size;
+    -webkit-font-smoothing: antialiased;
     color: $color;
     @include placeholder(lighten$placeholder-color !important);
+  }
+  input {
+    font-size: $snippet-input-text-size;
+    &[type="text"] {
+      line-height: 35px;
+    }
+    &[type="checkbox"] {
+      font-size: 14px;
+    }
+  }
+  textarea {
+    font-size: $snippet-input-text-size;
+  }
+  .dropdown > a.btn {
+    font-size: $snippet-input-text-size;
   }
   label {
     &.form-control {
@@ -575,11 +716,12 @@ ga-form-field[appearance="snippet"] {
     }
   }
   .help-block {
-    color: $white;
-    font-size: 12px;
+    color: $snippet-help-text-color;
+    font-size: $snippet-help-text-size;
     margin-top: 9px;
+    line-height: 23px;
   }
-  .form-control, ga-select .form-control:focus {
+  .form-control, ga-select .form-control:focus, .redactor_box {
     @include box-shadow($shadow);
     border: none;
     border-radius: $border-radius;
@@ -602,6 +744,78 @@ ga-form-field[appearance="snippet"] {
   .checkbox-group {
     label.form-control {
       border-left: none;
+      line-height: 39px;
+    }
+  }
+  .mbsy-radio-group {
+    overflow: hidden;
+  }
+  .mbsy-radio {
+    display: inline-block;
+    position: relative;
+    float: left;
+    clear: both;
+    &:hover, &.disabled {
+      input[type="radio"] + span:before {
+        background: #d0d2d3;
+      }
+    }
+    &.disabled input[type="radio"] + span {
+      cursor: not-allowed;
+    }
+
+    input[type="radio"] {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    input[type="radio"] + span {
+      font-weight: normal;
+      color: $white;
+      cursor: pointer;
+      text-transform: none;
+      padding-left: 24px;
+    }
+
+    [type="radio"] + span:before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: $white;
+      @include box-shadow(0 3px 6px #d0d2d3 inset);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      @include translate(0, -50%);
+      margin-top: -1px;
+    }
+
+    [type="radio"]:checked {
+      + span:after {
+        content: '';
+        background: #3178b7;
+        display: block;
+        width: 8px;
+        height: 8px;
+        left: 3px;
+        position: absolute;
+        top: 50%;
+        @include translate(0, -50%);
+        margin-top: -1px;
+        border-radius: 50%;
+      }
+      + span:before {
+        background: $white !important;
+        @include box-shadow(none);
+      }
     }
   }
   .dropdown:not(.colorpicker), .ambassador-typeahead {
@@ -653,7 +867,7 @@ ga-form-field[appearance="snippet"] {
           }
         }
       }
-    } 
+    }
   }
   .input-group-addon {
     background: $input-addon-bg;
@@ -764,7 +978,7 @@ ga-form-field[appearance="snippet"] {
         box-shadow: none !important;
         strong, span {
           background-color: transparent !important;
-          border: none !important; 
+          border: none !important;
           padding: 4px 6px !important;
           box-shadow: none;
         }
@@ -840,7 +1054,7 @@ ga-form-field[appearance="snippet"] {
     i.fa-check {
       color: $state-success-text;
     }
-    .form-control, .dropdown-toggle {
+    .form-control, .dropdown-toggle, .redactor_box {
       $shadow: 0 0 0 3px $state-success-text;
       @include box-shadow($shadow);
     }
@@ -856,7 +1070,7 @@ ga-form-field[appearance="snippet"] {
     .help-block {
       color: $white;
     }
-    .form-control, .dropdown-toggle {
+    .form-control, .dropdown-toggle, .redactor_box {
       $shadow: 0 0 0 3px $state-danger-text;
       @include box-shadow($shadow);
     }

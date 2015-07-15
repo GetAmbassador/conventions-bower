@@ -471,6 +471,7 @@ ga-avatar {
     img {
       width: 100%;
       position: absolute;
+      border-radius: 50%;
       top: 0;
       left: 0;
       opacity: 0;
@@ -779,6 +780,9 @@ ga-activity-feed {
         }
       }
     }
+    &.disabled span {
+      cursor: not-allowed !important;
+    }
     &.switch-primary .switch-animate.switch-on {
       background-color: $blue-light;
     }
@@ -857,6 +861,7 @@ ga-activity-feed {
       &.switch-off {
         .knob {
           left: 0;
+          cursor: pointer;
           &:before {
             left: -1px;
             background-color: $knob-bg;
@@ -870,6 +875,11 @@ ga-activity-feed {
             left: -14px;
           }
         }
+      }
+    }
+    &.disabled {
+      .switch-animate, span.knob:before, .switch-animate.switch-off span.knob {
+        cursor: not-allowed !important;
       }
     }
     &.switch-primary .switch-animate {
@@ -917,6 +927,7 @@ ga-activity-feed {
         background: none;
         width: 15px;
         text-indent: -9999px;
+        cursor: default;
         @include transition(0.5s ease);
         &:before {
           content: "";
@@ -926,6 +937,7 @@ ga-activity-feed {
           background-color: $white;
           top: -1px;
           border-radius: 50%;
+          cursor: pointer;
           @include box-shadow(3px 4px 5px 0px rgba(0, 0, 0, 0.15) inset);
           @include transition(0.5s ease);
         }
