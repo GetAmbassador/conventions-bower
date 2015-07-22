@@ -72,6 +72,15 @@ ga-button {
     border-radius: 4px;
     @include inline-block();
     position: relative;
+    &.btn-lg {
+      padding: 0px 20px;
+      max-width: 260px;
+      min-width: 240px;
+      min-height: 60px;
+      span {
+        white-space: normal;
+      }
+    }
     &:focus, &:active:focus {
       outline: none;
     }
