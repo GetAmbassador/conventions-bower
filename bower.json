@@ -1,6 +1,6 @@
 {
   "name": "ambassador-conventions",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "homepage": "http://conventions.getambassador.com",
   "authors": [
     "Ambassador Team"
@@ -36,7 +36,8 @@
     "angular-bootstrap-toggle-switch": "0.5.4",
     "seiyria-bootstrap-slider": "4.3.0",
     "angular-animate": "1.2.16",
-    "autosize": "~3.0.6"
+    "autosize": "~3.0.6",
+    "ionicons": "~2.0.1"
   },
   "ignore": [
     "**/.*",

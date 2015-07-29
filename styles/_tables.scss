@@ -1054,7 +1054,9 @@ table-filter-active {
           }
         }
         &.smart-table-disabled-sort > span {
-          display: none;
+          &:before, &:after {
+            display: none;
+          }
         }
       }
       .smart-table-data-row:hover td {
