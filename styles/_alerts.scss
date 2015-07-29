@@ -244,7 +244,7 @@
 
     > div {
       padding: 6px 0;
-      > div {
+      .alert-content-wrapper {
         padding: 7px 0;
       }
     }
@@ -260,6 +260,90 @@
       i {
         margin-right: 10px;
       }
+    }
+  }
+}
+
+.alert-system.page[appearance="banner"] {
+  max-width: none;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: auto;
+  padding: 0 !important;
+  .alert {
+    background: #337ab7;
+    color: $white;
+    font-size: 14px;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+    max-height: 500px;
+    overflow: hidden;
+    position: relative;
+    font-family: $proxima-nova;
+    padding: 10px 50px 10px 30px;
+    @include animation-duration(0.75s);
+    @include animation-fill-mode(forwards);
+    @include animation-name(slideInTop);
+
+    &.ng-leave.ng-leave-active {
+      @include animation-duration(0.25s);
+      @include animation-name(slideOutTop);
+    }
+    
+    button.close {
+      width: 16px;
+      height: 25px;
+      display: block;
+      line-height: 25px;
+      color: #e8e9ea;
+      position: absolute;
+      top: 20px;
+      right: 27px;
+      -webkit-font-smoothing: initial;
+      @include opacity(1);
+      &:hover {
+        @include opacity(1);
+      }
+    }
+
+    > div {
+      padding: 2px 0 4px;
+      .alert-content-wrapper {
+        padding: 7px 15px;
+        margin: 0 auto;
+        > div:not(.alert-actions) {
+          display: inline;
+          margin-right: 12px;
+        }
+        .alert-actions {
+          display: inline-block;
+          position: relative;
+          top: 2px;
+          i {
+            cursor: pointer;
+            margin: 0;
+            @include opacity(0.5);
+            &:hover {
+              @include opacity(1);
+            }
+            + i {
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    i {
+      color: $white;
+      font-size: 20px;
+      width: 20px;
+      min-width: 20px;
+      text-align: center;
+      margin: 8px 0 0;
+      @include opacity(0.5);
     }
   }
 }

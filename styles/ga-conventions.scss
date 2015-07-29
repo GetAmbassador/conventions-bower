@@ -11,6 +11,12 @@ $fa-font-path: "../bower_components/fontawesome/fonts";
 @import "fontawesome/scss/font-awesome.scss";
 
 //
+// Ionicons
+// --------------------------------------------------
+$ionicons-font-path: "../bower_components/ionicons/fonts";
+@import "ionicons/scss/ionicons.scss";
+
+//
 // Ambassador Styles
 // --------------------------------------------------
 @import '_colors';
