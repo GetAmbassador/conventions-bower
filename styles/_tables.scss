@@ -280,6 +280,20 @@
   }
 }
 
+.table-apply-actions, .table-filtering .filtering-buttons {
+  > .dropdown.disabled {
+    cursor: not-allowed;
+    > .dropdown-toggle[disabled] {
+      background-color: #eeeeee !important;
+      color: $gray-1 !important;
+      @include opacity(1);
+      .caret {
+        color: $gray-1;
+      }
+    }
+  }
+}
+
 .table-external-ordering-container {
   $color: #1b252f;
   $hover-bg: #f7f7f7;
@@ -395,6 +409,11 @@
     @include input-placeholder {
       font-family: $proxima-nova !important;
     }
+    &[disabled] {
+      @include input-placeholder {
+        color: $gray-1 !important;
+      }
+    }
   }
   .form-group {
     overflow: hidden;
@@ -478,6 +497,31 @@ manage-table-btn {
   }
   .dropdown-disabled:hover {
     background-color: $gray;
+  }
+}
+
+.manage-actions {
+  text-align: right;
+  > a.btn-gray {
+    position: relative;
+    display: inline-block;
+    height: 25px;
+    padding: 1px;
+    width: 25px;
+    > i {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+      &.fa, &.ion {
+        line-height: 10px;
+      }
+    }
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+    &.manage-button-loading > i {
+      @include opacity(0);
+    }
   }
 }
 
