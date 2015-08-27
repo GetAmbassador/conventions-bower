@@ -150,6 +150,12 @@ ga-form-field {
     }
     .input-group-addon {
       position: relative;
+      width: 39px;
+      padding: 0;
+      > div {
+        display: flex;
+        height: 38px;
+      }
       label {
         cursor: pointer;
         height: 100%;
@@ -157,9 +163,44 @@ ga-form-field {
         position: absolute;
         top: 0;
         width: 100%;
+        &:before {
+          background-color: $white;
+          border: 2px solid #dcdcdc;
+          border-radius: 2px;
+          content: "";
+          display: block;
+          height: 16px;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          width: 16px;
+          @include translate(-50%, -50%);
+        }
+        &:after {
+          @extend .ion;
+          font-size: 24px;
+          color: white;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          @include translate(-50%, -50%);
+        }
       }
       input {
         outline: 0;
+        height: 1px;
+        margin: -1px;
+        width: 1px;
+        @include opacity(0);
+        &:checked ~ label {
+          &:before {
+            background-color: #3c97d3;
+            border: none;
+          }
+          &:after {
+            @extend .ion-ios-checkmark-empty:before;
+          }
+        }
       }
     }
   }
@@ -1127,5 +1168,56 @@ ga-slider {
   }
   > .tooltip {
     white-space: normal;
+  }
+}
+
+//
+// Custom checkbox
+// --------------------------------------------------
+
+.ga-checkbox {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  label {
+    cursor: pointer;
+    &:before {
+      background-color: $white;
+      border: 2px solid #dcdcdc;
+      border-radius: 2px;
+      content: "";
+      display: block;
+      height: 16px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      width: 16px;
+      @include translate(-50%, -50%);
+    }
+    &:after {
+      @extend .ion;
+      font-size: 24px;
+      color: white;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      @include translate(-50%, -50%);
+    }
+  }
+  input {
+    outline: 0;
+    height: 1px;
+    margin: -1px;
+    width: 1px;
+    @include opacity(0);
+    &:checked ~ label {
+      &:before {
+        background-color: #3c97d3;
+        border: none;
+      }
+      &:after {
+        @extend .ion-ios-checkmark-empty:before;
+      }
+    }
   }
 }

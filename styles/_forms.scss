@@ -95,6 +95,12 @@ input[type="text"], input[type="password"], input[type="email"], select {
     -ms-font-smoothing: auto;
     @include vendorize(user-select,none);
   }
+  .input-group > label {
+    height: auto;
+    line-height: 19px;
+    padding: 11px 12px 10px;
+    white-space: pre-line;
+  }
 }
 
 .form-group .label.label-input {
@@ -345,7 +351,6 @@ ga-form-field:not([appearance="snippet"]) {
       height: 37px;
     }
     .form-control {
-      line-height: 40px;
       border-radius: 0 $border-radius $border-radius 0;
     }
   }
@@ -744,7 +749,15 @@ ga-form-field[appearance="snippet"] {
   .checkbox-group {
     label.form-control {
       border-left: none;
-      line-height: 39px;
+    }
+    .input-group > label {
+      height: auto;
+      line-height: 19px;
+      padding: 11px 12px 10px;
+      white-space: pre-line;
+    }
+    .input-group-addon label:before {
+      border: 1px solid $clr-input-border;
     }
   }
   .mbsy-radio-group {
