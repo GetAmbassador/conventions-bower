@@ -1126,11 +1126,6 @@ table-filter-active {
           &.col-group-end {
             border-right: 2px solid $table-border-color;
           }
-          > span {
-            &:before, &:after {
-              bottom: 26%;
-            }
-          }
         }
         > span {
           &:before, &:after {
@@ -1141,15 +1136,14 @@ table-filter-active {
             right: 11px;
             font-size: 12px;
             height: 8px;
-            bottom: 50%;
           }
           &:before {
             @extend .fa-caret-up:before;
-            transform: translate(0, -30%) !important;
+            transform: translate(0, 0) !important;
           }
           &:after {
             @extend .fa-caret-down:before;
-            transform: translate(0, 50%) !important;
+            transform: translate(0, 6px) !important;
           }
           &.sort-descent {
             &:before {
@@ -1179,6 +1173,14 @@ table-filter-active {
         &.smart-table-disabled-sort > span {
           &:before, &:after {
             display: none;
+          }
+        }
+        &.pinned-column > span {
+          &:before {
+            transform: translate(0, -2px) !important;
+          }
+          &:after {
+            transform: translate(0, 4px) !important;
           }
         }
       }
