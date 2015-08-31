@@ -95,11 +95,14 @@ input[type="text"], input[type="password"], input[type="email"], select {
     -ms-font-smoothing: auto;
     @include vendorize(user-select,none);
   }
-  .input-group > label {
-    height: auto;
-    line-height: 19px;
-    padding: 11px 12px 10px;
-    white-space: pre-line;
+  .input-group {
+    width: 100%;
+    > label {
+      height: auto;
+      line-height: 19px;
+      padding: 11px 12px 10px;
+      white-space: pre-line;
+    }
   }
 }
 
