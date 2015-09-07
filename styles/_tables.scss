@@ -46,6 +46,7 @@
   border-collapse: separate;
   border-spacing: 0;
   min-width: 768px;
+  max-width: none;
   .table-image {
     max-width: 100px;
     width: 100%;
@@ -325,8 +326,7 @@
       }
     }
     .btn-default {
-      color: #777777;
-      background-color: #ededed;
+      @include mbsy-button-variant(#777777, #ededed, #ededed);
     }
     .dropdown {
       .dropdown-toggle .caret {
@@ -618,6 +618,7 @@ tooltip-cell span, .tooltip-active {
   text-overflow: ellipsis;
   width: 100%;
   white-space: nowrap;
+  word-wrap: normal !important;
 }
 
 /*
@@ -1114,9 +1115,9 @@ table-filter-active {
         color: $table-header-cell-color;
         font-weight: normal;
         position: relative;
-        padding: 0 28px 0 12px;
+        padding: 0 12px;
         &.in-group {
-          padding: 32px 28px 0 12px !important;
+          padding: 32px 12px 0 12px !important;
           &.col-group-start {
             border-left: 2px solid $table-border-color;
           }
@@ -1128,22 +1129,26 @@ table-filter-active {
           }
         }
         > span {
+          position: relative;
+          padding-right: 16px;
           &:before, &:after {
             @extend .fa;
             position: absolute;
             color: #6a6a6a;
             left: auto;
-            right: 11px;
+            right: 0;
             font-size: 12px;
             height: 8px;
+            line-height: 8px;
+            top: 50%;
           }
           &:before {
             @extend .fa-caret-up:before;
-            transform: translate(0, 0) !important;
+            transform: translate(0, -8px) !important;
           }
           &:after {
             @extend .fa-caret-down:before;
-            transform: translate(0, 6px) !important;
+            transform: translate(0, -2px) !important;
           }
           &.sort-descent {
             &:before {
@@ -1173,14 +1178,6 @@ table-filter-active {
         &.smart-table-disabled-sort > span {
           &:before, &:after {
             display: none;
-          }
-        }
-        &.pinned-column > span {
-          &:before {
-            transform: translate(0, -2px) !important;
-          }
-          &:after {
-            transform: translate(0, 4px) !important;
           }
         }
       }

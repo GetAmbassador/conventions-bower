@@ -2,6 +2,11 @@
 // Buttons
 // --------------------------------------------------
 
+$btn-border-radius: 2px;
+.btn {
+  border-radius: $btn-border-radius;
+}
+
 .btn-primary {
   @include mbsy-button-variant($white, $blue-light, $blue-light);
 }
@@ -59,17 +64,17 @@
 
 .btn-lg {
   height: 60px;
-  @include button-size(6px, 80px, 14px, 20px, 4px);
+  @include button-size(6px, 80px, 14px, 20px, $btn-border-radius);
 }
 
 .btn-ml {
-  @include button-size(10px, 20px, 16px, 1.44, 4px);
+  @include button-size(10px, 20px, 16px, 1.44, $btn-border-radius);
 }
 
 ga-button {
   @include user-select(none);
   .btn {
-    border-radius: 4px;
+    border-radius: $btn-border-radius;
     @include inline-block();
     position: relative;
     &.btn-lg {
