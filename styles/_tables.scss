@@ -567,6 +567,10 @@ manage-table-btn {
   .dropdown-disabled:hover {
     background-color: $gray;
   }
+  .label {
+    display: block;
+    margin: 4px 0;
+  }
 }
 
 .manage-actions {
@@ -1223,6 +1227,7 @@ table-filter-active {
       // Each iteration of this loop create the style for a table with $nPin columns pinned
 
       .smart-table.pinned-#{$nPin} {
+        background: #f8f8f8 !important;
         @for $column from 1 through $nPin {
           > thead > tr > th,
           > tbody > tr > td {
@@ -1271,6 +1276,9 @@ table-filter-active {
 
         @for $column from 1 through $nPin {
           @include darken-column($column);
+        }
+        .smart-table-data-row {
+          background: $white;
         }
       }
     }
