@@ -93,4 +93,12 @@ ga-button {
       @include opacity(0);
     }
   }
+  > .tooltip.in {
+    display: none !important;
+  }
+  @media #{$media-small-minus} {
+    > .tooltip.in {
+      display: block !important;
+    }
+  }
 }

@@ -123,3 +123,65 @@
     }
   }
 }
+
+//
+// Alternate Modal Style
+// --------------------------------------------------
+
+$modal-alternate-border-radius: 2px;
+
+.modal-backdrop {
+  &.modal-alternate-backdrop {
+    background-color: none;
+    background: linear-gradient(to bottom, rgba(36, 49, 64, 1), rgba(36, 49, 64, .8));
+    &.in {
+      opacity: 1;
+    }
+  }
+}
+
+.modal-alternate-window {
+  .modal-dialog {
+    transform: none !important;
+    .modal-content {
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0px;
+      border: none;
+      .modal-header {
+        background: transparent;
+        padding: 55px 15px 30px;
+        border: none;
+        h3 {
+          color: #fff;
+          font-size: 36px;
+          font-family: $proxima-nova-bold;
+          letter-spacing: -.3px;
+        }
+        .close {
+          position: fixed;
+          top: 16px;
+          right: 10px;
+          display: block;
+          color: #fff;
+          opacity: 1;
+          font-size: 32px;
+          padding: 4px 10px;
+          font-family: $proxima-nova-bold;
+          font-weight: normal;
+        }
+      }
+      .modal-body {
+        background: #fff;
+        overflow: hidden;
+        border-top-left-radius: $modal-alternate-border-radius;
+        border-top-right-radius: $modal-alternate-border-radius;
+      }
+      .modal-footer {
+        background: #fff;
+        border-bottom-left-radius: $modal-alternate-border-radius;
+        border-bottom-right-radius: $modal-alternate-border-radius;
+      }
+    }
+  }
+}

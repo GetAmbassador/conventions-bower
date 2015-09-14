@@ -320,9 +320,31 @@
       height: 37px;
       border: none;
       font-family: $proxima-nova-semibold;
-      i.fa {
-        font-size: 14px;
-        line-height: 0;
+      i {
+        display: none !important;
+        margin-right: 0 !important;
+
+        &.fa {
+          font-size: 14px !important;
+        }
+        &.ion {
+          font-size: 18px;
+        }
+        &.ga {
+          font-size: 18px;
+        }
+      }
+    }
+    @media #{$media-small-minus} {
+      .btn {
+        padding: 6px 0;
+        width: 37px;
+        i {
+          display: inline-block !important;
+        }
+        .button-label {
+          display: none;
+        }
       }
     }
     .btn-default {
@@ -335,6 +357,19 @@
       }
       &.open .dropdown-toggle .caret {
         @include rotate(180deg);
+      }
+      > .tooltip.in {
+        display: none !important;
+      }
+      @media #{$media-small-minus} {
+        > .tooltip.in {
+          display: block !important;
+        }
+        .dropdown-toggle .caret {
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 6px solid;
+        }
       }
     }
     .dropdown-menu {
@@ -350,6 +385,7 @@
         color: #777777;
         cursor: pointer;
         font-family: $proxima-nova-semibold;
+        white-space: nowrap;
         &:hover {
           background-color: #bebebe;
         }
@@ -860,7 +896,7 @@ tooltip-cell span, .tooltip-active {
           box-shadow: none !important;
           strong, span {
             background-color: transparent !important;
-            border: none !important; 
+            border: none !important;
             padding: 4px 6px !important;
             box-shadow: none;
           }
