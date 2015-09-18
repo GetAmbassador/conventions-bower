@@ -365,10 +365,20 @@
         > .tooltip.in {
           display: block !important;
         }
-        .dropdown-toggle .caret {
-          border-left: 6px solid transparent;
-          border-right: 6px solid transparent;
-          border-top: 6px solid;
+        .dropdown-toggle {
+          .caret {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid;
+          }
+          &.has-icon .caret {
+            display: none;
+          }
+        }
+        .dropdown-menu {
+          right: 0;
+          left: auto;
+          text-align: right;
         }
       }
     }
@@ -1216,6 +1226,7 @@ table-filter-active {
           }
         }
         &.smart-table-disabled-sort > span {
+          padding-right: 0;
           &:before, &:after {
             display: none;
           }
