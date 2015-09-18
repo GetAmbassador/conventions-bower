@@ -211,6 +211,22 @@ ga-select {
       }
     }
   }
+  .ambassador-select-manual-entry {
+    position: relative;
+    input {
+      padding-right: 30px;
+    }
+    i {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      cursor: pointer;
+      color: $mbsy-fog;
+      &:hover {
+        color: $gray-dark;
+      }
+    }
+  }
   .dropdown-menu {
     width: 100%;
     min-width: 100%;
@@ -367,7 +383,7 @@ ga-form-field:not([appearance="snippet"]) {
     clear: both;
     &:hover, &.disabled {
       input[type="radio"] + span:before {
-        background: $clr-input-border;
+        color: #4198d0;
       }
     }
 
@@ -388,45 +404,26 @@ ga-form-field:not([appearance="snippet"]) {
       cursor: pointer;
       text-transform: none;
       padding-left: 28px;
+      position: relative;
+      &:before {
+        @extend .ion;
+        @extend .ion-android-radio-button-off:before;
+        color: #a8a8a8;
+        font-size: 18px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 17px;
+      }
     }
     &.disabled input[type="radio"] + span {
       cursor: not-allowed;
     }
 
-    [type="radio"] + span:before {
-      content: '';
-      display: inline-block;
-      margin-top: -1px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: $white;
-      border: 2px solid $clr-input-border;
-      @include box-shadow(0 1px 2px $clr-input-border inset);
-      position: absolute;
-      left: 0;
-      top: 50%;
-      @include translate(0, -50%);
-    }
-
-    [type="radio"]:checked {
-      + span:after {
-        content: '';
-        background: #3178b7;
-        display: block;
-        margin-top: -1px;
-        width: 8px;
-        height: 8px;
-        position: absolute;
-        left: 5px;
-        top: 50%;
-        border-radius: 50%;
-        @include translate(0, -50%);
-      }
-      + span:before {
-        background: $white !important;
-        @include box-shadow(none);
-      }
+    [type="radio"]:checked + span:before {
+      @extend .ion-android-radio-button-on:before;
+      color: #4198d0;
+      line-height: 17px;
     }
   }
   &[field-type="colorpicker"] {
