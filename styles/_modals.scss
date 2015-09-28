@@ -14,10 +14,14 @@
     font-family: $proxima-nova-bold;
     -webkit-font-smoothing: antialiased;
   }
+  .close {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 .modal-content{
-  @include gradient-vertical(#eef5f7, #ffffff, 0%, 100%);
+  background-color: #ecf0f0;
   .modal-primary-text {
     color: #2c2b2b;
     font-family: $proxima-nova-thin;
@@ -165,7 +169,7 @@ $modal-alternate-border-radius: 2px;
           display: block;
           color: #fff;
           opacity: 1;
-          font-size: 32px;
+          font-size: 20px;
           padding: 4px 10px;
           font-family: $proxima-nova-bold;
           font-weight: normal;
