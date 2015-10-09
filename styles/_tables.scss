@@ -741,7 +741,8 @@ tooltip-cell span, .tooltip-active {
   $hover-bg: #f7f7f7;
   .filtering-buttons {
     z-index: 10;
-    .dropdown {
+    .dropdown, .table-dropdown, .async-loader {
+      position: relative;
       .dropdown-toggle {
         border: 2px solid $table-border-color !important;
         border-radius: 2px;
@@ -762,29 +763,29 @@ tooltip-cell span, .tooltip-active {
       &.open .dropdown-toggle.btn .caret {
         @include rotate(180deg);
       }
-    }
-    .dropdown-menu {
-      min-width: 100%;
-      @include box-shadow(none);
-      border: 2px solid $table-border-color;
-      border-radius: 2px;
-      > li {
-        a {
-          font-size: 15px;
-          font-family: $proxima-nova;
-          font-weight: normal;
-          color: $color !important;
-          padding: 1px 12px !important;
-          height: 24px;
-          &:hover {
-            background-color: $hover-bg;
-            color: $color !important;
-          }
-        }
-        &.active {
+      .dropdown-menu {
+        min-width: 100%;
+        @include box-shadow(none);
+        border: 2px solid $table-border-color;
+        border-radius: 2px;
+        > li {
           a {
-            background-color: $hover-bg;
+            font-size: 15px;
+            font-family: $proxima-nova;
+            font-weight: normal;
             color: $color !important;
+            padding: 1px 12px !important;
+            height: 24px;
+            &:hover {
+              background-color: $hover-bg;
+              color: $color !important;
+            }
+          }
+          &.active {
+            a {
+              background-color: $hover-bg;
+              color: $color !important;
+            }
           }
         }
       }
@@ -803,7 +804,6 @@ tooltip-cell span, .tooltip-active {
   .active-filters {
     ul {
       margin: 5px 0;
-      overflow: hidden;
     }
   }
   .filter-input {
@@ -821,10 +821,10 @@ tooltip-cell span, .tooltip-active {
         box-shadow: none;
       }
     }
-    .dropdown {
+    .dropdown, .table-dropdown {
       height: 37px;
     }
-    .dropdown-select {
+    .dropdown-select, .table-dropdown {
       width: 200px;
       .dropdown-toggle {
         height: 37px;
@@ -1018,6 +1018,14 @@ tooltip-cell span, .tooltip-active {
       padding: 0 5px 0 0;
       height: 26px !important;
       width: auto;
+      &.filter-value {
+        max-width: 300px;
+      }
+      @media #{$extra-small} {
+        &.filter-value {
+          max-width: 245px;
+        }
+      }
     }
   }
   .table-filter button {
