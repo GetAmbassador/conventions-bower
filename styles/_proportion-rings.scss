@@ -2,43 +2,46 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  .ga-proportion-ring {
-    margin: 4px;
+}
+
+.ga-proportion-ring {
+  margin: 4px;
+  border-radius: 50%;
+  border-color: #ebebeb;
+  border-style: solid;
+  canvas {
+    position: absolute;
+    background-color: transparent;
+    border-radius: inherit;
+  }
+  &-inner {
+    position: absolute;
+    background-color: transparent;
     border-radius: 50%;
-    canvas {
-      position: absolute;
-      background-color: #ebebeb;
-      border-radius: inherit;
-    }
-    &-inner {
-      position: absolute;
-      background-color: #fff;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    &-numeric-label {
-      font-family: $proxima-nova-light;
-      font-size: 30px;
-    }
-    &-nominal-label {
-      margin-top: 2px;
-      font-size: 18px;
-    }
-    &-numeric-label, &-nominal-label {
-      word-break: break-all;
-      overflow-wrap: break-word;
-      max-width: 100%;
-      text-align: center;
-      line-height: 1;
-      transition: opacity .4s ease;
-      padding: 0 5px;
-    }
-    &-hide-value .ga-proportion-ring-nominal-label {
-      font-family: $proxima-nova-semibold;
-      font-size: 24px;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &-numeric-label {
+    font-family: $proxima-nova-light;
+    font-size: 30px;
+  }
+  &-nominal-label {
+    margin-top: 2px;
+    font-size: 18px;
+  }
+  &-numeric-label, &-nominal-label {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    text-align: center;
+    line-height: 1;
+    transition: opacity .4s ease;
+    padding: 0 5px;
+  }
+  &-hide-value .ga-proportion-ring-nominal-label {
+    font-family: $proxima-nova-semibold;
+    font-size: 24px;
   }
 }
