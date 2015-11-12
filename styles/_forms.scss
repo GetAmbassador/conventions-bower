@@ -217,8 +217,9 @@ ga-select {
       padding-right: 30px;
     }
     i {
+      line-height: 0;
       position: absolute;
-      top: 12px;
+      top: 13px;
       right: 14px;
       cursor: pointer;
       color: $mbsy-fog;
