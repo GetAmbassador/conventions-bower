@@ -1357,6 +1357,18 @@ table-filter-active {
     }
   }
 
+  &.smart-table-bordered {
+    .smart-table-header-wrapper {
+      padding: 16px 12px 0;
+      border-top: 2px solid #e1e1e1;
+      border-left: 2px solid #e1e1e1;
+      border-right: 2px solid #e1e1e1;
+    }
+    .smart-table-wrapper {
+      margin-top: 14px;
+    }
+  }
+
   .pagination {
     $active-color: #3995d3;
     > li {
