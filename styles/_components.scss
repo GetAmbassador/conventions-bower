@@ -237,7 +237,7 @@ ga-form-field {
         }
       }
       &:active {
-        box-shadow: 0 3px 5px darken($blue-light, 10%) inset; 
+        box-shadow: 0 3px 5px darken($blue-light, 10%) inset;
         color: $white !important;
         background-color: $blue-light !important;
         border-color: $blue-light !important;
@@ -1221,3 +1221,81 @@ ga-slider {
     }
   }
 }
+
+//
+// Dropdown Window
+// --------------------------------------------------
+
+.button-dropdown-window {
+  .dropdown-button {
+    color: $gray-1;
+    font-family: $proxima-nova-bold;
+    background-color: transparent;
+    border: none;
+    width: 225px;
+    text-align: right;
+    padding-right: 0px;
+    .button-text {
+      padding-right: 10px;
+    }
+    .button-icon {
+      font-size: 1.4em;
+      position: relative;
+      top: 2px;
+      padding-right: 10px;
+    }
+    .rotate {
+      @include transition(.25s ease);
+    }
+    .open {
+      @include rotate(180deg);
+    }
+  }
+  button:focus {
+    outline: none;
+  }
+  .dropdown-window {
+    width: 225px;
+    border: 2px solid $clr-input-border;
+    border-radius: 2px;
+    background-color: white;
+    position: absolute;
+    top: 32px;
+    z-index: 5;
+    opacity: 1;
+    @include transition(all linear 0.25s);
+    .dropdown-window-title {
+      font-family: $proxima-nova-semibold;
+      font-size: 0.9em;
+      text-align: center;
+      padding: 8px;
+      border-bottom: 1px solid #f1f1f1;
+    }
+    .dropdown-window-content {
+      font-family: $proxima-nova;
+      color: $gray-1;
+      padding: 13px;
+      line-height: 1.2em;
+    }
+    .in-window-button {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      .in-window-button-text {
+        display: inline-block;
+        width: 178px;
+      }
+    }
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  .ng-hide-add, .ng-hide-remove {
+    display: block !important;
+  }
+  .dropdown-window.ng-hide {
+    opacity: 0;
+    top: 10px;
+  }
+}
+
