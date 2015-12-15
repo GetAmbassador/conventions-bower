@@ -419,6 +419,11 @@ body .redactor_air .redactor_toolbar {
   padding: 9px 10px 8px 10px;
   line-height: 1;
 }
+.redactor_toolbar li a.ion-redactor-btn {
+  display: inline-block;
+  padding: 9px 10px 8px 10px;
+  line-height: 1;
+}
 .redactor_toolbar.redactor-toolbar-typewriter {
   box-shadow: none;
   background: rgba(240, 240, 240, 0.9);
@@ -545,6 +550,9 @@ body .redactor_air .redactor_toolbar {
 }
 .re-gallery:before {
   content: "\e61f";
+}
+.re-donottranslate {
+  width: 14px;
 }
 /*
   Toolbar classes
@@ -993,4 +1001,10 @@ body .redactor_air .redactor_toolbar {
   to {
     background-position: 0 0;
   }
+}
+
+/* Do not translate
+-----------------------------------------------------------------------------*/
+inline.mbsy-do-not-translate {
+  border-bottom: 1px dashed #01aeda;
 }
