@@ -1227,6 +1227,9 @@ ga-slider {
 // --------------------------------------------------
 
 .button-dropdown-window {
+  display: inline-block;
+  max-width: 250px;
+  position: relative;
   .dropdown-button {
     color: $gray-1;
     font-family: $proxima-nova-bold;
@@ -1281,6 +1284,8 @@ ga-slider {
       position: relative;
       display: inline-block;
       padding: 10px;
+      padding-bottom: 0;
+      right: 13px;
       .in-window-button-text {
         display: inline-block;
         width: 178px;
