@@ -329,6 +329,37 @@ ga-form-field {
 }
 
 //
+// Horizontal Bar stat-title
+//
+div.ga-stat-horizontal-bar {
+  font-family: $proxima-nova;
+  .numerator {
+    font-size: 25px;
+    margin-right: -3px;
+  }
+  .denominator {
+    font-size: 18px;
+    color: rgba(36, 49, 64, .5);
+  }
+  .horizontal-bar-label {
+    font-weight: regular;
+    font-size: 11px;
+    text-transform: uppercase;
+    span {
+      color: #b0b0b0;
+    }
+  }
+  .progress {
+    height: 6px;
+    margin-bottom: 5px;
+    background-color: #dfe3e6;
+  }
+  .no-box-shadow {
+    box-shadow: none;
+  }
+}
+
+//
 // Default Stat Box Style
 // --------------------------------------------------
 .ga-stat-box {
@@ -1303,4 +1334,3 @@ ga-slider {
     top: 10px;
   }
 }
-
