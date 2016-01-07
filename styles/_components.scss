@@ -563,6 +563,120 @@ ga-avatar {
 }
 
 //
+// Progress Feed
+// --------------------------------------------------
+
+.last-step {
+  .progress-line {
+    display: none;
+  }
+}
+.progress-line {
+  background: rgba(#b0b0b0, 0.5);
+  height: 25px;
+  position: relative;
+  top: 30px;
+  right: 13px;
+  transform: translate(-2px,0);
+  width: 2px;
+  z-index: 0;
+}
+.progress-steps {
+  list-style: none;
+  margin: 15px 0;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+  li {
+    margin-bottom: 20px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+  }
+  .step-description {
+    margin-bottom: 10px;
+    top: 5px;
+    position: relative;
+    color: rgba(176, 176, 176, 0.5);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    left: 20px;
+    span {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &.in-progress {
+      color: #b0b0b0;
+    }
+    &.success {
+      color: #b0b0b0;
+    }
+    &.error {
+      color: #D9232E;
+    }
+  }
+}
+
+.file-info {
+  margin-bottom: 15px;
+}
+
+.step-circle-container {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(176, 176, 176, 0.5);
+  border-radius: 50%;
+  z-index: 2;
+  background-color: #ECF0F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.success {
+    border: 2px solid #b0b0b0;
+  }
+  &.error {
+    border: 2px solid #D9232E;
+    background-color: #D9232E;
+  }
+  &.in-progress {
+    border: 2px solid #b0b0b0;
+    background-color: #ECF0F0;
+  }
+  &.queued {
+    border: 2px solid rgba(#b0b0b0, 0.5);
+    background-color: #ECF0F0;
+  }
+}
+
+.step-circle {
+  color: rgba(#b0b0b0, 0.5);
+  background-color: #ECF0F0;
+  z-index: 2;
+  font-weight: bold;
+  line-height: .1;
+  &.checkmark {
+    right: 6px;
+  }
+  &.success {
+    color: #b0b0b0;
+  }
+  &.queued {
+    color: rgba(#b0b0b0, 0.5);
+  }
+  &.in-progress {
+    color: #b0b0b0;
+  }
+  &.error {
+    background-color: #D9232E;
+    color: white;
+  }
+}
+
+//
 // Activity Feed
 // --------------------------------------------------
 ga-activity-feed {
