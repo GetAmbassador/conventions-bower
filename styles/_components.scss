@@ -884,7 +884,7 @@ ga-activity-feed {
 //
 // Toggle Switch (custom)
 // --------------------------------------------------
-.ats-switch{
+.ats-switch {
   &:hover {
     border-color: $gray-light;
     box-shadow: none;
@@ -1032,13 +1032,13 @@ ga-activity-feed {
   &[appearance="snippet"] {
     $toggle-bg: #10477b;
     $knob-bg: #2f70af;
-    height: 13px;
+    height: 15px;
     border-radius: 7px;
     border: none;
-    min-width: 30px;
+    min-width: 28px;
     overflow: visible;
     .switch-animate {
-      height: 13px;
+      height: 15px;
       width: 100%;
       border-radius: 7px;
       background-color: $toggle-bg;
@@ -1049,7 +1049,7 @@ ga-activity-feed {
           left: 0;
           cursor: pointer;
           &:before {
-            left: -1px;
+            left: 1px;
             background-color: $knob-bg;
           }
         }
@@ -1098,6 +1098,18 @@ ga-activity-feed {
         background-color: darken(#d9534f, 10%);
       }
     }
+    &.switch-flat .switch-animate {
+      &.switch-off {
+        .knob:before {
+          left: -5px;
+          background-color: #ecf0f0;
+          @include translate(6px, 0);
+        }
+      }
+      &.switch-on {
+        background-color: #26b894;
+      }
+    }
     &.switch-default .switch-animate {
       background-color: #eeeeee;
       &.switch-off .knob:before {
@@ -1111,20 +1123,20 @@ ga-activity-feed {
         padding: 0;
         border: none;
         background: none;
-        width: 15px;
+        width: 13px;
         text-indent: -9999px;
         cursor: default;
         @include transition(0.5s ease);
         &:before {
           content: "";
           position: absolute;
-          width: 15px;
-          height: 15px;
+          width: 13px;
+          height: 13px;
           background-color: $white;
-          top: -1px;
+          top: 1px;
           border-radius: 50%;
           cursor: pointer;
-          @include box-shadow(3px 4px 5px 0px rgba(0, 0, 0, 0.15) inset);
+          // @include box-shadow(3px 4px 5px 0px rgba(0, 0, 0, 0.15) inset);
           @include transition(0.5s ease);
         }
       }
@@ -1272,7 +1284,7 @@ ga-slider {
     $border-radius: 4px;
     .slider-track {
       border: none;
-      height: 13px !important;
+      height: 15px !important;
       border-radius: $border-radius;
       .slider-selection {
         background-color: $selection-bg;
