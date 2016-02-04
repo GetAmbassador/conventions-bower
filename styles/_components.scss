@@ -650,6 +650,10 @@ ga-avatar {
     border: 2px solid rgba(#b0b0b0, 0.5);
     background-color: #ECF0F0;
   }
+  .progress-spinner {
+    position: absolute;
+    opacity: 0.4;
+  }
 }
 
 .step-circle {
