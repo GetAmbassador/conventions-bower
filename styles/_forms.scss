@@ -171,6 +171,11 @@ ga-select {
     @include box-shadow(none !important);
     border-color: $clr-input-border !important;
   }
+  .item-label {
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 3px;
+  }
   .mbsy-select-list {
     padding-top: 2px;
     overflow-y: scroll;
@@ -262,6 +267,72 @@ ga-select {
         $shadow: 0 0 4px lighten($state-danger-text, 20%);
         @include box-shadow($shadow);
       }
+    }
+  }
+}
+
+ga-select[appearance="snippet"] {
+  $blue-shadow: #185188;
+  $shadow: 0 3px $blue-shadow;
+  $snippet-list-text-color: #98bcdb;
+  $snippet-list-text-size: 16px;
+  $snippet-list-border-color: #5690C3;
+  $snippet-input-text-size: 16px;
+
+  input {
+    font-size: $snippet-input-text-size;
+    &[type="text"] {
+      height: 38px;
+      line-height: 35px;
+      border-radius: 4px;
+      box-shadow: $shadow;
+      border: none;
+      font-family: $proxima-nova;
+      font-size: 16px;
+    }
+    &[type="checkbox"] {
+      font-size: 14px;
+    }
+  }
+  textarea {
+    font-size: $snippet-input-text-size;
+  }
+  .dropdown > a.btn {
+    font-size: $snippet-input-text-size;
+  }
+  .snippet-select-list {
+    ul {
+      li {
+        border-bottom: 1px solid $snippet-list-border-color;
+      }
+    }
+    .item-label {
+      color: $snippet-list-text-color;
+      font-size: $snippet-list-text-size;
+      display: inline-block;
+      margin-left: 12px;
+    }
+    .ambassador-group-name {
+      color: $snippet-list-text-color;
+      font-size: $snippet-list-text-size;
+    }
+    .ambassador-group-remove {
+      i {
+        color: $snippet-list-text-color;
+      }
+    }
+  }
+}
+
+ga-select[position = "below"][appearance = "snippet"] {
+  .ambassador-typeahead {
+    div {
+      margin-bottom: -10px;
+    }
+  }
+  .snippet-select-list {
+    ul:first-child {
+      margin-top: 10px;
     }
   }
 }

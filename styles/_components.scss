@@ -566,19 +566,25 @@ ga-avatar {
 // Progress Feed
 // --------------------------------------------------
 
+$progress-line-width: 2px;
+$progress-feed-error: #D9232E;
+
 .last-step {
   .progress-line {
     display: none;
   }
+  .step-description {
+    margin-left: $progress-line-width;
+  }
 }
 .progress-line {
-  background: rgba(#b0b0b0, 0.5);
+  background: rgba($mbsy-fog, 0.5);
   height: 25px;
   position: relative;
   top: 30px;
   right: 13px;
-  transform: translate(-2px,0);
-  width: 2px;
+  transform: translate(-$progress-line-width,0);
+  width: $progress-line-width;
   z-index: 0;
 }
 .progress-steps {
@@ -610,13 +616,13 @@ ga-avatar {
       text-overflow: ellipsis;
     }
     &.in-progress {
-      color: #b0b0b0;
+      color: $mbsy-fog;
     }
     &.success {
-      color: #b0b0b0;
+      color: $mbsy-fog;
     }
     &.error {
-      color: #D9232E;
+      color: $progress-feed-error;
     }
   }
 }
@@ -628,27 +634,27 @@ ga-avatar {
 .step-circle-container {
   width: 30px;
   height: 30px;
-  border: 2px solid rgba(176, 176, 176, 0.5);
+  border: $progress-line-width solid rgba(176, 176, 176, 0.5);
   border-radius: 50%;
   z-index: 2;
-  background-color: #ECF0F0;
+  background-color: $bg-primary;
   display: flex;
   align-items: center;
   justify-content: center;
   &.success {
-    border: 2px solid #b0b0b0;
+    border: $progress-line-width solid $mbsy-fog;
   }
   &.error {
-    border: 2px solid #D9232E;
-    background-color: #D9232E;
+    border: $progress-line-width solid $progress-feed-error;
+    background-color: $progress-feed-error;
   }
   &.in-progress {
-    border: 2px solid #b0b0b0;
-    background-color: #ECF0F0;
+    border: $progress-line-width solid $mbsy-fog;
+    background-color: $bg-primary;
   }
   &.queued {
-    border: 2px solid rgba(#b0b0b0, 0.5);
-    background-color: #ECF0F0;
+    border: $progress-line-width solid rgba($mbsy-fog, 0.5);
+    background-color: $bg-primary;
   }
   .progress-spinner {
     position: absolute;
@@ -657,8 +663,8 @@ ga-avatar {
 }
 
 .step-circle {
-  color: rgba(#b0b0b0, 0.5);
-  background-color: #ECF0F0;
+  color: rgba($mbsy-fog, 0.5);
+  background-color: $bg-primary;
   z-index: 2;
   font-weight: bold;
   line-height: .1;
@@ -666,16 +672,16 @@ ga-avatar {
     right: 6px;
   }
   &.success {
-    color: #b0b0b0;
+    color: $mbsy-fog;
   }
   &.queued {
-    color: rgba(#b0b0b0, 0.5);
+    color: rgba($mbsy-fog, 0.5);
   }
   &.in-progress {
-    color: #b0b0b0;
+    color: $mbsy-fog;
   }
   &.error {
-    background-color: #D9232E;
+    background-color: $progress-feed-error;
     color: white;
   }
 }
