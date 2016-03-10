@@ -714,7 +714,7 @@ ga-form-field:not([appearance="snippet"]) {
   }
 }
 
-ga-form-field[appearance="snippet"] {
+ga-form-field[appearance="snippet"], ga-select[appearance="snippet"] {
   $border-radius: 4px;
   $snippet-blue: #0f487c;
   $blue-shadow: #185188;
