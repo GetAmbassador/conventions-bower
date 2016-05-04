@@ -198,7 +198,7 @@ ga-form-field {
             border: none;
           }
           &:after {
-            @extend .ion-ios-checkmark-empty:before;
+            @extend .ion-ios-checkmark-empty:before !optional;
           }
         }
       }
@@ -1383,7 +1383,7 @@ ga-slider {
         border: none;
       }
       &:after {
-        @extend .ion-ios-checkmark-empty:before;
+        @extend .ion-ios-checkmark-empty:before !optional;
       }
     }
   }

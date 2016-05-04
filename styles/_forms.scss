@@ -479,7 +479,7 @@ ga-form-field:not([appearance="snippet"]) {
       position: relative;
       &:before {
         @extend .ion;
-        @extend .ion-android-radio-button-off:before;
+        @extend .ion-android-radio-button-off:before !optional;
         color: #a8a8a8;
         font-size: 18px;
         position: absolute;
@@ -493,7 +493,7 @@ ga-form-field:not([appearance="snippet"]) {
     }
 
     [type="radio"]:checked + span:before {
-      @extend .ion-android-radio-button-on:before;
+      @extend .ion-android-radio-button-on:before !optional;
       color: #4198d0;
       line-height: 17px;
     }
