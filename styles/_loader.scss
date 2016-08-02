@@ -79,3 +79,51 @@ $offset: 187;
     stroke-dashoffset: -$offset * 4;
   }
 }
+
+
+/* Micro-Loader implemented from React:ions */
+.micro-loader-wrap {
+  align-items: center;
+  background-color: transparent;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+
+  &.loading {
+    display: flex;
+  }
+}
+
+.loader-bounce {
+  .bounce1, .bounce2, .bounce3 {
+    animation: bounce-bouncedelay 1.4s infinite ease-in-out both;
+    background-color: $gray-3;
+    border-radius: 100%;
+    display: inline-block;
+    height: 12px;
+    margin-right: 3px;
+    width: 12px;
+  }
+  .bounce1 {
+    animation-delay: -0.32s;
+  }
+  .bounce2 {
+    animation-delay: -0.16s;
+  }
+  .bounce3 {
+    margin-right: 0;
+  }
+}
+
+@keyframes bounce-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+  } 40% {
+    transform: scale(1.0);
+  }
+}
