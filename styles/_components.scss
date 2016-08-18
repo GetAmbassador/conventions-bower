@@ -690,6 +690,9 @@ $progress-feed-error: #D9232E;
 // Activity Feed
 // --------------------------------------------------
 ga-activity-feed {
+  var {
+    font-style: normal;
+  }
   .activity-feed-container {
     > div {
       position: relative;
@@ -1328,6 +1331,9 @@ ga-slider {
 // --------------------------------------------------
 
 [ga-dynamic-tooltip] {
+  var {
+    font-style: normal;
+  }
   > div[ng-transclude] {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1468,5 +1474,15 @@ ga-slider {
   .dropdown-window.ng-hide {
     opacity: 0;
     top: 10px;
+  }
+}
+
+//
+// Currency
+// --------------------------------------------------
+
+.ga-currency {
+  var {
+    font-style: normal;
   }
 }
