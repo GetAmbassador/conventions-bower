@@ -544,9 +544,18 @@ ga-avatar {
       width: 100%;
       position: absolute;
       border-radius: 50%;
-      top: 0;
-      left: 0;
       opacity: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      &.horizontal {
+        height: 100%;
+        width: auto;
+      }
+      &.vertical {
+        width: 100%;
+        height: auto;
+      }
       &.fade-in {
         opacity: 1;
       }
