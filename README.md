@@ -1,6 +1,7 @@
 Ambassador Conventions Bower
 ============================
 
-A UX and design pattern library for all Ambassador apps.
+This repo has been deprecated. Check out our [React{ions}](http://reactions.getambassador.com/) library!
 
-Find out more [here](http://conventions.getambassador.com).
+## License
+This project is licensed under the terms of the [MIT license](LICENSE)
