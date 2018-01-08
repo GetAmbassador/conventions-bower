@@ -1,3 +1,18 @@
+// Proxima Nova
+$proxima-nova: "proxima_nova_rgregular";
+$proxima-nova-bold: "proxima_nova_rgbold";
+$proxima-nova-semibold: "proxima_novasemibold";
+$proxima-nova-light: "proxima_novalight";
+$proxima-nova-italic: "proxima_novaregular_italic";
+$proxima-nova-thin: "proxima_nova_thinthin";
+
+// Proxima Nova Condensed
+$proxima-nova-condensed: "proxima_nova_cn_rgregular";
+$proxima-nova-condensed-bold: "proxima_nova_condensedSBd";
+$proxima-nova-condensed-light: "proxima_nova_condensedlight";
+$proxima-nova-condensed-italic: "proxima_nova_condensedRgIt";
+$proxima-nova-condensed-thin: "proxima_nova_cn_ththin";
+
 //
 // Bootstrap
 // --------------------------------------------------
@@ -23,7 +38,6 @@ $ionicons-font-path: "../bower_components/ionicons/fonts";
 @import '_screen';
 @import '_mixins';
 @import '_animations';
-@import '_fonts';
 @import '_type';
 @import '_alerts';
 @import '_buttons';
