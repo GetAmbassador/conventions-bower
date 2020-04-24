@@ -1343,7 +1343,7 @@ ga-slider {
   var {
     font-style: normal;
   }
-  > div[ng-transclude] {
+  > div {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
